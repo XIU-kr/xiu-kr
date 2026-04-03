@@ -99,8 +99,8 @@ I design and operate a multi-layered secure server architecture:
 
 | | Platform | Description |
 |---|---|---|
-| **sn0wman.kr** | Portfolio | Developer portfolio |
-| **quon.sn0wman.kr** | Quon | Free QR code generator |
+| **xiu.kr** | Portfolio | Developer portfolio |
+| **quon.xiu.kr** | Quon | Free QR code generator |
 | **sn0wmanCS2.kr** | CS2 Community | 500+ member gaming community |
 | **dongtanms.kr** | Church | Dongtan Myungsung Church platform |
 | **repentanceheaven.kr** | Mission | Mission organization website |
