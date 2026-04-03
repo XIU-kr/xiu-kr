@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — XIU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #07070b;
+      --bg-card: #13131d;
+      --border: #1e1e30;
+      --accent: #d4a016;
+      --text: #e4e4ec;
+      --text-secondary: #7e7e98;
+      --text-dim: #55556a;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 7, 11, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    .lang-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 0.1rem;
+      display: flex;
+      gap: 0;
+    }
+
+    .lang-btn {
+      padding: 0.2rem 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: none;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lang-btn.active {
+      color: var(--accent);
+      background: rgba(212, 160, 22, 0.15);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-bottom: 3rem;
+      font-family: var(--font-mono);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    p,
+    li {
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <a href="index.html" class="nav-back" data-i18n="back">&larr; 돌아가기</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h1 data-i18n="title">개인정보처리방침</h1>
+    <div class="subtitle" data-i18n="updated">최종 수정: 2026-04-03</div>
+
+    <div data-i18n-html="content">
+      <h2>1. 개인정보의 수집 항목</h2>
+      <p>본 포트폴리오 웹사이트는 별도의 회원가입 절차가 없으며, <strong>개인정보를 직접 수집하지 않습니다.</strong></p>
+      <p>다만, 웹사이트 방문 시 아래의 정보가 자동으로 생성 및 수집될 수 있습니다:</p>
+      <ul>
+        <li>접속 IP 주소, 브라우저 종류, 접속 일시 (서버 로그)</li>
+        <li>방문 페이지, 체류 시간 등 이용 통계 (Google Analytics 사용 시)</li>
+      </ul>
+
+      <h2>2. 개인정보의 수집 및 이용 목적</h2>
+      <p>수집된 정보는 다음의 목적으로만 활용됩니다:</p>
+      <ul>
+        <li>웹사이트 운영 및 개선을 위한 통계 분석</li>
+        <li>보안 위협 탐지 및 방지</li>
+      </ul>
+
+      <h2>3. 개인정보의 보유 및 이용 기간</h2>
+      <p>서버 로그는 최대 <strong>90일간</strong> 보관 후 자동 삭제됩니다. 통계 데이터는 개인을 식별할 수 없는 형태로 보관됩니다.</p>
+
+      <h2>4. 개인정보의 제3자 제공</h2>
+      <p>수집된 정보는 <strong>제3자에게 제공되지 않습니다.</strong> 다만, 아래 서비스를 사용할 수 있습니다:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN 및 보안 서비스 (접속 정보가 Cloudflare를 통해 처리될 수 있음)</li>
+        <li><strong>Google Analytics</strong> — 웹사이트 이용 통계 분석 (비식별 데이터)</li>
+      </ul>
+
+      <h2>5. 쿠키(Cookie) 사용</h2>
+      <p>본 웹사이트는 언어 설정 저장을 위해 <strong>localStorage</strong>를 사용합니다. 이는 브라우저에 로컬로 저장되며 서버로 전송되지 않습니다.</p>
+
+      <h2>6. 이용자의 권리</h2>
+      <p>이용자는 언제든지 브라우저 설정을 통해 쿠키 및 로컬 스토리지를 삭제할 수 있으며, Google Analytics 수집을 거부할 수 있습니다.</p>
+
+      <h2>7. 개인정보 보호책임자</h2>
+      <ul>
+        <li><strong>이메일:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+      <p>개인정보 관련 문의사항은 위 이메일로 연락해주시기 바랍니다.</p>
+
+      <h2>8. 방침 변경</h2>
+      <p>본 방침은 법령 또는 서비스 변경에 따라 수정될 수 있으며, 변경 시 본 페이지에 공지합니다.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 XIU. Built with curiosity.
+  </footer>
+
+  <script>
+    const translations = {
+      ko: {
+        back: '\u2190 돌아가기',
+        title: '개인정보처리방침',
+        updated: '최종 수정: 2026-04-03',
+        content: `
+      <h2>1. 개인정보의 수집 항목</h2>
+      <p>본 포트폴리오 웹사이트는 별도의 회원가입 절차가 없으며, <strong>개인정보를 직접 수집하지 않습니다.</strong></p>
+      <p>다만, 웹사이트 방문 시 아래의 정보가 자동으로 생성 및 수집될 수 있습니다:</p>
+      <ul>
+        <li>접속 IP 주소, 브라우저 종류, 접속 일시 (서버 로그)</li>
+        <li>방문 페이지, 체류 시간 등 이용 통계 (Google Analytics 사용 시)</li>
+      </ul>
+      <h2>2. 개인정보의 수집 및 이용 목적</h2>
+      <p>수집된 정보는 다음의 목적으로만 활용됩니다:</p>
+      <ul>
+        <li>웹사이트 운영 및 개선을 위한 통계 분석</li>
+        <li>보안 위협 탐지 및 방지</li>
+      </ul>
+      <h2>3. 개인정보의 보유 및 이용 기간</h2>
+      <p>서버 로그는 최대 <strong>90일간</strong> 보관 후 자동 삭제됩니다. 통계 데이터는 개인을 식별할 수 없는 형태로 보관됩니다.</p>
+      <h2>4. 개인정보의 제3자 제공</h2>
+      <p>수집된 정보는 <strong>제3자에게 제공되지 않습니다.</strong> 다만, 아래 서비스를 사용할 수 있습니다:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN 및 보안 서비스 (접속 정보가 Cloudflare를 통해 처리될 수 있음)</li>
+        <li><strong>Google Analytics</strong> — 웹사이트 이용 통계 분석 (비식별 데이터)</li>
+      </ul>
+      <h2>5. 쿠키(Cookie) 사용</h2>
+      <p>본 웹사이트는 언어 설정 저장을 위해 <strong>localStorage</strong>를 사용합니다. 이는 브라우저에 로컬로 저장되며 서버로 전송되지 않습니다.</p>
+      <h2>6. 이용자의 권리</h2>
+      <p>이용자는 언제든지 브라우저 설정을 통해 쿠키 및 로컬 스토리지를 삭제할 수 있으며, Google Analytics 수집을 거부할 수 있습니다.</p>
+      <h2>7. 개인정보 보호책임자</h2>
+      <ul>
+        <li><strong>이메일:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+      <p>개인정보 관련 문의사항은 위 이메일로 연락해주시기 바랍니다.</p>
+      <h2>8. 방침 변경</h2>
+      <p>본 방침은 법령 또는 서비스 변경에 따라 수정될 수 있으며, 변경 시 본 페이지에 공지합니다.</p>
+    `
+      },
+      en: {
+        back: '\u2190 Back',
+        title: 'Privacy Policy',
+        updated: 'Last updated: 2026-04-03',
+        content: `
+      <h2>1. Information We Collect</h2>
+      <p>This portfolio website does not require registration and <strong>does not directly collect personal information.</strong></p>
+      <p>However, the following information may be automatically generated and collected when visiting:</p>
+      <ul>
+        <li>IP address, browser type, access time (server logs)</li>
+        <li>Pages visited, time spent, and other usage statistics (when Google Analytics is used)</li>
+      </ul>
+      <h2>2. Purpose of Information Use</h2>
+      <p>Collected information is used only for the following purposes:</p>
+      <ul>
+        <li>Statistical analysis for website operation and improvement</li>
+        <li>Security threat detection and prevention</li>
+      </ul>
+      <h2>3. Retention Period</h2>
+      <p>Server logs are retained for a maximum of <strong>90 days</strong> and then automatically deleted. Statistical data is stored in a non-identifiable form.</p>
+      <h2>4. Third-Party Disclosure</h2>
+      <p>Collected information is <strong>not provided to third parties.</strong> However, the following services may be used:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN and security services (access information may be processed through Cloudflare)</li>
+        <li><strong>Google Analytics</strong> — Website usage statistics analysis (non-identifiable data)</li>
+      </ul>
+      <h2>5. Cookies</h2>
+      <p>This website uses <strong>localStorage</strong> to save language preferences. This is stored locally in your browser and is not transmitted to the server.</p>
+      <h2>6. Your Rights</h2>
+      <p>You can delete cookies and local storage through your browser settings at any time, and you can opt out of Google Analytics collection.</p>
+      <h2>7. Data Protection Officer</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+      <p>For privacy-related inquiries, please contact the email above.</p>
+      <h2>8. Policy Changes</h2>
+      <p>This policy may be updated due to changes in law or services. Any changes will be posted on this page.</p>
+    `
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(currentLang);
+  </script>
+
+</body>
+
+</html>
