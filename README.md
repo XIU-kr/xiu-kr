@@ -7,7 +7,7 @@
 From AI image editors to game server plugins and church apps — if it's technically interesting, I'll build it.
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-xiu.kr-d4a016?style=for-the-badge&logo=googlechrome&logoColor=white)](https://xiu.kr)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-sn0wmankr-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/sn0wmankr)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-xiukr-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/xiukr)
 [![Discord](https://img.shields.io/badge/Discord-xiu__kr-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/xiu_kr)
 
 </div>
