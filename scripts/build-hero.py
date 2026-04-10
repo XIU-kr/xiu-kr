@@ -105,7 +105,7 @@ def cat_header(text: str, x: int, y: int) -> str:
     return (
         f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="10.5" '
         f'letter-spacing="3.4" fill="{GOLD}" font-weight="500">'
-        f'⌗&#160;&#160; {escape(text.upper())}'
+        f'{escape(text.upper())}'
         f'</text>'
     )
 

@@ -91,7 +91,7 @@
         stroke="#1e1e30" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
-  <text x="80" y="296" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; WEB SITES</text>
+  <text x="80" y="296" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">WEB SITES</text>
   <text x="84" y="326" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="2.8" fill="#2dd4a8" opacity="0.82">&#8213;&#160;&#160; personal</text>
   <text x="100" y="348" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">xiu.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;personal portfolio</tspan></text>
   <text x="84" y="380" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="9.5" letter-spacing="2.8" fill="#2dd4a8" opacity="0.82">&#8213;&#160;&#160; church</text>
@@ -102,18 +102,18 @@
   <text x="100" y="500" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">cs2.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Korea Counter-Strike 2 Community</tspan></text>
 
   <!-- right column: 5 categories -->
-  <text x="640" y="296" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; WEB APPS</text>
+  <text x="640" y="296" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">WEB APPS</text>
   <text x="656" y="322" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">quon.xiu.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;free QR code generator</tspan></text>
   <text x="656" y="344" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">Vora AI<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;browser-based AI image editor — inpainting, segmentation, masks</tspan></text>
   <text x="656" y="366" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">CornerBrand<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;local-first watermarking for images, PDFs and PPTX</tspan></text>
-  <text x="640" y="400" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; CHURCH APPS</text>
+  <text x="640" y="400" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">CHURCH APPS</text>
   <text x="656" y="426" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">Phos<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;worship PPT auto-generator — 645 hymns + Korean Bible</tspan></text>
   <text x="656" y="448" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">Poima<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;church membership &amp; finance — modern rebuild of a VB6 legacy app</tspan></text>
-  <text x="640" y="482" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; DISCORD APPS</text>
+  <text x="640" y="482" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">DISCORD APPS</text>
   <text x="656" y="508" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">bbangyadan<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Discord clan operations platform — points, voice, embeds</tspan></text>
-  <text x="640" y="542" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; ANDROID APPS</text>
+  <text x="640" y="542" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">ANDROID APPS</text>
   <text x="656" y="568" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">Quon<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;QR code generator</tspan></text>
-  <text x="640" y="602" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">⌗&#160;&#160; GAME SERVER PLUGINS</text>
+  <text x="640" y="602" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="3.4" fill="#d4a016" font-weight="500">GAME SERVER PLUGINS</text>
   <text x="656" y="628" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="13.5" fill="#e4e4ec" font-weight="500">CS2 Plugins<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;grenade boost, auto-restart, nickname sync for cs2.kr</tspan></text>
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
