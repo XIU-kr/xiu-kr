@@ -273,9 +273,9 @@ def build_svg(avatar_data_uri: str) -> str:
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
   <text x="80" y="750" font-family="{MONO}" font-size="11"
-        letter-spacing="2.8" fill="{MUTED}" opacity="0.72">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
+        letter-spacing="2.8" fill="{GOLD}" opacity="0.85">&#x2192;&#160;&#160; click anywhere to get in touch</text>
   <text x="{canvas_w - 80}" y="750" text-anchor="end" font-family="{MONO}" font-size="11"
-        letter-spacing="2.8" fill="{MUTED}" opacity="0.72">github.com/{escape(USER)}</text>
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.72">xiu.kr</text>
 </svg>
 '''
 
