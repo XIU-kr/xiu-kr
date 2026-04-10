@@ -48,6 +48,7 @@ MONO = "'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',
 WEB_SITES = [
     ("Personal", [
         ("xiu.kr", "personal portfolio"),
+        ("quon.xiu.kr", "free QR code generator"),
     ]),
     ("Church", [
         ("dongtanms.kr", "Dongtan Myungsung Church platform (Rhymix CMS)"),
@@ -62,7 +63,6 @@ WEB_SITES = [
 # Right column — flat list of categories
 RIGHT_CATEGORIES = [
     ("Web Apps", [
-        ("quon.xiu.kr", "free QR code generator"),
         ("Vora AI", "browser-based AI image editor — inpainting, segmentation, masks"),
         ("CornerBrand", "local-first watermarking for images, PDFs and PPTX"),
     ]),
@@ -103,8 +103,8 @@ def fetch_avatar_data_uri() -> str:
 # ─── SVG helpers ───────────────────────────────────────────────────────────
 def cat_header(text: str, x: int, y: int) -> str:
     return (
-        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="15" '
-        f'letter-spacing="3.2" fill="{GOLD}" font-weight="600">'
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="19" '
+        f'letter-spacing="3.4" fill="{GOLD}" font-weight="600">'
         f'{escape(text.upper())}'
         f'</text>'
     )
@@ -112,8 +112,8 @@ def cat_header(text: str, x: int, y: int) -> str:
 
 def sub_header(text: str, x: int, y: int) -> str:
     return (
-        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="11" '
-        f'letter-spacing="2.2" fill="{TEAL}" opacity="0.82">'
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="14" '
+        f'letter-spacing="2.4" fill="{TEAL}" opacity="0.85">'
         f'&#8213;&#160;&#160; {escape(text.lower())}'
         f'</text>'
     )
@@ -121,7 +121,7 @@ def sub_header(text: str, x: int, y: int) -> str:
 
 def item_line(name: str, desc: str, x: int, y: int) -> str:
     return (
-        f'<text x="{x}" y="{y}" font-family="{BODY}" font-size="13.5" fill="{TEXT}" font-weight="500">'
+        f'<text x="{x}" y="{y}" font-family="{BODY}" font-size="16.5" fill="{TEXT}" font-weight="500">'
         f'{escape(name)}'
         f'<tspan fill="{MUTED}" font-weight="400">&#160;&#160;&#8212;&#160;&#160;{escape(desc)}</tspan>'
         f'</text>'
@@ -132,15 +132,15 @@ def build_left_column(x: int, y0: int) -> tuple[str, int]:
     parts: list[str] = []
     y = y0
     parts.append(cat_header("Web Sites", x, y))
-    y += 34
+    y += 42
 
     for sub_name, items in WEB_SITES:
         parts.append(sub_header(sub_name, x + 4, y))
-        y += 24
+        y += 28
         for name, desc in items:
-            parts.append(item_line(name, desc, x + 20, y))
-            y += 22
-        y += 12
+            parts.append(item_line(name, desc, x + 22, y))
+            y += 28
+        y += 14
 
     return "\n  ".join(parts), y
 
@@ -151,12 +151,12 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 
     for i, (cat_name, items) in enumerate(RIGHT_CATEGORIES):
         parts.append(cat_header(cat_name, x, y))
-        y += 32
+        y += 40
         for name, desc in items:
-            parts.append(item_line(name, desc, x + 16, y))
-            y += 22
+            parts.append(item_line(name, desc, x + 18, y))
+            y += 28
         if i < len(RIGHT_CATEGORIES) - 1:
-            y += 14
+            y += 18
 
     return "\n  ".join(parts), y
 
@@ -164,10 +164,10 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 # ─── SVG build ─────────────────────────────────────────────────────────────
 def build_svg(avatar_data_uri: str) -> str:
     canvas_w = 1200
-    canvas_h = 760
+    canvas_h = 850
 
-    left_svg, _ = build_left_column(x=80, y0=296)
-    right_svg, _ = build_right_column(x=640, y0=296)
+    left_svg, _ = build_left_column(x=80, y0=306)
+    right_svg, _ = build_right_column(x=640, y0=306)
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {canvas_w} {canvas_h}" role="img" aria-labelledby="title">
   <title id="title">XIU — a curious developer from Seoul</title>
@@ -240,25 +240,25 @@ def build_svg(avatar_data_uri: str) -> str:
   <circle cx="160" cy="160" r="80" fill="none" stroke="url(#ring-grad)" stroke-width="1.6"/>
 
   <!-- wordmark -->
-  <text x="280" y="172" font-family="{DISPLAY}" font-weight="700" font-size="108"
+  <text x="280" y="180" font-family="{DISPLAY}" font-weight="700" font-size="120"
         fill="url(#wordmark-grad)" letter-spacing="-2">XIU</text>
 
   <!-- tagline -->
-  <text x="284" y="208" font-family="{BODY}" font-size="17"
+  <text x="284" y="216" font-family="{BODY}" font-size="19"
         fill="{MUTED}">a curious developer &#160;·&#160; makes things he wants to use</text>
 
   <!-- handle -->
-  <text x="284" y="234" font-family="{MONO}" font-size="11"
+  <text x="284" y="244" font-family="{MONO}" font-size="13"
         fill="{GOLD}" letter-spacing="1.2" opacity="0.9">&#x2192;&#160; github.com/{escape(USER)}</text>
 
   <!-- divider -->
-  <line x1="80" y1="262" x2="{canvas_w - 80}" y2="262"
+  <line x1="80" y1="274" x2="{canvas_w - 80}" y2="274"
         stroke="url(#divider-grad)" stroke-width="1"/>
 
   <!-- ─── Category grid ────────────────────────────────────────── -->
 
   <!-- vertical column separator -->
-  <line x1="614" y1="290" x2="614" y2="686"
+  <line x1="614" y1="300" x2="614" y2="790"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
@@ -268,13 +268,13 @@ def build_svg(avatar_data_uri: str) -> str:
   {right_svg}
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
-  <line x1="80" y1="706" x2="{canvas_w - 80}" y2="706"
+  <line x1="80" y1="800" x2="{canvas_w - 80}" y2="800"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
-  <text x="80" y="732" font-family="{MONO}" font-size="10"
-        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
-  <text x="{canvas_w - 80}" y="732" text-anchor="end" font-family="{MONO}" font-size="10"
-        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">github.com/{escape(USER)}</text>
+  <text x="80" y="826" font-family="{MONO}" font-size="11"
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.72">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
+  <text x="{canvas_w - 80}" y="826" text-anchor="end" font-family="{MONO}" font-size="11"
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.72">github.com/{escape(USER)}</text>
 </svg>
 '''
 
