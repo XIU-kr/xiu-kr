@@ -1,0 +1,52 @@
+name: Sync profile avatar
+
+# Rebuilds assets/readme-hero.svg by re-fetching github.com/XIU-kr.png
+# and re-embedding it. Runs weekly, on manual dispatch, and whenever
+# the build script itself changes.
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'  # every Monday 03:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-hero.py'
+      - '.github/workflows/sync-avatar.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-avatar
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install "Pillow==10.4.0"
+
+      - name: Rebuild hero SVG
+        run: python scripts/build-hero.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- assets/readme-hero.svg; then
+            echo "No avatar changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/readme-hero.svg
+          git commit -m "chore: sync profile avatar in hero card"
+          git push
