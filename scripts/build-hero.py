@@ -53,11 +53,11 @@ WEB_SITES = [
     ("Church", [
         ("dongtanms.kr", "Dongtan Myungsung Church · Rhymix CMS"),
         ("repentanceheaven.kr", "mission organization site"),
-        ("shop.repentanceheaven.kr", "mission shop · WooCommerce"),
+        ("shop.repentanceheaven.kr", "Christian bookstore · WooCommerce"),
     ]),
     ("Community", [
         ("cs2.kr", "Korea Counter-Strike 2 community"),
-        ("bbangyadan.kr", "Discord clan operations platform"),
+        ("bbangyadan.kr", "Valorant clan platform"),
     ]),
 ]
 
