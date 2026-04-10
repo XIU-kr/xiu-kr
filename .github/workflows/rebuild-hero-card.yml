@@ -1,28 +1,27 @@
-name: Sync profile avatar
+name: Rebuild Hero Card
 
-# Rebuilds assets/readme-hero.svg by re-fetching github.com/XIU-kr.png
-# and re-embedding it. Runs weekly, on manual dispatch, and whenever
-# the build script itself changes.
+# Regenerates assets/readme-hero.svg by re-fetching the GitHub
+# avatar and re-embedding it. Triggers:
+#   • every push to main (catches content edits in build-hero.py)
+#   • daily at 03:00 UTC (catches profile avatar changes)
+#   • manual dispatch
 
 on:
-  schedule:
-    - cron: '0 3 * * 1'  # every Monday 03:00 UTC
-  workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - 'scripts/build-hero.py'
-      - '.github/workflows/sync-avatar.yml'
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: sync-avatar
+  group: rebuild-hero-card
   cancel-in-progress: false
 
 jobs:
-  sync:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -42,11 +41,11 @@ jobs:
       - name: Commit if changed
         run: |
           if git diff --quiet -- assets/readme-hero.svg README.md; then
-            echo "No avatar changes — nothing to commit."
+            echo "Hero card already up to date — nothing to commit."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/readme-hero.svg README.md
-          git commit -m "chore: sync profile avatar in hero card"
+          git commit -m "chore: rebuild hero card"
           git push
