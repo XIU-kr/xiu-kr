@@ -51,33 +51,31 @@ WEB_SITES = [
         ("quon.xiu.kr", "free QR code generator"),
     ]),
     ("Church", [
-        ("dongtanms.kr", "Dongtan Myungsung Church platform (Rhymix CMS)"),
+        ("dongtanms.kr", "Dongtan Myungsung Church · Rhymix CMS"),
         ("repentanceheaven.kr", "mission organization site"),
-        ("shop.repentanceheaven.kr", "mission shop (WooCommerce)"),
+        ("shop.repentanceheaven.kr", "mission shop · WooCommerce"),
     ]),
     ("Community", [
-        ("cs2.kr", "Korea Counter-Strike 2 Community"),
+        ("cs2.kr", "Korea Counter-Strike 2 community"),
+        ("bbangyadan.kr", "Discord clan operations platform"),
     ]),
 ]
 
 # Right column — flat list of categories
 RIGHT_CATEGORIES = [
     ("Web Apps", [
-        ("Vora AI", "browser-based AI image editor — inpainting, segmentation, masks"),
-        ("CornerBrand", "local-first watermarking for images, PDFs and PPTX"),
+        ("Vora AI", "browser-based AI image editor"),
+        ("CornerBrand", "local-first image watermarking"),
     ]),
     ("Church Apps", [
         ("Phos", "worship PPT auto-generator"),
         ("Poima", "church membership & finance management"),
     ]),
-    ("Discord Apps", [
-        ("bbangyadan", "Discord clan operations platform — points, voice, embeds"),
-    ]),
     ("Android Apps", [
         ("Quon", "QR code generator"),
     ]),
     ("Game Server Plugins", [
-        ("CS2 Plugins", "grenade boost, auto-restart, nickname sync for cs2.kr"),
+        ("CS2 Plugins", "grenade boost, restart, nickname sync"),
     ]),
 ]
 
@@ -164,7 +162,7 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 # ─── SVG build ─────────────────────────────────────────────────────────────
 def build_svg(avatar_data_uri: str) -> str:
     canvas_w = 1200
-    canvas_h = 850
+    canvas_h = 780
 
     left_svg, _ = build_left_column(x=80, y0=306)
     right_svg, _ = build_right_column(x=640, y0=306)
@@ -258,7 +256,7 @@ def build_svg(avatar_data_uri: str) -> str:
   <!-- ─── Category grid ────────────────────────────────────────── -->
 
   <!-- vertical column separator -->
-  <line x1="614" y1="300" x2="614" y2="790"
+  <line x1="614" y1="300" x2="614" y2="712"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
@@ -268,12 +266,12 @@ def build_svg(avatar_data_uri: str) -> str:
   {right_svg}
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
-  <line x1="80" y1="800" x2="{canvas_w - 80}" y2="800"
+  <line x1="80" y1="724" x2="{canvas_w - 80}" y2="724"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
-  <text x="80" y="826" font-family="{MONO}" font-size="11"
+  <text x="80" y="750" font-family="{MONO}" font-size="11"
         letter-spacing="2.8" fill="{MUTED}" opacity="0.72">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
-  <text x="{canvas_w - 80}" y="826" text-anchor="end" font-family="{MONO}" font-size="11"
+  <text x="{canvas_w - 80}" y="750" text-anchor="end" font-family="{MONO}" font-size="11"
         letter-spacing="2.8" fill="{MUTED}" opacity="0.72">github.com/{escape(USER)}</text>
 </svg>
 '''

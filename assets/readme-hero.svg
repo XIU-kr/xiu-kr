@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title">
   <title id="title">XIU — a curious developer from Seoul</title>
 
   <defs>
@@ -46,13 +46,13 @@
   </defs>
 
   <!-- stage -->
-  <rect width="1200" height="850" fill="#07070b"/>
-  <rect width="1200" height="850" fill="url(#glow)"/>
-  <rect width="1200" height="850" fill="url(#glow-teal)"/>
-  <rect width="1200" height="850" fill="url(#dots)"/>
+  <rect width="1200" height="780" fill="#07070b"/>
+  <rect width="1200" height="780" fill="url(#glow)"/>
+  <rect width="1200" height="780" fill="url(#glow-teal)"/>
+  <rect width="1200" height="780" fill="url(#dots)"/>
 
   <!-- inner frame hairline -->
-  <rect x="48" y="48" width="1104" height="754"
+  <rect x="48" y="48" width="1104" height="684"
         fill="none" stroke="#1e1e30" stroke-width="1" rx="2"/>
 
   <!-- ─── Identity ──────────────────────────────────────────────── -->
@@ -87,7 +87,7 @@
   <!-- ─── Category grid ────────────────────────────────────────── -->
 
   <!-- vertical column separator -->
-  <line x1="614" y1="300" x2="614" y2="790"
+  <line x1="614" y1="300" x2="614" y2="712"
         stroke="#1e1e30" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
@@ -96,32 +96,31 @@
   <text x="102" y="376" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">xiu.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;personal portfolio</tspan></text>
   <text x="102" y="404" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">quon.xiu.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;free QR code generator</tspan></text>
   <text x="84" y="446" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="14" letter-spacing="2.4" fill="#2dd4a8" opacity="0.85">&#8213;&#160;&#160; church</text>
-  <text x="102" y="474" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">dongtanms.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Dongtan Myungsung Church platform (Rhymix CMS)</tspan></text>
+  <text x="102" y="474" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">dongtanms.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Dongtan Myungsung Church · Rhymix CMS</tspan></text>
   <text x="102" y="502" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">repentanceheaven.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;mission organization site</tspan></text>
-  <text x="102" y="530" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">shop.repentanceheaven.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;mission shop (WooCommerce)</tspan></text>
+  <text x="102" y="530" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">shop.repentanceheaven.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;mission shop · WooCommerce</tspan></text>
   <text x="84" y="572" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="14" letter-spacing="2.4" fill="#2dd4a8" opacity="0.85">&#8213;&#160;&#160; community</text>
-  <text x="102" y="600" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">cs2.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Korea Counter-Strike 2 Community</tspan></text>
+  <text x="102" y="600" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">cs2.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Korea Counter-Strike 2 community</tspan></text>
+  <text x="102" y="628" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">bbangyadan.kr<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Discord clan operations platform</tspan></text>
 
   <!-- right column: 5 categories -->
   <text x="640" y="306" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">WEB APPS</text>
-  <text x="658" y="346" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Vora AI<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;browser-based AI image editor — inpainting, segmentation, masks</tspan></text>
-  <text x="658" y="374" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">CornerBrand<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;local-first watermarking for images, PDFs and PPTX</tspan></text>
+  <text x="658" y="346" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Vora AI<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;browser-based AI image editor</tspan></text>
+  <text x="658" y="374" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">CornerBrand<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;local-first image watermarking</tspan></text>
   <text x="640" y="420" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">CHURCH APPS</text>
   <text x="658" y="460" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Phos<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;worship PPT auto-generator</tspan></text>
   <text x="658" y="488" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Poima<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;church membership &amp; finance management</tspan></text>
-  <text x="640" y="534" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">DISCORD APPS</text>
-  <text x="658" y="574" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">bbangyadan<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;Discord clan operations platform — points, voice, embeds</tspan></text>
-  <text x="640" y="620" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">ANDROID APPS</text>
-  <text x="658" y="660" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Quon<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;QR code generator</tspan></text>
-  <text x="640" y="706" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">GAME SERVER PLUGINS</text>
-  <text x="658" y="746" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">CS2 Plugins<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;grenade boost, auto-restart, nickname sync for cs2.kr</tspan></text>
+  <text x="640" y="534" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">ANDROID APPS</text>
+  <text x="658" y="574" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Quon<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;QR code generator</tspan></text>
+  <text x="640" y="620" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">GAME SERVER PLUGINS</text>
+  <text x="658" y="660" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">CS2 Plugins<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;grenade boost, restart, nickname sync</tspan></text>
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
-  <line x1="80" y1="800" x2="1120" y2="800"
+  <line x1="80" y1="724" x2="1120" y2="724"
         stroke="#1e1e30" stroke-width="1" opacity="0.8"/>
 
-  <text x="80" y="826" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11"
+  <text x="80" y="750" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11"
         letter-spacing="2.8" fill="#8a8aa6" opacity="0.72">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
-  <text x="1120" y="826" text-anchor="end" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11"
+  <text x="1120" y="750" text-anchor="end" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11"
         letter-spacing="2.8" fill="#8a8aa6" opacity="0.72">github.com/XIU-kr</text>
 </svg>
