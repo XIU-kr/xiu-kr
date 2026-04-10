@@ -67,8 +67,8 @@ RIGHT_CATEGORIES = [
         ("CornerBrand", "local-first watermarking for images, PDFs and PPTX"),
     ]),
     ("Church Apps", [
-        ("Phos", "worship PPT auto-generator — 645 hymns + Korean Bible"),
-        ("Poima", "church membership & finance — modern rebuild of a VB6 legacy app"),
+        ("Phos", "worship PPT auto-generator"),
+        ("Poima", "church membership & finance management"),
     ]),
     ("Discord Apps", [
         ("bbangyadan", "Discord clan operations platform — points, voice, embeds"),
@@ -103,8 +103,8 @@ def fetch_avatar_data_uri() -> str:
 # ─── SVG helpers ───────────────────────────────────────────────────────────
 def cat_header(text: str, x: int, y: int) -> str:
     return (
-        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="10.5" '
-        f'letter-spacing="3.4" fill="{GOLD}" font-weight="500">'
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="15" '
+        f'letter-spacing="3.2" fill="{GOLD}" font-weight="600">'
         f'{escape(text.upper())}'
         f'</text>'
     )
@@ -112,8 +112,8 @@ def cat_header(text: str, x: int, y: int) -> str:
 
 def sub_header(text: str, x: int, y: int) -> str:
     return (
-        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="9.5" '
-        f'letter-spacing="2.8" fill="{TEAL}" opacity="0.82">'
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="11" '
+        f'letter-spacing="2.2" fill="{TEAL}" opacity="0.82">'
         f'&#8213;&#160;&#160; {escape(text.lower())}'
         f'</text>'
     )
@@ -132,15 +132,15 @@ def build_left_column(x: int, y0: int) -> tuple[str, int]:
     parts: list[str] = []
     y = y0
     parts.append(cat_header("Web Sites", x, y))
-    y += 30
+    y += 34
 
     for sub_name, items in WEB_SITES:
         parts.append(sub_header(sub_name, x + 4, y))
-        y += 22
+        y += 24
         for name, desc in items:
             parts.append(item_line(name, desc, x + 20, y))
             y += 22
-        y += 10
+        y += 12
 
     return "\n  ".join(parts), y
 
@@ -151,12 +151,12 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 
     for i, (cat_name, items) in enumerate(RIGHT_CATEGORIES):
         parts.append(cat_header(cat_name, x, y))
-        y += 26
+        y += 32
         for name, desc in items:
             parts.append(item_line(name, desc, x + 16, y))
             y += 22
         if i < len(RIGHT_CATEGORIES) - 1:
-            y += 12
+            y += 14
 
     return "\n  ".join(parts), y
 
@@ -164,7 +164,7 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 # ─── SVG build ─────────────────────────────────────────────────────────────
 def build_svg(avatar_data_uri: str) -> str:
     canvas_w = 1200
-    canvas_h = 720
+    canvas_h = 760
 
     left_svg, _ = build_left_column(x=80, y0=296)
     right_svg, _ = build_right_column(x=640, y0=296)
@@ -258,7 +258,7 @@ def build_svg(avatar_data_uri: str) -> str:
   <!-- ─── Category grid ────────────────────────────────────────── -->
 
   <!-- vertical column separator -->
-  <line x1="614" y1="290" x2="614" y2="646"
+  <line x1="614" y1="290" x2="614" y2="686"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
@@ -268,13 +268,13 @@ def build_svg(avatar_data_uri: str) -> str:
   {right_svg}
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
-  <line x1="80" y1="668" x2="{canvas_w - 80}" y2="668"
+  <line x1="80" y1="706" x2="{canvas_w - 80}" y2="706"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
-  <text x="80" y="694" font-family="{MONO}" font-size="9.5"
+  <text x="80" y="732" font-family="{MONO}" font-size="10"
         letter-spacing="2.8" fill="{MUTED}" opacity="0.7">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
-  <text x="{canvas_w - 80}" y="694" text-anchor="end" font-family="{MONO}" font-size="9.5"
-        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">&#x2318;&#160; github.com/{escape(USER)}</text>
+  <text x="{canvas_w - 80}" y="732" text-anchor="end" font-family="{MONO}" font-size="10"
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">github.com/{escape(USER)}</text>
 </svg>
 '''
 
