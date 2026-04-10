@@ -54,7 +54,7 @@ WEB_SITES = [
         ("quon.xiu.kr", "free QR code generator"),
     ]),
     ("Church", [
-        ("dongtanms.kr", "Dongtan Myungsung Church · Rhymix CMS"),
+        ("dongtanms.kr", "Church Site · Rhymix CMS"),
         ("repentanceheaven.kr", "mission organization site"),
         ("shop.repentanceheaven.kr", "Christian bookstore · WooCommerce"),
     ]),
