@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/readme-hero.svg?v=7a8ffa39fa" alt="XIU — a curious developer from Seoul" width="100%">
+<img src="./assets/readme-hero.svg?v=de0d63aea5" alt="XIU — a curious developer from Seoul" width="100%">
 
 <br><br>
 
