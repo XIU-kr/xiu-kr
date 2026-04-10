@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Build assets/readme-hero.svg with the current GitHub avatar embedded.
+"""Build assets/readme-hero.svg — the XIU profile card.
 
-Run locally or via .github/workflows/sync-avatar.yml. The avatar is
-fetched from https://github.com/{USER}.png, resized, and base64-embedded
-directly into the SVG so it renders on GitHub without external fetches.
+Fetches the current GitHub avatar, base64-embeds it into an SVG, and
+writes the result to assets/readme-hero.svg. The aesthetic mirrors
+xiu.kr: deep navy background, warm gold accents, teal secondary, a
+subtle dotted grid overlay, and a gold→light gradient wordmark.
+
+Run locally (`python scripts/build-hero.py`) or via
+.github/workflows/sync-avatar.yml.
 """
 from __future__ import annotations
 
@@ -22,24 +26,63 @@ AVATAR_URL = f"https://github.com/{USER}.png?size=560"
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "assets" / "readme-hero.svg"
 
-# Edit this list to change what appears in the card.
-PROJECTS: list[tuple[str, str, str]] = [
-    ("01", "Vora AI",     "Browser-based AI image editor — inpainting, segmentation, masks"),
-    ("02", "Quon",        "Ad-light QR code generator — web + native Android"),
-    ("03", "bbangyadan",  "Discord clan operations platform — points, voice, embeds"),
-    ("04", "Phos",        "Worship-PPT auto-generator — 645 hymns + Korean Bible"),
-    ("05", "CornerBrand", "Local-first watermarking for images, PDFs and PPTX"),
-    ("06", "CS2 Plugins", "Open-source plugins for the cs2.kr community server"),
+# ─── Palette (lifted from xiu.kr) ──────────────────────────────────────────
+BG = "#07070b"
+LAYER = "#0e0e15"
+GOLD = "#d4a016"
+GOLD_DIM = "#8a6810"
+TEAL = "#2dd4a8"
+TEXT = "#e4e4ec"
+MUTED = "#8a8aa6"
+BORDER = "#1e1e30"
+
+# ─── Font stacks ───────────────────────────────────────────────────────────
+# Attempts Syne/Outfit/Fira (used on xiu.kr); falls through to modern
+# system sans on GitHub where web fonts cannot be loaded from SVG.
+DISPLAY = "'Syne','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif"
+BODY = "'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif"
+MONO = "'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
+
+# ─── Content ───────────────────────────────────────────────────────────────
+# Left column — Web Sites with three sub-groups
+WEB_SITES = [
+    ("Personal", [
+        ("xiu.kr", "personal portfolio"),
+    ]),
+    ("Church", [
+        ("dongtanms.kr", "Dongtan Myungsung Church platform (Rhymix CMS)"),
+        ("repentanceheaven.kr", "mission organization site"),
+        ("shop.repentanceheaven.kr", "mission shop (WooCommerce)"),
+    ]),
+    ("Community", [
+        ("cs2.kr", "Korea Counter-Strike 2 Community"),
+    ]),
 ]
 
-DISPLAY = "'Didot','Bodoni 72','Playfair Display','Hoefler Text',Georgia,'Times New Roman',serif"
-SANS = "'Helvetica Neue',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif"
+# Right column — flat list of categories
+RIGHT_CATEGORIES = [
+    ("Web Apps", [
+        ("quon.xiu.kr", "free QR code generator"),
+        ("Vora AI", "browser-based AI image editor — inpainting, segmentation, masks"),
+        ("CornerBrand", "local-first watermarking for images, PDFs and PPTX"),
+    ]),
+    ("Church Apps", [
+        ("Phos", "worship PPT auto-generator — 645 hymns + Korean Bible"),
+        ("Poima", "church membership & finance — modern rebuild of a VB6 legacy app"),
+    ]),
+    ("Discord Apps", [
+        ("bbangyadan", "Discord clan operations platform — points, voice, embeds"),
+    ]),
+    ("Android Apps", [
+        ("Quon", "QR code generator"),
+    ]),
+    ("Game Server Plugins", [
+        ("CS2 Plugins", "grenade boost, auto-restart, nickname sync for cs2.kr"),
+    ]),
+]
 
-PAPER = "#f7f3ea"
-INK = "#141216"
-MUTED = "#7a7368"
 
-
+# ─── Avatar fetch ──────────────────────────────────────────────────────────
 def fetch_avatar_data_uri() -> str:
     req = urllib.request.Request(
         AVATAR_URL,
@@ -57,63 +100,181 @@ def fetch_avatar_data_uri() -> str:
     return "data:image/jpeg;base64," + b64
 
 
-def project_row(num: str, name: str, desc: str, y: int) -> str:
+# ─── SVG helpers ───────────────────────────────────────────────────────────
+def cat_header(text: str, x: int, y: int) -> str:
     return (
-        f'  <g transform="translate(80 {y})">\n'
-        f'    <text font-family="{SANS}" font-size="11" letter-spacing="1.8" '
-        f'fill="{MUTED}">{escape(num)}</text>\n'
-        f'    <text x="52" font-family="{DISPLAY}" font-weight="400" font-size="20" '
-        f'fill="{INK}">{escape(name)}</text>\n'
-        f'    <text x="232" font-family="{SANS}" font-size="13" '
-        f'fill="{MUTED}">— {escape(desc)}</text>\n'
-        f'  </g>'
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="10.5" '
+        f'letter-spacing="3.4" fill="{GOLD}" font-weight="500">'
+        f'⌗&#160;&#160; {escape(text.upper())}'
+        f'</text>'
     )
 
 
+def sub_header(text: str, x: int, y: int) -> str:
+    return (
+        f'<text x="{x}" y="{y}" font-family="{MONO}" font-size="9.5" '
+        f'letter-spacing="2.8" fill="{TEAL}" opacity="0.82">'
+        f'&#8213;&#160;&#160; {escape(text.lower())}'
+        f'</text>'
+    )
+
+
+def item_line(name: str, desc: str, x: int, y: int) -> str:
+    return (
+        f'<text x="{x}" y="{y}" font-family="{BODY}" font-size="13.5" fill="{TEXT}" font-weight="500">'
+        f'{escape(name)}'
+        f'<tspan fill="{MUTED}" font-weight="400">&#160;&#160;&#8212;&#160;&#160;{escape(desc)}</tspan>'
+        f'</text>'
+    )
+
+
+def build_left_column(x: int, y0: int) -> tuple[str, int]:
+    parts: list[str] = []
+    y = y0
+    parts.append(cat_header("Web Sites", x, y))
+    y += 30
+
+    for sub_name, items in WEB_SITES:
+        parts.append(sub_header(sub_name, x + 4, y))
+        y += 22
+        for name, desc in items:
+            parts.append(item_line(name, desc, x + 20, y))
+            y += 22
+        y += 10
+
+    return "\n  ".join(parts), y
+
+
+def build_right_column(x: int, y0: int) -> tuple[str, int]:
+    parts: list[str] = []
+    y = y0
+
+    for i, (cat_name, items) in enumerate(RIGHT_CATEGORIES):
+        parts.append(cat_header(cat_name, x, y))
+        y += 26
+        for name, desc in items:
+            parts.append(item_line(name, desc, x + 16, y))
+            y += 22
+        if i < len(RIGHT_CATEGORIES) - 1:
+            y += 12
+
+    return "\n  ".join(parts), y
+
+
+# ─── SVG build ─────────────────────────────────────────────────────────────
 def build_svg(avatar_data_uri: str) -> str:
-    row_y0 = 348
-    row_gap = 34
-    rows = "\n".join(
-        project_row(num, name, desc, row_y0 + i * row_gap)
-        for i, (num, name, desc) in enumerate(PROJECTS)
-    )
+    canvas_w = 1200
+    canvas_h = 720
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title">
+    left_svg, _ = build_left_column(x=80, y0=296)
+    right_svg, _ = build_right_column(x=640, y0=296)
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {canvas_w} {canvas_h}" role="img" aria-labelledby="title">
   <title id="title">XIU — a curious developer from Seoul</title>
+
   <defs>
-    <clipPath id="avatar-clip"><circle cx="160" cy="164" r="80"/></clipPath>
+    <!-- avatar clip -->
+    <clipPath id="avatar-clip"><circle cx="160" cy="160" r="80"/></clipPath>
+
+    <!-- wordmark gradient: gold → light -->
+    <linearGradient id="wordmark-grad" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="{GOLD}"/>
+      <stop offset="0.55" stop-color="#f2d67b"/>
+      <stop offset="1" stop-color="{TEXT}"/>
+    </linearGradient>
+
+    <!-- ambient radial glow behind the identity -->
+    <radialGradient id="glow" cx="0.16" cy="0.22" r="0.55">
+      <stop offset="0" stop-color="{GOLD}" stop-opacity="0.18"/>
+      <stop offset="0.45" stop-color="{GOLD}" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="{GOLD}" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- teal glow far right for secondary warmth -->
+    <radialGradient id="glow-teal" cx="0.9" cy="0.08" r="0.4">
+      <stop offset="0" stop-color="{TEAL}" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="{TEAL}" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- fine dotted grid overlay -->
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="0.8" fill="{TEXT}" opacity="0.06"/>
+    </pattern>
+
+    <!-- avatar ring gradient -->
+    <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="{GOLD}" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="{GOLD}" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- divider gradient -->
+    <linearGradient id="divider-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="{GOLD}" stop-opacity="0"/>
+      <stop offset="0.15" stop-color="{GOLD}" stop-opacity="0.6"/>
+      <stop offset="0.85" stop-color="{GOLD}" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="{GOLD}" stop-opacity="0"/>
+    </linearGradient>
   </defs>
 
-  <!-- paper -->
-  <rect width="1200" height="560" fill="{PAPER}"/>
+  <!-- stage -->
+  <rect width="{canvas_w}" height="{canvas_h}" fill="{BG}"/>
+  <rect width="{canvas_w}" height="{canvas_h}" fill="url(#glow)"/>
+  <rect width="{canvas_w}" height="{canvas_h}" fill="url(#glow-teal)"/>
+  <rect width="{canvas_w}" height="{canvas_h}" fill="url(#dots)"/>
 
-  <!-- avatar -->
-  <image href="{avatar_data_uri}" x="80" y="84" width="160" height="160"
+  <!-- inner frame hairline -->
+  <rect x="48" y="48" width="{canvas_w - 96}" height="{canvas_h - 96}"
+        fill="none" stroke="{BORDER}" stroke-width="1" rx="2"/>
+
+  <!-- ─── Identity ──────────────────────────────────────────────── -->
+
+  <!-- avatar soft glow -->
+  <circle cx="160" cy="160" r="92" fill="{GOLD}" opacity="0.12"/>
+  <circle cx="160" cy="160" r="86" fill="{BG}"/>
+
+  <!-- avatar image -->
+  <image href="{avatar_data_uri}" x="80" y="80" width="160" height="160"
          clip-path="url(#avatar-clip)" preserveAspectRatio="xMidYMid slice"/>
-  <circle cx="160" cy="164" r="80" fill="none" stroke="{INK}" stroke-width="1" opacity="0.18"/>
 
-  <!-- identity -->
-  <text x="280" y="178" font-family="{DISPLAY}" font-weight="400" font-size="108"
-        fill="{INK}" letter-spacing="3">XIU</text>
-  <text x="280" y="208" font-family="{DISPLAY}" font-style="italic" font-size="20"
-        fill="{MUTED}">a curious developer</text>
-  <text x="280" y="234" font-family="{SANS}" font-size="11" letter-spacing="2.6"
-        fill="{MUTED}">GITHUB.COM &#160;/&#160; {escape(USER.upper())}</text>
+  <!-- avatar ring -->
+  <circle cx="160" cy="160" r="80" fill="none" stroke="url(#ring-grad)" stroke-width="1.6"/>
 
-  <!-- top-right metadata -->
-  <text x="1120" y="102" text-anchor="end" font-family="{SANS}" font-size="11"
-        letter-spacing="2.6" fill="{MUTED}">SEOUL &#160;·&#160; REPUBLIC OF KOREA</text>
-  <text x="1120" y="122" text-anchor="end" font-family="{SANS}" font-size="11"
-        letter-spacing="2.6" fill="{MUTED}">ESTABLISHED &#160;·&#160; MMXXVI</text>
+  <!-- wordmark -->
+  <text x="280" y="172" font-family="{DISPLAY}" font-weight="700" font-size="108"
+        fill="url(#wordmark-grad)" letter-spacing="-2">XIU</text>
+
+  <!-- tagline -->
+  <text x="284" y="208" font-family="{BODY}" font-size="17"
+        fill="{MUTED}">a curious developer &#160;·&#160; makes things he wants to use</text>
+
+  <!-- handle -->
+  <text x="284" y="234" font-family="{MONO}" font-size="11"
+        fill="{GOLD}" letter-spacing="1.2" opacity="0.9">&#x2192;&#160; github.com/{escape(USER)}</text>
 
   <!-- divider -->
-  <line x1="80" y1="272" x2="1120" y2="272" stroke="{INK}" stroke-width="0.6" opacity="0.18"/>
+  <line x1="80" y1="262" x2="{canvas_w - 80}" y2="262"
+        stroke="url(#divider-grad)" stroke-width="1"/>
 
-  <!-- section label -->
-  <text x="80" y="306" font-family="{SANS}" font-size="11" letter-spacing="3.6"
-        fill="{MUTED}">— &#160; SELECTED WORK</text>
+  <!-- ─── Category grid ────────────────────────────────────────── -->
 
-{rows}
+  <!-- vertical column separator -->
+  <line x1="614" y1="290" x2="614" y2="646"
+        stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
+
+  <!-- left column: Web Sites -->
+  {left_svg}
+
+  <!-- right column: 5 categories -->
+  {right_svg}
+
+  <!-- ─── Bottom rule ──────────────────────────────────────────── -->
+  <line x1="80" y1="668" x2="{canvas_w - 80}" y2="668"
+        stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
+
+  <text x="80" y="694" font-family="{MONO}" font-size="9.5"
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">[ &#160;thirteen projects, one developer, always shipping&#160; ]</text>
+  <text x="{canvas_w - 80}" y="694" text-anchor="end" font-family="{MONO}" font-size="9.5"
+        letter-spacing="2.8" fill="{MUTED}" opacity="0.7">&#x2318;&#160; github.com/{escape(USER)}</text>
 </svg>
 '''
 
