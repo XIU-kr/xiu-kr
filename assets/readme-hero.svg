@@ -2,41 +2,60 @@
   <title id="title">XIU — a curious developer from Seoul</title>
 
   <defs>
-    <linearGradient id="rule" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0"    stop-color="#1a1a1a" stop-opacity="0"/>
-      <stop offset="0.15" stop-color="#1a1a1a" stop-opacity="0.8"/>
-      <stop offset="0.85" stop-color="#1a1a1a" stop-opacity="0.8"/>
-      <stop offset="1"    stop-color="#1a1a1a" stop-opacity="0"/>
+    <radialGradient id="vignette" cx="0.5" cy="0.55" r="0.75">
+      <stop offset="0"   stop-color="#141016"/>
+      <stop offset="0.6" stop-color="#0b080c"/>
+      <stop offset="1"   stop-color="#050305"/>
+    </radialGradient>
+    <linearGradient id="hairline" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0"   stop-color="#c9a96a" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#c9a96a" stop-opacity="0.9"/>
+      <stop offset="1"   stop-color="#c9a96a" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <!-- paper -->
-  <rect width="1200" height="360" fill="#f3eee2"/>
+  <!-- stage -->
+  <rect width="1200" height="360" fill="url(#vignette)"/>
 
-  <!-- top label row -->
-  <line x1="120" y1="78" x2="480" y2="78" stroke="#1a1a1a" stroke-width="0.6" opacity="0.55"/>
-  <text x="600" y="82" text-anchor="middle"
-        font-family="'Iowan Old Style','Palatino Linotype',Georgia,serif"
-        font-size="12" fill="#1a1a1a" letter-spacing="7">
-    № &#8201;001 &#160;&#160; · &#160;&#160; SEOUL &#160;&#160; · &#160;&#160; MMXXVI
+  <!-- inset frame -->
+  <rect x="56" y="40" width="1088" height="280"
+        fill="none" stroke="#c9a96a" stroke-width="0.5" opacity="0.32"/>
+
+  <!-- corner plus marks -->
+  <g stroke="#c9a96a" stroke-width="0.9" opacity="0.85" fill="none">
+    <path d="M46 40 L66 40 M56 30 L56 50"/>
+    <path d="M1134 40 L1154 40 M1144 30 L1144 50"/>
+    <path d="M46 320 L66 320 M56 310 L56 330"/>
+    <path d="M1134 320 L1154 320 M1144 310 L1144 330"/>
+  </g>
+
+  <!-- top eyebrow -->
+  <text x="600" y="96" text-anchor="middle"
+        font-family="'Iowan Old Style','Palatino Linotype','Baskerville',Georgia,serif"
+        font-size="11" fill="#c9a96a" opacity="0.85" letter-spacing="9">
+    A &#160; CURIOUS &#160; DEVELOPER &#160; · &#160; SEOUL &#160; · &#160; MMXXVI
   </text>
-  <line x1="720" y1="78" x2="1080" y2="78" stroke="#1a1a1a" stroke-width="0.6" opacity="0.55"/>
 
-  <!-- wordmark -->
-  <text x="600" y="220" text-anchor="middle"
-        font-family="'Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif"
-        font-weight="400" font-size="200" fill="#1a1a1a" letter-spacing="22">XIU</text>
+  <!-- top hairline -->
+  <line x1="180" y1="120" x2="1020" y2="120" stroke="url(#hairline)" stroke-width="0.6"/>
 
-  <!-- gold diamond accent -->
-  <path d="M600 248 L606 254 L600 260 L594 254 Z" fill="#a8751a"/>
+  <!-- wordmark: huge, thin, extreme letter-spacing -->
+  <text x="638" y="232" text-anchor="middle"
+        font-family="'Baskerville','Iowan Old Style','Palatino Linotype',Georgia,'Times New Roman',serif"
+        font-weight="300" font-size="168" letter-spacing="58"
+        fill="#f0e6d2">X I U</text>
 
-  <!-- rule -->
-  <line x1="120" y1="290" x2="1080" y2="290" stroke="url(#rule)" stroke-width="0.8"/>
+  <!-- tiny ornament row beneath wordmark -->
+  <g fill="#c9a96a" opacity="0.85">
+    <circle cx="568" cy="262" r="1.4"/>
+    <circle cx="600" cy="262" r="2.2"/>
+    <circle cx="632" cy="262" r="1.4"/>
+  </g>
 
   <!-- italic tagline -->
-  <text x="600" y="322" text-anchor="middle"
-        font-family="'Iowan Old Style','Palatino Linotype',Georgia,serif"
-        font-size="20" font-style="italic" fill="#1a1a1a" opacity="0.75">
-    a curious developer &#160;·&#160; 호기심 많은 개발자
+  <text x="600" y="298" text-anchor="middle"
+        font-family="'Baskerville','Iowan Old Style','Palatino Linotype',Georgia,serif"
+        font-style="italic" font-size="17" fill="#b7a078" opacity="0.9">
+    호기심 많은 개발자 &#160;&#160;·&#160;&#160; makes things he wants to use
   </text>
 </svg>
