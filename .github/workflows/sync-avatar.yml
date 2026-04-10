@@ -41,12 +41,12 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- assets/readme-hero.svg; then
+          if git diff --quiet -- assets/readme-hero.svg README.md; then
             echo "No avatar changes — nothing to commit."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/readme-hero.svg
+          git add assets/readme-hero.svg README.md
           git commit -m "chore: sync profile avatar in hero card"
           git push

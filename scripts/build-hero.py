@@ -12,7 +12,9 @@ Run locally (`python scripts/build-hero.py`) or via
 from __future__ import annotations
 
 import base64
+import hashlib
 import io
+import re
 import sys
 import urllib.request
 from pathlib import Path
@@ -25,6 +27,7 @@ AVATAR_URL = f"https://github.com/{USER}.png?size=560"
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "assets" / "readme-hero.svg"
+README = ROOT / "README.md"
 
 # ─── Palette (lifted from xiu.kr) ──────────────────────────────────────────
 BG = "#07070b"
@@ -277,6 +280,28 @@ def build_svg(avatar_data_uri: str) -> str:
 '''
 
 
+def sync_readme_cachebuster(svg: str) -> None:
+    """Rewrite README's hero <img src="...?v=HASH"> with a hash of the SVG.
+
+    GitHub's camo image proxy caches images by URL. Without a new query
+    string the README keeps serving the stale SVG even after the file
+    changes on disk. Hashing the SVG means the query only changes when
+    the image actually changes — no churn on idle rebuilds.
+    """
+    if not README.exists():
+        return
+
+    token = hashlib.sha256(svg.encode("utf-8")).hexdigest()[:10]
+    text = README.read_text(encoding="utf-8")
+
+    pattern = re.compile(r'(readme-hero\.svg)(\?v=[A-Za-z0-9]+)?')
+    new_text, n = pattern.subn(rf"\1?v={token}", text, count=1)
+
+    if n and new_text != text:
+        README.write_text(new_text, encoding="utf-8")
+        print(f"updated README cache buster → v={token}")
+
+
 def main() -> int:
     try:
         uri = fetch_avatar_data_uri()
@@ -288,6 +313,8 @@ def main() -> int:
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(svg, encoding="utf-8")
     print(f"wrote {OUTPUT} ({len(svg)} bytes)")
+
+    sync_readme_cachebuster(svg)
     return 0
 
 
