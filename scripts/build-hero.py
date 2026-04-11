@@ -76,9 +76,13 @@ RIGHT_CATEGORIES = [
     ]),
     ("Android Apps", [
         ("Quon", "QR code generator"),
+        ("ParkPilot", "Dongtan church parking management"),
+        ("Church App", "official Dongtan Myungsung Church app"),
     ]),
     ("Game Server Plugins", [
-        ("CS2 Plugins", "grenade boost, restart, nickname sync"),
+        ("GrenadeBoost", "custom-physics grenade boosting"),
+        ("AutoRestart", "timezone-aware scheduled restart"),
+        ("DU-NicknameSync", "Steam \u2194 Discord nickname sync"),
     ]),
 ]
 
@@ -165,7 +169,7 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
 # ─── SVG build ─────────────────────────────────────────────────────────────
 def build_svg(avatar_data_uri: str) -> str:
     canvas_w = 1200
-    canvas_h = 780
+    canvas_h = 900
 
     left_svg, _ = build_left_column(x=80, y0=306)
     right_svg, _ = build_right_column(x=640, y0=306)
@@ -259,7 +263,7 @@ def build_svg(avatar_data_uri: str) -> str:
   <!-- ─── Category grid ────────────────────────────────────────── -->
 
   <!-- vertical column separator -->
-  <line x1="614" y1="300" x2="614" y2="712"
+  <line x1="614" y1="300" x2="614" y2="832"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
   <!-- left column: Web Sites -->
@@ -269,12 +273,12 @@ def build_svg(avatar_data_uri: str) -> str:
   {right_svg}
 
   <!-- ─── Bottom rule ──────────────────────────────────────────── -->
-  <line x1="80" y1="724" x2="{canvas_w - 80}" y2="724"
+  <line x1="80" y1="844" x2="{canvas_w - 80}" y2="844"
         stroke="{BORDER}" stroke-width="1" opacity="0.8"/>
 
-  <text x="80" y="750" font-family="{MONO}" font-size="11"
+  <text x="80" y="870" font-family="{MONO}" font-size="11"
         letter-spacing="2.8" fill="{GOLD}" opacity="0.85">&#x2192;&#160;&#160; click anywhere to get in touch</text>
-  <text x="{canvas_w - 80}" y="750" text-anchor="end" font-family="{MONO}" font-size="11"
+  <text x="{canvas_w - 80}" y="870" text-anchor="end" font-family="{MONO}" font-size="11"
         letter-spacing="2.8" fill="{MUTED}" opacity="0.72">xiu.kr</text>
 </svg>
 '''
