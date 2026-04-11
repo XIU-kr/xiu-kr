@@ -76,7 +76,7 @@ RIGHT_CATEGORIES = [
     ]),
     ("Android Apps", [
         ("Quon", "QR code generator"),
-        ("ParkPilot", "Dongtan church parking management"),
+        ("Parking Management", "for Dongtan Myungsung Church"),
         ("Church App", "official Dongtan Myungsung Church app"),
     ]),
     ("Game Server Plugins", [
