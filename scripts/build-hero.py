@@ -66,9 +66,6 @@ WEB_SITES = [
 
 # Right column — flat list of categories
 RIGHT_CATEGORIES = [
-    ("Web Apps", [
-        ("CornerBrand", "local-first image watermarking"),
-    ]),
     ("Desktop Apps", [
         ("Vora", "AI image editing desktop app"),
     ]),
@@ -163,7 +160,7 @@ def build_right_column(x: int, y0: int) -> tuple[str, int]:
             parts.append(item_line(name, desc, x + 18, y))
             y += 28
         if i < len(RIGHT_CATEGORIES) - 1:
-            y += 10
+            y += 18
 
     return "\n  ".join(parts), y
 
