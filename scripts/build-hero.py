@@ -67,7 +67,7 @@ WEB_SITES = [
 # Right column — flat list of categories
 RIGHT_CATEGORIES = [
     ("Web Apps", [
-        ("Vora AI", "browser-based AI image editor"),
+        ("Vora", "AI image editing desktop app"),
         ("CornerBrand", "local-first image watermarking"),
     ]),
     ("Church Apps", [
