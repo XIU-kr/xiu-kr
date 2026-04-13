@@ -78,8 +78,8 @@ RIGHT_CATEGORIES = [
     ]),
     ("Android Apps", [
         ("Quon", "QR code generator"),
-        ("Parking Management", "for Dongtan Myungsung Church"),
-        ("Church App", "official Dongtan Myungsung Church app"),
+        ("Parking Management", "church parking POS & ticketing"),
+        ("Church App", "web-based church app"),
     ]),
     ("Game Server Plugins", [
         ("GrenadeBoost", "custom-physics grenade boosting"),
