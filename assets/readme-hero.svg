@@ -105,7 +105,7 @@
 
   <!-- right column: 5 categories -->
   <text x="640" y="306" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">WEB APPS</text>
-  <text x="658" y="346" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Vora<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;AI image editing desktop app</tspan></text>
+  <text x="658" y="346" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Vora AI<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;browser-based AI image editor</tspan></text>
   <text x="658" y="374" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">CornerBrand<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;local-first image watermarking</tspan></text>
   <text x="640" y="420" font-family="'Fira Code','JetBrains Mono','SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="19" letter-spacing="3.4" fill="#d4a016" font-weight="600">CHURCH APPS</text>
   <text x="658" y="460" font-family="'Outfit','Inter',-apple-system,system-ui,'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="16.5" fill="#e4e4ec" font-weight="500">Phos<tspan fill="#8a8aa6" font-weight="400">&#160;&#160;&#8212;&#160;&#160;worship PPT auto-generator</tspan></text>
