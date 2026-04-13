@@ -1,5 +1,5 @@
 <div align="center">
 <a href="https://xiu.kr">
-  <img src="./assets/readme-hero.svg?v=b2efd8e6cd" alt="XIU — a curious developer from Seoul" width="100%">
+  <img src="./assets/readme-hero.svg?v=0fceb2e8b0" alt="XIU — a curious developer from Seoul" width="100%">
 </a>
 </div>
