@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>AI & Creative Tools — XIU</title>
+  <meta name="description" content="Vora — AI image editing desktop app for Mac, Windows, and Linux. Big-LaMa inpainting, layer masks, adjustment layers, and Photoshop-class tools.">
+  <link rel="canonical" href="https://xiu.kr/projects/ai-creative/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/projects/ai-creative/">
+  <meta property="og:title" content="AI & Creative Tools — XIU">
+  <meta property="og:description" content="Vora — AI image editing desktop app for Mac, Windows, and Linux. Big-LaMa inpainting, layer masks, adjustment layers, and Photoshop-class tools.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=10">
+</head>
+
+<body class="grain">
+
+  <!-- ─── Navigation ─── -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="ko">KO</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ─── Breadcrumb ─── -->
+  <div class="breadcrumb reveal">
+    <a href="/" data-i18n="breadcrumb_home">Home</a>
+    <span class="sep">/</span>
+    <a href="/#projects" data-i18n="breadcrumb_projects">Projects</a>
+    <span class="sep">/</span>
+    <span class="current" data-i18n="breadcrumb_current">AI & Creative Tools</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       VORA
+       ═══════════════════════════════════════════ -->
+
+  <!-- ─── Project Hero ─── -->
+  <section class="project-hero">
+    <div class="reveal">
+      <span class="project-hero-badge" data-i18n="hero_badge">Featured Project</span>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <span class="project-hero-icon">🎨</span>
+      <h1>Vora</h1>
+      <p class="project-hero-tagline" data-i18n="vora_tagline">Mac, Windows, Linux용 Photoshop급 AI 이미지 에디터 데스크톱 앱</p>
+    </div>
+    <div class="project-hero-tags reveal reveal-delay-2">
+      <span class="tag featured">TypeScript</span>
+      <span class="tag featured">Tauri</span>
+      <span class="tag featured">React</span>
+      <span class="tag teal">Big-LaMa</span>
+      <span class="tag">Rust</span>
+      <span class="tag">Python</span>
+    </div>
+    <div class="project-hero-links reveal reveal-delay-3">
+      <a href="https://vora.xiu.kr" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btn_website">웹사이트 &rarr;</a>
+      <a href="https://github.com/XIU-kr/Vora" target="_blank" rel="noopener" class="btn btn-ghost">GitHub &rarr;</a>
+    </div>
+    <div class="project-hero-stats reveal reveal-delay-4">
+      <div class="stat">
+        <div class="stat-value">18+</div>
+        <div class="stat-label" data-i18n="stat_tools">Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label" data-i18n="stat_platforms">Platforms</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">MIT</div>
+        <div class="stat-label" data-i18n="stat_license">Open Source</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Project Content ─── -->
+  <div class="project-content">
+
+    <!-- ─── Overview ─── -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="section_overview">Overview</h2>
+      <div class="overview-grid">
+        <div class="overview-prose">
+          <p data-i18n="vora_overview_1">Vora는 Mac, Windows, Linux를 모두 지원하는 크로스플랫폼 AI 이미지 편집 데스크톱 앱입니다. Tauri로 단일 바이너리를 빌드해 각 OS 네이티브 인스톨러(.dmg / .exe / .deb / .rpm)로 배포하며, 설치 후에는 인터넷 연결 없이도 모든 기능이 동작합니다. 작업물이 외부 서버로 전송되지 않아 민감한 이미지 작업에도 안심하고 쓸 수 있습니다.</p>
+          <p data-i18n="vora_overview_2">기존 이미지 편집 도구들은 비싸거나, 복잡하거나, 브라우저 한계에 갇혀 있습니다. Photoshop은 월 구독료가 부담되고, GIMP는 무료지만 학습 곡선이 가파르며, 웹 기반 에디터는 파일 크기·오프라인·파일 시스템 접근에서 제약이 큽니다. Vora는 "네이티브 앱의 성능과 파일 시스템 자유도 + Photoshop급 편집 경험"을 목표로 직접 만든 결과물입니다.</p>
+          <p data-i18n="vora_overview_3">Big-LaMa 모델을 앱 내부에서 로컬로 실행해 이미지의 불필요한 부분을 자연스럽게 제거합니다. 처음 AI 기능을 쓸 때 필요한 Python 런타임과 패키지는 앱이 자기 디렉토리에 자동으로 설치합니다 — 관리자 권한이 필요 없고, 앱을 지우면 전부 깨끗이 제거됩니다. 자동 업데이트도 내장되어 있어 릴리스가 나오면 그 자리에서 인스톨됩니다.</p>
+          <p data-i18n="vora_overview_4">레이어 시스템, 레이어 마스크, 조정 레이어, 12가지 블렌드 모드, 5가지 레이어 효과를 모두 구현했습니다. 클론 스탬프, 힐링 브러시, 베지어 패스 같은 정밀 편집 도구부터 자동 보정, 레벨, 커브, 색조/채도까지 18가지 이상의 도구를 제공하며, 모두 비파괴 방식으로 동작합니다. `.vora` 프로젝트 파일로 전체 작업물(페이지·레이어 포함)을 단일 JSON에 저장하고, PNG·JPG·WebP·PDF·PPTX(편집 가능한 텍스트)로 내보낼 수 있습니다.</p>
+        </div>
+        <aside class="overview-sidebar">
+          <h3 data-i18n="sidebar_title">Project Info</h3>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label" data-i18n="sidebar_type">Type</div>
+            <div class="sidebar-item-value" data-i18n="sidebar_type_val">Desktop App</div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label" data-i18n="sidebar_platforms">Platforms</div>
+            <div class="sidebar-item-value">macOS · Windows · Linux</div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label" data-i18n="sidebar_stack">Stack</div>
+            <div class="sidebar-item-value">Tauri + React + Python</div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label">AI</div>
+            <div class="sidebar-item-value">Big-LaMa (local)</div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label" data-i18n="sidebar_status">Status</div>
+            <div class="sidebar-item-value" data-i18n="sidebar_status_val">Open Source</div>
+          </div>
+          <div class="sidebar-item">
+            <div class="sidebar-item-label">GitHub</div>
+            <div class="sidebar-item-value"><a href="https://github.com/XIU-kr/Vora" target="_blank" rel="noopener">XIU-kr/Vora</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ─── Key Features ─── -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="section_features">Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🖌️</div>
+          <h3 data-i18n="feat1_title">AI 인페인팅</h3>
+          <p data-i18n="feat1_desc">Big-LaMa 모델로 이미지의 원하지 않는 부분을 자연스럽게 제거합니다. 영역을 선택하면 주변 컨텍스트를 분석하여 자연스러운 결과물을 생성합니다. 복잡한 텍스처나 패턴도 정확하게 재현하여 편집 흔적이 남지 않습니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">💾</div>
+          <h3 data-i18n="feat2_title">.vora 프로젝트 파일</h3>
+          <p data-i18n="feat2_desc">여러 페이지와 모든 레이어, 마스크, 조정 레이어를 단일 JSON 프로젝트 파일(`.vora`)에 저장합니다. 작업 중간에 저장하고 나중에 그대로 이어서 편집할 수 있으며, 파일 하나로 전체 작업물을 백업하거나 다른 기기로 옮길 수 있습니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">📑</div>
+          <h3 data-i18n="feat3_title">레이어 시스템</h3>
+          <p data-i18n="feat3_desc">포토샵과 유사한 레이어 관리 시스템을 구현했습니다. 레이어 순서 변경, 불투명도 조절, 블렌드 모드, 레이어 그룹을 지원합니다. 드래그 앤 드롭으로 직관적인 레이어 관리가 가능합니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4">
+          <div class="feature-icon">🎭</div>
+          <h3 data-i18n="feat4_title">마스크 & 조정 레이어</h3>
+          <p data-i18n="feat4_desc">비파괴 편집을 위한 레이어 마스크와 조정 레이어를 제공합니다. 원본 이미지를 보존하면서 밝기, 대비, 색상 균형, 커브 등 다양한 효과를 적용할 수 있습니다. 언제든 수정하거나 되돌릴 수 있습니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-5">
+          <div class="feature-icon">✏️</div>
+          <h3 data-i18n="feat5_title">드로잉 도구</h3>
+          <p data-i18n="feat5_desc">클론 스탬프, 힐링 브러시, 베지어 패스 등 정밀한 수동 편집 도구를 제공합니다. 압력 감지 태블릿을 지원하며, 브러시 크기와 경도를 세밀하게 조절할 수 있습니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-5">
+          <div class="feature-icon">📤</div>
+          <h3 data-i18n="feat6_title">멀티 포맷 내보내기</h3>
+          <p data-i18n="feat6_desc">PNG, JPG, WebP, 멀티페이지 PDF, 편집 가능한 텍스트가 포함된 PPTX까지 다양한 포맷으로 내보낼 수 있습니다. 현재 페이지·선택 페이지·전체 페이지 단위의 배치 내보내기와 1×–8× 스케일 옵션을 지원합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Technical Architecture ─── -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="section_tech">Technical Architecture</h2>
+      <div class="content-quote" data-i18n="tech_quote">Tauri 셸(Rust) 안에 React UI와 Python AI 프로세스를 함께 묶은 단일 바이너리 구조입니다. 편집 UI는 웹뷰에서 돌고, 무거운 AI 연산은 앱이 로컬에서 실행하는 Python 워커로 IPC를 통해 전달됩니다. 네트워크 연결 없이 앱 안에서 모든 파이프라인이 완결됩니다.</div>
+      <div class="tech-breakdown">
+        <div class="tech-group reveal reveal-delay-1">
+          <div class="tech-group-title">🖥️ Frontend</div>
+          <div class="tech-group-list">
+            <span class="tag featured">TypeScript</span>
+            <span class="tag featured">React</span>
+            <span class="tag">Canvas API</span>
+            <span class="tag">Vite</span>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6" data-i18n="tech_frontend_desc">복잡한 캔버스 조작과 상태 관리를 위해 TypeScript + React + Canvas API 조합을 사용했습니다. 레이어 트리 상태는 불변 자료구조로 관리하며, 변경 감지 기반 증분 렌더링으로 대형 이미지에서도 반응성을 유지합니다.</p>
+        </div>
+        <div class="tech-group reveal reveal-delay-2">
+          <div class="tech-group-title">🦀 Shell & IPC</div>
+          <div class="tech-group-list">
+            <span class="tag featured">Tauri</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Auto-update</span>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6" data-i18n="tech_shell_desc">Tauri로 Rust 기반 네이티브 셸을 구성해 파일 시스템·프로젝트 저장·자동 업데이트·크로스플랫폼 빌드를 처리합니다. 웹뷰와 Python AI 프로세스 사이의 IPC도 Rust 레이어에서 중개합니다.</p>
+        </div>
+        <div class="tech-group reveal reveal-delay-3">
+          <div class="tech-group-title">🤖 Local AI</div>
+          <div class="tech-group-list">
+            <span class="tag teal">Python</span>
+            <span class="tag teal">Big-LaMa</span>
+            <span class="tag">PyTorch</span>
+          </div>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.8rem;line-height:1.6" data-i18n="tech_ai_desc">Big-LaMa 인페인팅을 로컬 Python 프로세스에서 실행합니다. 첫 AI 기능 사용 시 앱이 자기 디렉토리에 Python과 필요한 패키지를 자동 설치하고, 이후엔 외부 네트워크 호출 없이 동작합니다. 관리자 권한이 필요 없으며, 앱 삭제 시 전부 함께 제거됩니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Challenges ─── -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="section_challenges">Challenges & Solutions</h2>
+      <div class="challenge-list">
+        <div class="challenge-card reveal reveal-delay-1">
+          <div class="challenge-marker problem">!</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch1_problem">Python 런타임과 AI 모델 번들링</h4>
+            <p data-i18n="ch1_problem_desc">Big-LaMa 모델과 PyTorch를 앱 설치 파일에 그대로 포함하면 인스톨러 크기가 수 GB로 치솟고, 대부분의 사용자에게는 첫 실행 전에 불필요합니다. 동시에 "사용자에게 Python을 별도로 깔게 하는 것"은 데스크톱 앱 UX로 용납되지 않았습니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-2">
+          <div class="challenge-marker solution">&#10003;</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch1_solution">지연 설치 방식과 앱 전용 Python 샌드박스</h4>
+            <p data-i18n="ch1_solution_desc">인스톨러에는 Python 런타임만 번들하고, AI 패키지·모델은 사용자가 처음 AI 기능을 쓸 때 앱이 자기 디렉토리 안에 자동 설치하도록 했습니다. 관리자 권한이 필요 없고, 앱을 삭제하면 모든 AI 자산도 함께 지워집니다. 기본 설치 크기는 가볍게 유지하면서, AI를 쓰는 사용자만 비용을 부담하는 구조입니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-3">
+          <div class="challenge-marker problem">!</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch2_problem">3개 OS × 2개 아키텍처 크로스플랫폼 빌드</h4>
+            <p data-i18n="ch2_problem_desc">macOS(Intel + Apple Silicon), Windows x64, Linux(.deb / .rpm)까지 하나의 코드베이스로 모두 내보내야 했습니다. 네이티브 서명·노타라이제이션·인스톨러 포맷이 각 OS마다 다르고, Python 번들 경로도 다 달라서 플랫폼별 엣지 케이스가 끝없이 튀어나왔습니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-4">
+          <div class="challenge-marker solution">&#10003;</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch2_solution">Tauri + GitHub Actions 기반 매트릭스 빌드</h4>
+            <p data-i18n="ch2_solution_desc">Tauri의 번들러가 각 OS 네이티브 인스톨러를 직접 만들도록 맡기고, GitHub Actions 매트릭스로 릴리스마다 Universal DMG / MSI / DEB / RPM을 자동 생성합니다. Python 번들 경로는 OS별 헬퍼 모듈로 추상화해 한 곳에서 관리하고, 자동 업데이트는 Tauri updater로 일원화했습니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-5">
+          <div class="challenge-marker problem">!</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch3_problem">복잡한 레이어 시스템 구현</h4>
+            <p data-i18n="ch3_problem_desc">이미지·텍스트·도형·드로잉·조정 레이어·그룹이 섞이고, 마스크·12가지 블렌드 모드·5가지 레이어 효과가 동시에 작동하는 Photoshop급 시스템을 만드는 것은 상태 관리와 렌더링 양 측면에서 큰 도전이었습니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-5">
+          <div class="challenge-marker solution">&#10003;</div>
+          <div class="challenge-body">
+            <h4 data-i18n="ch3_solution">커스텀 렌더링 파이프라인과 효율적 상태 관리</h4>
+            <p data-i18n="ch3_solution_desc">불변 데이터 구조와 구조적 공유를 활용한 상태 관리 시스템을 설계했습니다. 렌더링 파이프라인을 레이어 트리 구조에 최적화하고, 변경 감지를 통해 필요한 레이어만 다시 합성하는 증분 렌더링 방식을 도입해 대형 이미지에서도 반응성을 유지합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Related Projects ─── -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="section_related">Related Projects</h2>
+      <div class="related-grid">
+        <a href="/projects/church-tech/" class="related-card reveal reveal-delay-1">
+          <div class="related-card-icon">⛪</div>
+          <div class="related-card-name" data-i18n="related_church_name">Church Tech</div>
+          <div class="related-card-desc" data-i18n="related_church_desc">교회를 위한 기술 솔루션과 관리 시스템</div>
+        </a>
+        <a href="/projects/gaming/" class="related-card reveal reveal-delay-2">
+          <div class="related-card-icon">🎮</div>
+          <div class="related-card-name" data-i18n="related_gaming_name">Gaming</div>
+          <div class="related-card-desc" data-i18n="related_gaming_desc">CS2 커뮤니티 운영과 커스텀 플러그인 개발</div>
+        </a>
+      </div>
+    </section>
+
+  </div><!-- /.project-content -->
+
+  <!-- ─── Back CTA ─── -->
+  <div class="back-cta reveal">
+    <p data-i18n="back_cta_text">더 많은 프로젝트를 확인하세요</p>
+    <a href="/#projects" class="btn btn-ghost" data-i18n="back_cta_btn">&larr; 포트폴리오로 돌아가기</a>
+  </div>
+
+  <!-- ─── Footer ─── -->
+  <footer>&copy; 2026 XIU &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a></footer>
+
+  <!-- ─── Script ─── -->
+  <script>
+    // ─── i18n Translations ───
+    const translations = {
+      ko: {
+        breadcrumb_home: 'Home',
+        breadcrumb_projects: 'Projects',
+        breadcrumb_current: 'AI & Creative Tools',
+        hero_badge: 'Featured Project',
+        btn_website: '웹사이트 \u2192',
+        vora_tagline: 'Mac, Windows, Linux용 Photoshop급 AI 이미지 에디터 데스크톱 앱',
+        stat_tools: '편집 도구',
+        stat_platforms: '플랫폼',
+        stat_license: '오픈 소스',
+        section_overview: '개요',
+        vora_overview_1: 'Vora는 Mac, Windows, Linux를 모두 지원하는 크로스플랫폼 AI 이미지 편집 데스크톱 앱입니다. Tauri로 단일 바이너리를 빌드해 각 OS 네이티브 인스톨러(.dmg / .exe / .deb / .rpm)로 배포하며, 설치 후에는 인터넷 연결 없이도 모든 기능이 동작합니다. 작업물이 외부 서버로 전송되지 않아 민감한 이미지 작업에도 안심하고 쓸 수 있습니다.',
+        vora_overview_2: '기존 이미지 편집 도구들은 비싸거나, 복잡하거나, 브라우저 한계에 갇혀 있습니다. Photoshop은 월 구독료가 부담되고, GIMP는 무료지만 학습 곡선이 가파르며, 웹 기반 에디터는 파일 크기·오프라인·파일 시스템 접근에서 제약이 큽니다. Vora는 "네이티브 앱의 성능과 파일 시스템 자유도 + Photoshop급 편집 경험"을 목표로 직접 만든 결과물입니다.',
+        vora_overview_3: 'Big-LaMa 모델을 앱 내부에서 로컬로 실행해 이미지의 불필요한 부분을 자연스럽게 제거합니다. 처음 AI 기능을 쓸 때 필요한 Python 런타임과 패키지는 앱이 자기 디렉토리에 자동으로 설치합니다 \u2014 관리자 권한이 필요 없고, 앱을 지우면 전부 깨끗이 제거됩니다. 자동 업데이트도 내장되어 있어 릴리스가 나오면 그 자리에서 인스톨됩니다.',
+        vora_overview_4: '레이어 시스템, 레이어 마스크, 조정 레이어, 12가지 블렌드 모드, 5가지 레이어 효과를 모두 구현했습니다. 클론 스탬프, 힐링 브러시, 베지어 패스 같은 정밀 편집 도구부터 자동 보정, 레벨, 커브, 색조/채도까지 18가지 이상의 도구를 제공하며, 모두 비파괴 방식으로 동작합니다. `.vora` 프로젝트 파일로 전체 작업물(페이지·레이어 포함)을 단일 JSON에 저장하고, PNG·JPG·WebP·PDF·PPTX(편집 가능한 텍스트)로 내보낼 수 있습니다.',
+        sidebar_title: '프로젝트 정보',
+        sidebar_type: '유형',
+        sidebar_type_val: '데스크톱 앱',
+        sidebar_platforms: '플랫폼',
+        sidebar_stack: '기술 스택',
+        sidebar_status: '상태',
+        sidebar_status_val: '오픈 소스',
+        section_features: '주요 기능',
+        feat1_title: 'AI 인페인팅',
+        feat1_desc: 'Big-LaMa 모델로 이미지의 원하지 않는 부분을 자연스럽게 제거합니다. 영역을 선택하면 주변 컨텍스트를 분석하여 자연스러운 결과물을 생성하며, 모델은 앱 내부에서 로컬로 실행되어 이미지가 서버로 전송되지 않습니다.',
+        feat2_title: '.vora 프로젝트 파일',
+        feat2_desc: '여러 페이지와 모든 레이어, 마스크, 조정 레이어를 단일 JSON 프로젝트 파일(`.vora`)에 저장합니다. 작업 중간에 저장하고 나중에 그대로 이어서 편집할 수 있으며, 파일 하나로 전체 작업물을 백업하거나 다른 기기로 옮길 수 있습니다.',
+        feat3_title: '레이어 시스템',
+        feat3_desc: '이미지·텍스트·도형·드로잉·조정 레이어·그룹을 통합 관리하는 포토샵 스타일 패널. 12가지 블렌드 모드, 5가지 레이어 효과(드롭 섀도우, 아우터 스트로크, 이너 글로우, 컬러/그라디언트 오버레이), 레이어 정렬·분배·자유 변형을 지원합니다.',
+        feat4_title: '마스크 & 조정 레이어',
+        feat4_desc: '비파괴 편집을 위한 레이어 마스크와 조정 레이어를 제공합니다. 원본 이미지를 보존하면서 밝기/대비, 레벨, 커브, 색조/채도, 컬러 밸런스를 적용할 수 있고, 언제든 되돌릴 수 있습니다.',
+        feat5_title: '드로잉 도구',
+        feat5_desc: '클론 스탬프, 힐링 브러시, 히스토리 브러시, 베지어 패스 등 정밀한 수동 편집 도구를 제공합니다. `[` / `]`로 브러시 크기 조절, `D`로 기본 색상, `X`로 전경/배경 색상 스왑 같은 포토샵 호환 단축키를 그대로 씁니다.',
+        feat6_title: '멀티 포맷 내보내기',
+        feat6_desc: 'PNG, JPG, WebP, 멀티페이지 PDF, 편집 가능한 텍스트가 포함된 PPTX까지 다양한 포맷으로 내보낼 수 있습니다. 현재 페이지·선택 페이지·전체 페이지 단위의 배치 내보내기와 1\u00d7\u20138\u00d7 스케일 옵션을 지원합니다.',
+        section_tech: '기술 아키텍처',
+        tech_quote: 'Tauri 셸(Rust) 안에 React UI와 Python AI 프로세스를 함께 묶은 단일 바이너리 구조입니다. 편집 UI는 웹뷰에서 돌고, 무거운 AI 연산은 앱이 로컬에서 실행하는 Python 워커로 IPC를 통해 전달됩니다. 네트워크 연결 없이 앱 안에서 모든 파이프라인이 완결됩니다.',
+        tech_frontend_desc: '복잡한 캔버스 조작과 상태 관리를 위해 TypeScript + React + Canvas API 조합을 사용했습니다. 레이어 트리 상태는 불변 자료구조로 관리하며, 변경 감지 기반 증분 렌더링으로 대형 이미지에서도 반응성을 유지합니다.',
+        tech_shell_desc: 'Tauri로 Rust 기반 네이티브 셸을 구성해 파일 시스템·프로젝트 저장·자동 업데이트·크로스플랫폼 빌드를 처리합니다. 웹뷰와 Python AI 프로세스 사이의 IPC도 Rust 레이어에서 중개합니다.',
+        tech_ai_desc: 'Big-LaMa 인페인팅을 로컬 Python 프로세스에서 실행합니다. 첫 AI 기능 사용 시 앱이 자기 디렉토리에 Python과 필요한 패키지를 자동 설치하고, 이후엔 외부 네트워크 호출 없이 동작합니다. 관리자 권한이 필요 없으며, 앱 삭제 시 전부 함께 제거됩니다.',
+        section_challenges: '도전과 해결',
+        ch1_problem: 'Python 런타임과 AI 모델 번들링',
+        ch1_problem_desc: 'Big-LaMa 모델과 PyTorch를 앱 설치 파일에 그대로 포함하면 인스톨러 크기가 수 GB로 치솟고, 대부분의 사용자에게는 첫 실행 전에 불필요합니다. 동시에 "사용자에게 Python을 별도로 깔게 하는 것"은 데스크톱 앱 UX로 용납되지 않았습니다.',
+        ch1_solution: '지연 설치 방식과 앱 전용 Python 샌드박스',
+        ch1_solution_desc: '인스톨러에는 Python 런타임만 번들하고, AI 패키지\u00b7모델은 사용자가 처음 AI 기능을 쓸 때 앱이 자기 디렉토리 안에 자동 설치하도록 했습니다. 관리자 권한이 필요 없고, 앱을 삭제하면 모든 AI 자산도 함께 지워집니다. 기본 설치 크기는 가볍게 유지하면서, AI를 쓰는 사용자만 비용을 부담하는 구조입니다.',
+        ch2_problem: '3개 OS \u00d7 2개 아키텍처 크로스플랫폼 빌드',
+        ch2_problem_desc: 'macOS(Intel + Apple Silicon), Windows x64, Linux(.deb / .rpm)까지 하나의 코드베이스로 모두 내보내야 했습니다. 네이티브 서명\u00b7노타라이제이션\u00b7인스톨러 포맷이 각 OS마다 다르고, Python 번들 경로도 다 달라서 플랫폼별 엣지 케이스가 끝없이 튀어나왔습니다.',
+        ch2_solution: 'Tauri + GitHub Actions 기반 매트릭스 빌드',
+        ch2_solution_desc: 'Tauri의 번들러가 각 OS 네이티브 인스톨러를 직접 만들도록 맡기고, GitHub Actions 매트릭스로 릴리스마다 Universal DMG / MSI / DEB / RPM을 자동 생성합니다. Python 번들 경로는 OS별 헬퍼 모듈로 추상화해 한 곳에서 관리하고, 자동 업데이트는 Tauri updater로 일원화했습니다.',
+        ch3_problem: '복잡한 레이어 시스템 구현',
+        ch3_problem_desc: '이미지\u00b7텍스트\u00b7도형\u00b7드로잉\u00b7조정 레이어\u00b7그룹이 섞이고, 마스크\u00b712가지 블렌드 모드\u00b75가지 레이어 효과가 동시에 작동하는 Photoshop급 시스템을 만드는 것은 상태 관리와 렌더링 양 측면에서 큰 도전이었습니다.',
+        ch3_solution: '커스텀 렌더링 파이프라인과 효율적 상태 관리',
+        ch3_solution_desc: '불변 데이터 구조와 구조적 공유를 활용한 상태 관리 시스템을 설계했습니다. 렌더링 파이프라인을 레이어 트리 구조에 최적화하고, 변경 감지를 통해 필요한 레이어만 다시 합성하는 증분 렌더링 방식을 도입해 대형 이미지에서도 반응성을 유지합니다.',
+        section_related: '관련 프로젝트',
+        related_church_name: 'Church Tech',
+        related_church_desc: '교회를 위한 기술 솔루션과 관리 시스템',
+        related_gaming_name: 'Gaming',
+        related_gaming_desc: 'Minecraft 플러그인과 게이밍 도구',
+        back_cta_text: '더 많은 프로젝트를 확인하세요',
+        back_cta_btn: '\u2190 포트폴리오로 돌아가기',
+        footer_privacy: '개인정보처리방침'
+      },
+      en: {
+        breadcrumb_home: 'Home',
+        breadcrumb_projects: 'Projects',
+        breadcrumb_current: 'AI & Creative Tools',
+        hero_badge: 'Featured Project',
+        btn_website: 'Website \u2192',
+        vora_tagline: 'Photoshop-class AI image editing desktop app for Mac, Windows, and Linux',
+        stat_tools: 'Tools',
+        stat_platforms: 'Platforms',
+        stat_license: 'Open Source',
+        section_overview: 'Overview',
+        vora_overview_1: 'Vora is a cross-platform AI image editing desktop app for macOS, Windows, and Linux. Built with Tauri and shipped as native installers (.dmg / .exe / .deb / .rpm), it works fully offline after install \u2014 your files never leave your machine, which makes it safe for sensitive work.',
+        vora_overview_2: 'Existing image editors are expensive, complex, or boxed in by the browser. Photoshop carries a steep subscription, GIMP is free but has a brutal learning curve, and web editors struggle with file size, offline use, and filesystem access. Vora was built to combine native performance and filesystem freedom with a Photoshop-class editing experience.',
+        vora_overview_3: 'The Big-LaMa model runs locally inside the app to seamlessly remove unwanted parts of an image. On first use of an AI feature, the app installs the required Python runtime and packages into its own directory \u2014 no admin privileges needed, and uninstalling removes everything cleanly. Auto-update is built in, so new releases install in place.',
+        vora_overview_4: 'Full Photoshop-style layers, layer masks, adjustment layers, 12 blend modes, and 5 layer effects. 18+ tools spanning clone stamp, healing brush, and bezier paths through auto enhance, levels, curves, and hue/saturation \u2014 all non-destructive. The `.vora` project format stores entire workspaces (pages + layers) in a single JSON, and exports to PNG, JPG, WebP, multi-page PDF, and PPTX with editable text.',
+        sidebar_title: 'Project Info',
+        sidebar_type: 'Type',
+        sidebar_type_val: 'Desktop App',
+        sidebar_platforms: 'Platforms',
+        sidebar_stack: 'Stack',
+        sidebar_status: 'Status',
+        sidebar_status_val: 'Open Source',
+        section_features: 'Key Features',
+        feat1_title: 'AI Inpainting',
+        feat1_desc: 'Naturally removes unwanted parts of an image using the Big-LaMa model. The model runs locally inside the app, so your images never leave your machine. Even complex textures and patterns are reproduced cleanly.',
+        feat2_title: '.vora Project Files',
+        feat2_desc: 'Save entire workspaces \u2014 multiple pages, all layers, masks, and adjustment layers \u2014 into a single JSON project file (`.vora`). Pause and resume work later, back up a project with one file, or move it between machines.',
+        feat3_title: 'Layer System',
+        feat3_desc: 'Unified Photoshop-style panel covering image, text, shape, drawing, adjustment, and group layers. 12 blend modes, 5 layer effects (Drop Shadow, Outer Stroke, Inner Glow, Color/Gradient Overlay), plus align, distribute, and free transform.',
+        feat4_title: 'Masks & Adjustment Layers',
+        feat4_desc: 'Non-destructive editing via layer masks and adjustment layers. Apply brightness/contrast, levels, curves, hue/saturation, and color balance while preserving the original \u2014 revert or edit anytime.',
+        feat5_title: 'Drawing Tools',
+        feat5_desc: 'Precision manual editing with clone stamp, healing brush, history brush, and bezier paths. Photoshop-compatible shortcuts: `[` / `]` for brush size, `D` for default colors, `X` to swap foreground/background.',
+        feat6_title: 'Multi-format Export',
+        feat6_desc: 'Export to PNG, JPG, WebP, multi-page PDF, or PPTX with editable text. Batch export current / selected / all pages, at 1\u00d7\u20138\u00d7 scale.',
+        section_tech: 'Technical Architecture',
+        tech_quote: 'A single-binary architecture: a Tauri shell (Rust) wraps a React UI and a local Python AI process. The editor runs in the webview, and heavy AI work is dispatched to a bundled Python worker over IPC \u2014 the whole pipeline completes inside the app, with no network required.',
+        tech_frontend_desc: 'TypeScript + React + Canvas API for complex canvas work and state management. Layer tree state is managed with immutable structures, and a change-detection-driven incremental renderer keeps large images responsive.',
+        tech_shell_desc: 'Tauri provides the Rust-based native shell handling filesystem, project save/load, auto-update, and cross-platform builds. The Rust layer also brokers IPC between the webview and the Python AI process.',
+        tech_ai_desc: 'Big-LaMa inpainting runs in a local Python process. On first AI use, the app installs Python and required packages into its own directory \u2014 no admin rights, no external network calls after that, and everything is removed cleanly when the app is uninstalled.',
+        section_challenges: 'Challenges & Solutions',
+        ch1_problem: 'Bundling Python Runtime and AI Models',
+        ch1_problem_desc: 'Bundling Big-LaMa and PyTorch directly into the installer would bloat it to several GB \u2014 wasted bandwidth for most users who haven\'t touched an AI feature yet. At the same time, making users install Python themselves is unacceptable for a desktop app UX.',
+        ch1_solution: 'Lazy Install into an App-Private Python Sandbox',
+        ch1_solution_desc: 'The installer bundles only the Python runtime. AI packages and models install on-demand into the app\'s own directory the first time an AI feature is used. No admin privileges required, and uninstalling the app removes all AI assets with it \u2014 the default install stays small, and only users who actually need AI pay the cost.',
+        ch2_problem: 'Cross-Platform Builds Across 3 OSes and 2 Architectures',
+        ch2_problem_desc: 'Shipping from one codebase to macOS (Intel + Apple Silicon), Windows x64, and Linux (.deb / .rpm) meant dealing with OS-specific signing, notarization, and installer formats \u2014 plus different Python bundle paths on every platform.',
+        ch2_solution: 'Tauri + GitHub Actions Matrix Builds',
+        ch2_solution_desc: 'Let Tauri\'s bundler produce native installers per OS, and use a GitHub Actions matrix to generate Universal DMG / MSI / DEB / RPM automatically on every release. Python bundle paths are abstracted through OS-specific helper modules, and Tauri updater handles auto-update across all platforms.',
+        ch3_problem: 'Complex Layer System Implementation',
+        ch3_problem_desc: 'Building a Photoshop-class system where image, text, shape, drawing, adjustment, and group layers coexist \u2014 with masks, 12 blend modes, and 5 layer effects all interacting \u2014 was a major challenge in both state management and rendering.',
+        ch3_solution: 'Custom Rendering Pipeline & Efficient State Management',
+        ch3_solution_desc: 'Designed a state system using immutable data structures with structural sharing, optimized the rendering pipeline to the layer tree, and introduced incremental rendering that only recomposites changed layers via change detection \u2014 keeping large images responsive.',
+        section_related: 'Related Projects',
+        related_church_name: 'Church Tech',
+        related_church_desc: 'Technology solutions and management systems for churches',
+        related_gaming_name: 'Gaming',
+        related_gaming_desc: 'Minecraft plugins and gaming tools',
+        back_cta_text: 'Explore more projects',
+        back_cta_btn: '\u2190 Back to Portfolio',
+        footer_privacy: 'Privacy Policy'
+      }
+    };
+
+    // ─── i18n Engine ───
+    function setLang(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key]) el.innerHTML = t[key];
+      });
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      document.documentElement.lang = lang;
+      localStorage.setItem('xiu-lang', lang);
+    }
+
+    // ─── Language Toggle ───
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Init language
+    const savedLang = localStorage.getItem('xiu-lang') || 'ko';
+    setLang(savedLang);
+
+    // ─── Nav Scroll ───
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ─── Mobile Nav ───
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // ─── Reveal Observer ───
+    document.documentElement.classList.add('js-ready');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>한국 유일 Counter-Strike 2 커뮤니티 운영 이야기 | XIU Blog</title>
+  <meta name="description" content="한국에 거의 남지 않은 Counter-Strike 2 커뮤니티 서버를 운영하면서 배운 것 — 왜 아무도 안 하는지, 그리고 유일한 운영자가 된다는 무게에 대하여.">
+  <link rel="canonical" href="https://xiu.kr/blog/cs2-plugin-development/">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://xiu.kr/blog/cs2-plugin-development/">
+  <meta property="og:title" content="한국 유일 Counter-Strike 2 커뮤니티 운영 이야기">
+  <meta property="og:description" content="한국에 거의 남지 않은 Counter-Strike 2 커뮤니티 서버를 운영하면서 배운 것 — 왜 아무도 안 하는지, 그리고 유일한 운영자가 된다는 무게에 대하여.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="icon" href="/favicon.ico">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <style>
+    .article-header { padding: 7rem 2rem 2rem; max-width: 760px; margin: 0 auto; }
+    .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-dim); }
+    .article-tag { padding: 0.15rem 0.6rem; border-radius: 100px; background: var(--accent-glow); border: 1px solid rgba(212, 160, 22, 0.2); color: var(--accent); font-size: 0.7rem; }
+    .article-header h1 { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; line-height: 1.3; margin-bottom: 1rem; }
+    .article-header .lead { color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; }
+    .article-body { max-width: 760px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+    .article-body h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--accent); margin: 3rem 0 1rem; }
+    .article-body h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 2rem 0 0.8rem; }
+    .article-body p { color: var(--text-secondary); font-size: 1rem; line-height: 1.85; margin-bottom: 1.2rem; }
+    .article-body strong { color: var(--text); }
+    .article-body code { font-family: var(--font-mono); font-size: 0.85rem; background: rgba(255,255,255,0.05); padding: 0.15rem 0.4rem; border-radius: 4px; color: var(--teal); }
+    .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; }
+    .article-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+    .article-body blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(212, 160, 22, 0.05); border-radius: 0 8px 8px 0; }
+    .article-body blockquote p { margin: 0; color: var(--text); font-style: italic; }
+    .article-nav { max-width: 760px; margin: 0 auto; padding: 0 2rem 4rem; display: flex; justify-content: space-between; gap: 1rem; }
+    .article-nav a { color: var(--accent); font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: opacity 0.3s; }
+    .article-nav a:hover { opacity: 0.7; }
+    @media (max-width: 600px) {
+      .article-header { padding: 6rem 1.2rem 1.5rem; }
+      .article-header h1 { font-size: 1.8rem; }
+      .article-body { padding: 1.5rem 1.2rem 3rem; }
+      .article-nav { padding: 0 1.2rem 3rem; flex-direction: column; }
+    }
+  </style>
+</head>
+<body class="grain">
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <article>
+    <header class="article-header reveal">
+      <div class="article-meta">
+        <span>2026-02-20</span>
+        <span class="article-tag">Gaming</span>
+        <span data-i18n="read_time">7분 읽기</span>
+      </div>
+      <h1 data-i18n="title">한국 유일 Counter-Strike 2 커뮤니티 운영 이야기</h1>
+      <p class="lead" data-i18n="lead">한국에서 Counter-Strike 2 커뮤니티 서버를 운영한다는 건, 거의 아무도 가지 않는 길 위에 혼자 서 있는 일이었습니다. 왜 한국 CS2 씬에 공백이 생겼는지, 그리고 그 자리를 메우면서 무엇을 배웠는지에 대한 기록입니다.</p>
+    </header>
+
+    <div class="article-body">
+      <h2 data-i18n="h2_gap">한국 CS2 씬의 공백</h2>
+      <p data-i18n="p_gap1">Counter-Strike는 한국에서 한 번도 메인스트림이었던 적이 없습니다. CS:GO 시절에도 한국 커뮤니티는 작았지만, 그래도 몇 개의 서버와 클랜이 명맥을 이어가고 있었습니다. 그런데 <strong>CS2로 전환된 이후, 거의 모든 한국 운영자가 사라졌습니다.</strong></p>
+      <p data-i18n="p_gap2">이유는 복합적입니다. 새 엔진(Source 2)으로 옮겨오면서 기존 플러그인 생태계가 한 번 리셋되었고, CounterStrikeSharp 같은 새 프레임워크가 자리를 잡기까지 시간이 걸렸습니다. 한국 네트워크 환경에서 안정적인 24/7 서버를 유지하는 비용도 만만치 않았고, 무엇보다 <strong>아무도 운영을 책임지려 하지 않는</strong> 상태가 길어졌습니다.</p>
+      <p data-i18n="p_gap3">그 결과 한국 CS2 유저들은 두 가지 선택지밖에 없게 되었습니다 — 싱가포르나 도쿄 서버에서 100ms+ 핑으로 플레이하거나, 매칭 자체를 포기하거나. 핑 좋게 게임 한 판 하기가 그렇게 어려운 일이 되어버렸습니다.</p>
+
+      <h2 data-i18n="h2_alone">"한국 유일"이 된다는 것</h2>
+      <p data-i18n="p_alone1">처음 서버를 열었던 동기는 거창하지 않았습니다. <strong>그냥 내가 핑 좋게 게임하고 싶었기 때문</strong>입니다. "한국에 서버가 없으면 내가 띄우면 되지"라는 단순한 생각이었고, 누가 와줄 거라는 기대도 별로 없었습니다.</p>
+      <p data-i18n="p_alone2">그런데 사람이 모이기 시작했습니다. Discord 채널에 한 명, 두 명 들어오더니 어느 순간 <strong>2500명을 넘어섰습니다.</strong> 가장 활발한 한국 CS2 커뮤니티가 되었고, 동시에 거의 유일한 한국 도메스틱 서버가 되었습니다. 다른 옵션이 없으니 이쪽으로 모이는 거였습니다.</p>
+      <p data-i18n="p_alone3">사람이 모이고 나서야 깨달은 것이 있습니다. 2500명이라는 숫자는 단순한 멤버 카운트가 아닙니다. <strong>이 한 서버가 다운되면, 그날 한국 CS2 씬은 사실상 멈춥니다.</strong> 처음에는 취미였는데, 어느 순간 책임으로 바뀌어 있었습니다.</p>
+
+      <h2 data-i18n="h2_tools">필요한 도구는 직접 만들어야 했다</h2>
+      <p data-i18n="p_tools1">한국에서 CS2 플러그인을 만드는 사람은 없었습니다. 영어권에서는 활발한 플러그인 생태계가 있지만, 한국 운영자가 필요로 하는 것들 — 한국 시간대 자동 재시작, Steam과 Discord 신원 통합, 한국 유저 취향에 맞춘 게임 모드 — 은 누군가 만들어주기를 기다릴 수 없었습니다. 필요하면 만들었습니다.</p>
+      <p data-i18n="p_tools2"><strong>GrenadeBoost</strong>는 수류탄으로 플레이어를 띄우는 부스트 기능을 위해 만들었습니다. CounterStrikeSharp 프레임워크 위에서 C#으로, 거리 감쇠와 공중·지상 차이를 고려한 커스텀 물리를 직접 구현했습니다. 우리 서버에서 가장 인기 있는 모드 중 하나가 되었습니다.</p>
+      <p data-i18n="p_tools3"><strong>AutoRestart</strong>는 24/7 운영의 기본기입니다. CS2 서버는 장시간 가동하면 메모리 누수와 성능 저하가 일어나는데, 매일 새벽 KST 기준으로 자동 재시작하도록 만들었습니다. 타임존 지원이 들어가 있어서 다른 시간대 운영자들도 사용할 수 있습니다.</p>
+      <p data-i18n="p_tools4"><strong>DU-NicknameSync</strong>는 CS2-Discord-Utilities의 커스텀 모듈로, 플레이어가 게임에 접속하면 Steam 닉네임을 Discord 닉네임과 자동으로 동기화합니다. "디스코드의 누구가 게임의 누구인지" 매칭을 손으로 할 필요가 없어졌습니다.</p>
+      <p data-i18n="p_tools5">셋 다 <a href="https://github.com/CS2KR" style="color: var(--accent);">CS2KR GitHub 조직</a>에 오픈소스로 공개되어 있고, 한국 밖의 운영자들도 사용하고 있습니다. 우리만 쓰자고 만든 것이 결과적으로 다른 사람들에게도 쓸모가 있었습니다.</p>
+
+      <h2 data-i18n="h2_infra">서버를 지킨다는 것</h2>
+      <p data-i18n="p_infra1">게임 서버 운영은 단순한 호스팅이 아닙니다. CS2 커뮤니티 서버는 <strong>DDoS 공격에 항상 노출</strong>되어 있고, 한 번 다운되면 복구까지의 모든 시간이 커뮤니티에 그대로 전달됩니다. "한국 유일"이라는 위치는 다운타임에 대한 변명을 허용하지 않습니다.</p>
+      <p data-i18n="p_infra2">그래서 인프라를 다층으로 쌓았습니다. <strong>OPNsense 하드웨어 방화벽</strong>으로 네트워크 레벨 보호, <strong>Pterodactyl + Docker</strong>로 게임 서버 격리와 웹 기반 관리, 그리고 자동 백업과 상태 모니터링. 각각이 따로 있을 때는 잘 보이지 않지만, 합쳐졌을 때 비로소 24/7 운영이 가능해집니다.</p>
+      <p data-i18n="p_infra3">기술 스택보다 더 어려운 건 <strong>운영의 일관성</strong>입니다. 새벽에 서버가 죽었을 때 일어나서 고치는 일, 한 명만 불평해도 점검 일정을 잡는 일, 내가 게임을 안 하는 날에도 다른 사람들의 게임 서버는 켜져 있어야 한다는 사실 — 이런 것들이 코드보다 무겁습니다.</p>
+
+      <h2 data-i18n="h2_lesson">"유일하다"는 무게</h2>
+      <blockquote>
+        <p data-i18n="quote1">누군가는 해야 했다. 그 누군가가 우리였다.</p>
+      </blockquote>
+      <p data-i18n="p_lesson1">한국 CS2 커뮤니티의 중심이 된다는 건 영광이자 부담입니다. 영광이라는 건, 한국에서 이 게임을 좋아하는 사람들이 서로를 찾을 수 있는 장소를 우리가 만들고 있다는 것입니다. 부담이라는 건, 그 장소가 사라지면 대안이 없다는 것입니다.</p>
+      <p data-i18n="p_lesson2">처음 시작할 때는 몰랐던 것들을 운영하면서 배웠습니다. <strong>커뮤니티는 기능으로 만들어지는 게 아니라 신뢰로 만들어진다</strong>는 것. 24/7 가동률, 일관된 운영, 약속한 일정의 점검, 문제가 생겼을 때 솔직하게 공지하는 것 — 이런 작은 것들이 쌓여서 사람들이 머무는 이유가 됩니다.</p>
+      <p data-i18n="p_lesson3">한국 CS2 씬은 여전히 작습니다. 우리가 운영을 멈추는 날이 오면 또 다른 누군가가 나타날지, 아니면 그대로 끝날지 모르겠습니다. 다만 지금 이 순간만큼은, 한국에서 핑 좋게 CS2를 하고 싶은 사람들이 갈 수 있는 곳이 한 군데는 있다는 사실 — 그것이 이 일을 계속하는 이유입니다.</p>
+    </div>
+
+    <div class="article-nav">
+      <a href="/blog/vora-ai-development/" data-i18n="prev_post">&larr; 이전 글: Vora 개발기</a>
+      <a href="/blog/server-infrastructure/" data-i18n="next_post">다음 글: 홈서버 보안 아키텍처 &rarr;</a>
+    </div>
+  </article>
+
+  <footer>
+    &copy; 2026 XIU &nbsp;·&nbsp;
+    <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a>
+  </footer>
+
+  <script>
+    const translations = {
+      ko: { read_time: '8분 읽기', title: '한국 유일 Counter-Strike 2 커뮤니티 운영 이야기', lead: '한국에서 Counter-Strike 2 커뮤니티 서버를 운영한다는 건, 거의 아무도 가지 않는 길 위에 혼자 서 있는 일이었습니다. 왜 한국 CS2 씬에 공백이 생겼는지, 그리고 그 자리를 메우면서 무엇을 배웠는지에 대한 기록입니다.', prev_post: '\u2190 이전 글: Vora 개발기', next_post: '다음 글: 홈서버 보안 아키텍처 \u2192', footer_privacy: '개인정보처리방침' },
+      en: { read_time: '8 min read', title: 'Running Korea\u2019s Only Counter-Strike 2 Community', lead: 'Operating a Counter-Strike 2 community server in Korea meant standing almost alone on a path nobody else was taking. This is the story of why the Korean CS2 scene emptied out, and what it\u2019s like to fill that gap.', prev_post: '\u2190 Previous: Vora Development', next_post: 'Next: Home Server Security \u2192', footer_privacy: 'Privacy Policy' }
+    };
+    let currentLang = localStorage.getItem('lang') || 'ko';
+    function setLang(lang) {
+      currentLang = lang; localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k] !== undefined) el.textContent = t[k]; });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => { const k = el.dataset.i18nHtml; if (t[k] !== undefined) el.innerHTML = t[k]; });
+    }
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+    setLang(currentLang);
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>Privacy Policy — XIU Services</title>
+  <meta name="description" content="XIU가 만든 모든 웹사이트와 앱에 적용되는 통합 개인정보처리방침. 핵심 원칙: 개인정보를 수집하지 않습니다.">
+  <link rel="canonical" href="https://xiu.kr/privacy/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/privacy/">
+  <meta property="og:title" content="Privacy Policy — XIU Services">
+  <meta property="og:description" content="XIU가 만든 모든 웹사이트와 앱에 적용되는 통합 개인정보처리방침. 핵심 원칙: 개인정보를 수집하지 않습니다.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #07070b;
+      --bg-card: #13131d;
+      --border: #1e1e30;
+      --accent: #d4a016;
+      --accent-soft: rgba(212, 160, 22, 0.12);
+      --text: #e4e4ec;
+      --text-secondary: #8a8aa6;
+      --text-dim: #6e6e88;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 3px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 7, 11, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    .lang-toggle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 0.1rem;
+      display: flex;
+      gap: 0;
+    }
+
+    .lang-btn {
+      padding: 0.2rem 0.65rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: none;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lang-btn.active {
+      color: var(--accent);
+      background: rgba(212, 160, 22, 0.15);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+      font-family: var(--font-mono);
+    }
+
+    .headline-card {
+      background: linear-gradient(135deg, var(--accent-soft), rgba(212, 160, 22, 0.04));
+      border: 1px solid rgba(212, 160, 22, 0.35);
+      border-left: 3px solid var(--accent);
+      padding: 1.6rem 1.8rem;
+      border-radius: 8px;
+      margin: 2rem 0 3rem;
+    }
+
+    .headline-card .label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .headline-card .statement {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    p,
+    li {
+      color: var(--text-secondary);
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .headline-card .statement {
+        font-size: 1.15rem;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <a href="/" class="nav-back" data-i18n="back">&larr; 돌아가기</a>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h1 data-i18n="title">개인정보처리방침</h1>
+    <div class="subtitle" data-i18n="updated">XIU 통합 정책 · 최종 수정: 2026-04-11</div>
+
+    <div class="headline-card">
+      <span class="label" data-i18n="headline_label">CORE PRINCIPLE</span>
+      <p class="statement" data-i18n="headline_statement">XIU가 만든 거의 모든 서비스는 회원가입이 필요 없으며, 사용자의 개인정보를 수집하지 않습니다.</p>
+    </div>
+
+    <div data-i18n-html="content">
+      <h2>1. 적용 범위</h2>
+      <p>본 방침은 XIU(이하 "운영자")가 제작·운영하는 모든 웹사이트, 모바일 애플리케이션, 도구 및 서비스 중에서 <strong>본 방침을 링크하는 모든 서비스</strong>에 적용됩니다. 운영자의 작품 목록은 시간이 지남에 따라 확장되며, 본 방침은 새로 추가되는 작품에도 동일하게 적용됩니다.</p>
+      <p>인증·로그인이 필요한 일부 서비스는 본 방침과 함께, 해당 서비스 내에서 별도의 추가 안내가 적용될 수 있습니다.</p>
+
+      <h2>2. 수집하지 않는 정보</h2>
+      <p>운영자는 다음 정보를 <strong>어떤 서비스에서도 수집·저장·전송하지 않습니다</strong>:</p>
+      <ul>
+        <li>이름, 이메일, 전화번호, 주소 등 신원 정보</li>
+        <li>실시간 위치 정보 (사용자가 직접 입력한 경우는 디바이스에만 저장됨)</li>
+        <li>카메라로 촬영하거나 업로드한 사진·문서의 내용</li>
+        <li>QR 코드에 입력한 데이터, 이미지 편집기에서 처리한 이미지</li>
+        <li>광고 식별자 기반의 맞춤형 추적 프로필</li>
+        <li>연락처, 캘린더, 통화 기록 등 디바이스 내 개인 데이터</li>
+      </ul>
+      <p>대부분의 서비스는 <strong>로컬 우선(local-first)</strong>으로 설계되어, 사용자가 입력하거나 처리하는 데이터가 디바이스를 절대 떠나지 않습니다.</p>
+
+      <h2>3. 자동으로 생성되는 정보</h2>
+      <p>웹사이트 접속 시 다음 정보가 서버 로그에 일시적으로 기록될 수 있습니다:</p>
+      <ul>
+        <li>접속 IP 주소, 브라우저 종류 및 운영체제</li>
+        <li>접속 일시, 요청한 페이지 경로, HTTP 응답 상태</li>
+      </ul>
+      <p>이 로그는 <strong>최대 90일간</strong> 보관 후 자동 삭제되며, 보안 위협 탐지와 서비스 안정성 유지 목적으로만 사용됩니다. 개인을 식별하기 위한 분석에는 사용되지 않습니다.</p>
+
+      <h2>4. 쿠키 및 로컬 저장소</h2>
+      <p>일부 서비스는 사용자의 언어 설정, 테마, 또는 로컬 데이터(예: Quon의 QR 생성 히스토리)를 저장하기 위해 브라우저의 <code>localStorage</code>, <code>IndexedDB</code>, 또는 모바일 앱의 <code>DataStore</code>를 사용합니다.</p>
+      <p>이 데이터는 <strong>전적으로 사용자의 디바이스에만 저장되며, 서버로 전송되지 않습니다.</strong> 브라우저 또는 앱 설정에서 언제든지 삭제할 수 있습니다.</p>
+
+      <h2>5. 제3자 서비스</h2>
+      <p>일부 서비스는 다음의 외부 서비스를 사용할 수 있으며, 그 외에는 어떤 제3자에게도 사용자 정보를 제공하지 않습니다:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN, DDoS 보호, DNS. 접속 IP가 Cloudflare 엣지를 통해 라우팅됩니다. (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare 정책</a>)</li>
+        <li><strong>Google Analytics</strong> — 일부 웹사이트의 익명 트래픽 통계. IP는 익명화되어 처리됩니다. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 정책</a>)</li>
+        <li><strong>Google AdSense · AdMob</strong> — 광고가 포함된 서비스(예: 광고 지원 무료 앱)에서 광고 송출. 광고 식별자를 사용할 수 있으며, 사용자는 OS 설정에서 추적을 거부할 수 있습니다. (<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google 광고 정책</a>)</li>
+      </ul>
+
+      <h2>6. 광고 (해당하는 경우)</h2>
+      <p>광고가 포함된 무료 서비스는 일반적으로 <strong>광고 제거 인앱 구매</strong> 옵션을 제공합니다. 광고를 제거하면 광고 관련 추적도 중단됩니다. 어린이를 주 대상으로 하는 서비스는 운영하지 않으며, COPPA 준수 광고만 사용합니다.</p>
+
+      <h2>7. 어린이의 개인정보</h2>
+      <p>운영자의 서비스는 만 13세 미만 어린이를 대상으로 하지 않으며, 의도적으로 어린이로부터 개인정보를 수집하지 않습니다.</p>
+
+      <h2>8. 사용자의 권리</h2>
+      <p>사용자는 언제든지 다음과 같이 권리를 행사할 수 있습니다:</p>
+      <ul>
+        <li>브라우저 설정에서 쿠키, localStorage, IndexedDB를 삭제</li>
+        <li>Google Analytics 수집 거부 (Opt-out 브라우저 확장 사용)</li>
+        <li>모바일 OS 설정에서 광고 식별자 재설정 또는 추적 거부</li>
+        <li>운영자에게 직접 데이터 관련 문의 또는 삭제 요청</li>
+      </ul>
+
+      <h2>9. 문의</h2>
+      <p>본 방침 또는 개인정보 관련 모든 문의는 아래 이메일로 연락해주세요:</p>
+      <ul>
+        <li><strong>이메일:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+
+      <h2>10. 방침 변경</h2>
+      <p>본 방침은 법령, 서비스 변경, 또는 적용 범위 추가에 따라 수정될 수 있으며, 중요한 변경 사항은 본 페이지 상단의 "최종 수정" 일자와 함께 공지합니다.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 XIU
+  </footer>
+
+  <script>
+    const translations = {
+      ko: {
+        back: '\u2190 돌아가기',
+        title: '개인정보처리방침',
+        updated: 'XIU 통합 정책 · 최종 수정: 2026-04-11',
+        headline_label: 'CORE PRINCIPLE',
+        headline_statement: 'XIU가 만든 거의 모든 서비스는 회원가입이 필요 없으며, 사용자의 개인정보를 수집하지 않습니다.',
+        content: `
+      <h2>1. 적용 범위</h2>
+      <p>본 방침은 XIU(이하 "운영자")가 제작·운영하는 모든 웹사이트, 모바일 애플리케이션, 도구 및 서비스 중에서 <strong>본 방침을 링크하는 모든 서비스</strong>에 적용됩니다. 운영자의 작품 목록은 시간이 지남에 따라 확장되며, 본 방침은 새로 추가되는 작품에도 동일하게 적용됩니다.</p>
+      <p>인증·로그인이 필요한 일부 서비스는 본 방침과 함께, 해당 서비스 내에서 별도의 추가 안내가 적용될 수 있습니다.</p>
+
+      <h2>2. 수집하지 않는 정보</h2>
+      <p>운영자는 다음 정보를 <strong>어떤 서비스에서도 수집·저장·전송하지 않습니다</strong>:</p>
+      <ul>
+        <li>이름, 이메일, 전화번호, 주소 등 신원 정보</li>
+        <li>실시간 위치 정보 (사용자가 직접 입력한 경우는 디바이스에만 저장됨)</li>
+        <li>카메라로 촬영하거나 업로드한 사진·문서의 내용</li>
+        <li>QR 코드에 입력한 데이터, 이미지 편집기에서 처리한 이미지</li>
+        <li>광고 식별자 기반의 맞춤형 추적 프로필</li>
+        <li>연락처, 캘린더, 통화 기록 등 디바이스 내 개인 데이터</li>
+      </ul>
+      <p>대부분의 서비스는 <strong>로컬 우선(local-first)</strong>으로 설계되어, 사용자가 입력하거나 처리하는 데이터가 디바이스를 절대 떠나지 않습니다.</p>
+
+      <h2>3. 자동으로 생성되는 정보</h2>
+      <p>웹사이트 접속 시 다음 정보가 서버 로그에 일시적으로 기록될 수 있습니다:</p>
+      <ul>
+        <li>접속 IP 주소, 브라우저 종류 및 운영체제</li>
+        <li>접속 일시, 요청한 페이지 경로, HTTP 응답 상태</li>
+      </ul>
+      <p>이 로그는 <strong>최대 90일간</strong> 보관 후 자동 삭제되며, 보안 위협 탐지와 서비스 안정성 유지 목적으로만 사용됩니다. 개인을 식별하기 위한 분석에는 사용되지 않습니다.</p>
+
+      <h2>4. 쿠키 및 로컬 저장소</h2>
+      <p>일부 서비스는 사용자의 언어 설정, 테마, 또는 로컬 데이터(예: Quon의 QR 생성 히스토리)를 저장하기 위해 브라우저의 <code>localStorage</code>, <code>IndexedDB</code>, 또는 모바일 앱의 <code>DataStore</code>를 사용합니다.</p>
+      <p>이 데이터는 <strong>전적으로 사용자의 디바이스에만 저장되며, 서버로 전송되지 않습니다.</strong> 브라우저 또는 앱 설정에서 언제든지 삭제할 수 있습니다.</p>
+
+      <h2>5. 제3자 서비스</h2>
+      <p>일부 서비스는 다음의 외부 서비스를 사용할 수 있으며, 그 외에는 어떤 제3자에게도 사용자 정보를 제공하지 않습니다:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN, DDoS 보호, DNS. 접속 IP가 Cloudflare 엣지를 통해 라우팅됩니다. (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare 정책</a>)</li>
+        <li><strong>Google Analytics</strong> — 일부 웹사이트의 익명 트래픽 통계. IP는 익명화되어 처리됩니다. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 정책</a>)</li>
+        <li><strong>Google AdSense · AdMob</strong> — 광고가 포함된 서비스(예: 광고 지원 무료 앱)에서 광고 송출. 광고 식별자를 사용할 수 있으며, 사용자는 OS 설정에서 추적을 거부할 수 있습니다. (<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google 광고 정책</a>)</li>
+      </ul>
+
+      <h2>6. 광고 (해당하는 경우)</h2>
+      <p>광고가 포함된 무료 서비스는 일반적으로 <strong>광고 제거 인앱 구매</strong> 옵션을 제공합니다. 광고를 제거하면 광고 관련 추적도 중단됩니다. 어린이를 주 대상으로 하는 서비스는 운영하지 않으며, COPPA 준수 광고만 사용합니다.</p>
+
+      <h2>7. 어린이의 개인정보</h2>
+      <p>운영자의 서비스는 만 13세 미만 어린이를 대상으로 하지 않으며, 의도적으로 어린이로부터 개인정보를 수집하지 않습니다.</p>
+
+      <h2>8. 사용자의 권리</h2>
+      <p>사용자는 언제든지 다음과 같이 권리를 행사할 수 있습니다:</p>
+      <ul>
+        <li>브라우저 설정에서 쿠키, localStorage, IndexedDB를 삭제</li>
+        <li>Google Analytics 수집 거부 (Opt-out 브라우저 확장 사용)</li>
+        <li>모바일 OS 설정에서 광고 식별자 재설정 또는 추적 거부</li>
+        <li>운영자에게 직접 데이터 관련 문의 또는 삭제 요청</li>
+      </ul>
+
+      <h2>9. 문의</h2>
+      <p>본 방침 또는 개인정보 관련 모든 문의는 아래 이메일로 연락해주세요:</p>
+      <ul>
+        <li><strong>이메일:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+
+      <h2>10. 방침 변경</h2>
+      <p>본 방침은 법령, 서비스 변경, 또는 적용 범위 추가에 따라 수정될 수 있으며, 중요한 변경 사항은 본 페이지 상단의 "최종 수정" 일자와 함께 공지합니다.</p>
+    `
+      },
+      en: {
+        back: '\u2190 Back',
+        title: 'Privacy Policy',
+        updated: 'Unified XIU Policy · Last updated: 2026-04-11',
+        headline_label: 'CORE PRINCIPLE',
+        headline_statement: 'Almost every service XIU builds requires no sign-up and collects no personal information from its users.',
+        content: `
+      <h2>1. Scope</h2>
+      <p>This policy applies to every website, mobile application, tool, or service built and operated by XIU (the "Operator") <strong>that links to this policy</strong>. The Operator's catalog of works grows over time, and this policy applies equally to any new works that are added to it.</p>
+      <p>Some services that require authentication or sign-in may be governed by this policy together with an additional notice provided inside the service itself.</p>
+
+      <h2>2. Information We Do NOT Collect</h2>
+      <p>Across all services, the Operator does <strong>not</strong> collect, store, or transmit any of the following:</p>
+      <ul>
+        <li>Identity information — name, email, phone number, address</li>
+        <li>Real-time location (when you enter location data manually, it stays on your device)</li>
+        <li>Photo, document, or file content captured or uploaded</li>
+        <li>Data you enter into QR codes or images you process in editors</li>
+        <li>Profiling based on advertising identifiers</li>
+        <li>On-device personal data such as contacts, calendar, or call logs</li>
+      </ul>
+      <p>Most services are designed <strong>local-first</strong>, meaning the data you input or process never leaves your device.</p>
+
+      <h2>3. Information Generated Automatically</h2>
+      <p>When you visit a website, the following may be temporarily recorded in server logs:</p>
+      <ul>
+        <li>IP address, browser type, and operating system</li>
+        <li>Access timestamp, requested page path, and HTTP response status</li>
+      </ul>
+      <p>These logs are retained for a maximum of <strong>90 days</strong> and then automatically deleted. They are used solely for security threat detection and service stability — never to identify individuals.</p>
+
+      <h2>4. Cookies &amp; Local Storage</h2>
+      <p>Some services use the browser's <code>localStorage</code>, <code>IndexedDB</code>, or a mobile app's <code>DataStore</code> to save preferences such as language, theme, or local data (e.g. Quon's QR generation history).</p>
+      <p>This data is <strong>stored entirely on your device and is never transmitted to any server.</strong> You can clear it at any time through your browser or app settings.</p>
+
+      <h2>5. Third-Party Services</h2>
+      <p>Some services may make use of the following third parties. No user information is provided to any third party outside of these:</p>
+      <ul>
+        <li><strong>Cloudflare</strong> — CDN, DDoS protection, DNS. Your IP is routed through Cloudflare's edge. (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare policy</a>)</li>
+        <li><strong>Google Analytics</strong> — Anonymous traffic statistics on some websites. IPs are anonymized. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google policy</a>)</li>
+        <li><strong>Google AdSense · AdMob</strong> — Ad delivery on ad-supported services (e.g. free apps with ads). May use advertising identifiers; you can opt out via your OS settings. (<a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google ads policy</a>)</li>
+      </ul>
+
+      <h2>6. Advertising (where applicable)</h2>
+      <p>Free services that include advertising typically offer an <strong>ad-removal in-app purchase</strong>. Removing ads also stops ad-related tracking. The Operator does not run services targeted at children, and only uses COPPA-compliant ad configurations.</p>
+
+      <h2>7. Children's Privacy</h2>
+      <p>The Operator's services are not directed at children under the age of 13, and do not knowingly collect personal information from children.</p>
+
+      <h2>8. Your Rights</h2>
+      <p>You may exercise the following rights at any time:</p>
+      <ul>
+        <li>Delete cookies, localStorage, and IndexedDB through your browser settings</li>
+        <li>Opt out of Google Analytics collection (e.g. via the official browser opt-out add-on)</li>
+        <li>Reset or disable advertising identifiers through your mobile OS settings</li>
+        <li>Contact the Operator directly with any data-related question or deletion request</li>
+      </ul>
+
+      <h2>9. Contact</h2>
+      <p>For any questions about this policy or your privacy, please contact:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:contact@xiu.kr">contact@xiu.kr</a></li>
+      </ul>
+
+      <h2>10. Changes to This Policy</h2>
+      <p>This policy may be updated due to legal changes, service changes, or new services added to its scope. Any material change will be announced on this page along with an updated "Last updated" date at the top.</p>
+    `
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    setLang(currentLang);
+  </script>
+
+</body>
+
+</html>

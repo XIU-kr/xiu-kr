@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>Blog — XIU</title>
+  <meta name="description" content="XIU 개발 블로그 — AI 이미지 에디터, 게임 서버 플러그인, 서버 인프라 등 프로젝트 개발기와 기술 이야기.">
+  <link rel="canonical" href="https://xiu.kr/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/blog/">
+  <meta property="og:title" content="Blog — XIU">
+  <meta property="og:description" content="XIU 개발 블로그 — AI 이미지 에디터, 게임 서버 플러그인, 서버 인프라 등 프로젝트 개발기와 기술 이야기.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="icon" href="/favicon.ico">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <style>
+    .blog-hero {
+      padding: 7rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .blog-hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .blog-hero .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+    .blog-list {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+      display: block;
+      text-decoration: none;
+    }
+    .blog-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+    .blog-card-tag {
+      padding: 0.15rem 0.6rem;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(212, 160, 22, 0.2);
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+    .blog-card-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.4;
+    }
+    .blog-card-excerpt {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .blog-card-read {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    @media (max-width: 600px) {
+      .blog-hero { padding: 6rem 1.2rem 2rem; }
+      .blog-hero h1 { font-size: 2rem; }
+      .blog-list { padding: 0 1.2rem 3rem; }
+      .blog-card { padding: 1.5rem; }
+      .blog-card-title { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body class="grain">
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/" style="color: var(--text);">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="blog-hero reveal">
+    <h1 data-i18n="blog_title">Blog</h1>
+    <p class="subtitle" data-i18n="blog_subtitle">프로젝트를 만들면서 겪은 기술적 도전과 해결 과정, 그리고 그 속에서 배운 것들을 기록합니다.</p>
+  </section>
+
+  <div class="blog-list">
+    <a href="/blog/vora-ai-development/" class="blog-card reveal">
+      <div class="blog-card-meta">
+        <span>2026-03-15</span>
+        <span class="blog-card-tag">AI</span>
+      </div>
+      <div class="blog-card-title" data-i18n="blog1_title">데스크톱에서 Photoshop을 만들기까지 — Vora 개발기</div>
+      <div class="blog-card-excerpt" data-i18n="blog1_excerpt">Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고 Big-LaMa 인페인팅을 로컬에서 돌리는 데스크톱 앱을 만든 과정, 18개 이상의 편집 도구를 설계하면서 마주친 기술적 과제들, 그리고 React와 Canvas API로 Photoshop급 레이어 시스템을 구현한 경험을 공유합니다.</div>
+      <span class="blog-card-read" data-i18n="read_more">자세히 읽기 &rarr;</span>
+    </a>
+
+    <a href="/blog/cs2-plugin-development/" class="blog-card reveal reveal-delay-1">
+      <div class="blog-card-meta">
+        <span>2026-02-20</span>
+        <span class="blog-card-tag">Gaming</span>
+      </div>
+      <div class="blog-card-title" data-i18n="blog2_title">CS2 서버 플러그인 개발과 2500명 커뮤니티 운영 이야기</div>
+      <div class="blog-card-excerpt" data-i18n="blog2_excerpt">CounterStrikeSharp 프레임워크로 수류탄 부스트 물리 엔진을 직접 구현한 과정, Docker와 Pterodactyl로 게임 서버 인프라를 자동화한 경험, 그리고 2500명 이상의 Discord 커뮤니티를 기술로 관리하는 방법에 대해 이야기합니다.</div>
+      <span class="blog-card-read" data-i18n="read_more">자세히 읽기 &rarr;</span>
+    </a>
+
+    <a href="/blog/server-infrastructure/" class="blog-card reveal reveal-delay-2">
+      <div class="blog-card-meta">
+        <span>2026-01-10</span>
+        <span class="blog-card-tag">Infra</span>
+      </div>
+      <div class="blog-card-title" data-i18n="blog3_title">Cloudflare + OPNsense로 구축한 홈서버 보안 아키텍처</div>
+      <div class="blog-card-excerpt" data-i18n="blog3_excerpt">개인 서버에 엔터프라이즈급 보안을 적용한 경험을 정리했습니다. Cloudflare의 DDoS 방어와 WAF, OPNsense 하드웨어 방화벽의 IDS/IPS, 그리고 Docker 네트워크 격리를 조합해 다층 방어 체계를 설계한 과정을 소개합니다.</div>
+      <span class="blog-card-read" data-i18n="read_more">자세히 읽기 &rarr;</span>
+    </a>
+  </div>
+
+  <footer>
+    &copy; 2026 XIU &nbsp;·&nbsp;
+    <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a>
+  </footer>
+
+  <script>
+    const translations = {
+      ko: {
+        blog_title: 'Blog',
+        blog_subtitle: '프로젝트를 만들면서 겪은 기술적 도전과 해결 과정, 그리고 그 속에서 배운 것들을 기록합니다.',
+        blog1_title: '데스크톱에서 Photoshop을 만들기까지 — Vora 개발기',
+        blog1_excerpt: 'Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고 Big-LaMa 인페인팅을 로컬에서 돌리는 데스크톱 앱을 만든 과정, 18개 이상의 편집 도구를 설계하면서 마주친 기술적 과제들, 그리고 React와 Canvas API로 Photoshop급 레이어 시스템을 구현한 경험을 공유합니다.',
+        blog2_title: 'CS2 서버 플러그인 개발과 2500명 커뮤니티 운영 이야기',
+        blog2_excerpt: 'CounterStrikeSharp 프레임워크로 수류탄 부스트 물리 엔진을 직접 구현한 과정, Docker와 Pterodactyl로 게임 서버 인프라를 자동화한 경험, 그리고 2500명 이상의 Discord 커뮤니티를 기술로 관리하는 방법에 대해 이야기합니다.',
+        blog3_title: 'Cloudflare + OPNsense로 구축한 홈서버 보안 아키텍처',
+        blog3_excerpt: '개인 서버에 엔터프라이즈급 보안을 적용한 경험을 정리했습니다. Cloudflare의 DDoS 방어와 WAF, OPNsense 하드웨어 방화벽의 IDS/IPS, 그리고 Docker 네트워크 격리를 조합해 다층 방어 체계를 설계한 과정을 소개합니다.',
+        read_more: '자세히 읽기 \u2192',
+        footer_privacy: '개인정보처리방침',
+      },
+      en: {
+        blog_title: 'Blog',
+        blog_subtitle: 'Technical challenges, solutions, and lessons learned from building my projects.',
+        blog1_title: 'Building Photoshop on the Desktop — The Vora Story',
+        blog1_excerpt: 'How I built a cross-platform desktop app with Tauri that ships Big-LaMa inpainting locally on Mac, Windows, and Linux, designed 18+ image editing tools, and built a Photoshop-class layer system with React and Canvas API.',
+        blog2_title: 'CS2 Plugin Development & Running a 500-Member Community',
+        blog2_excerpt: 'Building a custom grenade boost physics engine with CounterStrikeSharp, automating game server infrastructure with Docker and Pterodactyl, and managing a 2500+ member Discord community with code.',
+        blog3_title: 'Home Server Security with Cloudflare + OPNsense',
+        blog3_excerpt: 'Applying enterprise-grade security to a personal server. Combining Cloudflare DDoS protection and WAF, OPNsense hardware firewall IDS/IPS, and Docker network isolation into a multi-layered defense.',
+        read_more: 'Read more \u2192',
+        footer_privacy: 'Privacy Policy',
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+    setLang(currentLang);
+
+    // Nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Reveal
+    document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

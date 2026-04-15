@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xiu.kr/sitemap.xml

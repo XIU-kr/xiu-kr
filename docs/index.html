@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>XIU — Developer Portfolio</title>
+  <meta name="description"
+    content="XIU — Full-stack developer portfolio. AI tools, gaming plugins, church apps, server infrastructure.">
+  <link rel="canonical" href="https://xiu.kr/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/">
+  <meta property="og:title" content="XIU — Developer Portfolio">
+  <meta property="og:description" content="XIU — Full-stack developer portfolio. AI tools, gaming plugins, church apps, server infrastructure.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903"
+    crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=6">
+  <style>
+
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(212, 160, 22, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(45, 212, 168, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.15;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-greeting {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tagline strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-image-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(30px);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    .hero-image {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      position: relative;
+      z-index: 1;
+      filter: grayscale(10%);
+      transition: filter 0.5s, border-color 0.5s;
+    }
+
+    .hero-image:hover {
+      filter: grayscale(0%);
+      border-color: var(--accent-dim);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: -20px;
+      border: 1px dashed var(--border);
+      border-radius: 50%;
+      animation: orbit 20s linear infinite;
+    }
+
+    .hero-orbit-dot {
+      position: absolute;
+      top: -3px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.3rem;
+    }
+
+    /* ─── About ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .highlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .highlight-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateX(4px);
+    }
+
+    .highlight-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .highlight-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ─── Projects ─── */
+    .projects-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      grid-auto-flow: dense;
+    }
+
+    /* Cards with a screenshot are big (span 2); the rest are small (span 1).
+       Source order is interleaved (big, small, small, big, big, small, small, big...),
+       which combined with `grid-auto-flow: dense` produces:
+       Row 1: [BIG ][sm]
+       Row 2: [sm ][BIG]
+       Row 3: [BIG ][sm] ... */
+    .project-card { grid-column: span 1; }
+    .project-card.featured-card,
+    .project-card.site-card { grid-column: span 2; }
+
+    /* Site cards: image beside text */
+    .project-card.site-card {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .project-card.site-card .site-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      min-width: 0;
+    }
+    .project-card.site-card .project-site-visual {
+      position: relative;
+      aspect-ratio: 1400 / 900;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      align-self: center;
+      display: block;
+      width: 100%;
+    }
+    .project-card.site-card .project-site-visual img {
+      display: block;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card.site-card:hover .project-site-visual img { transform: scale(1.04); }
+    .project-card.site-card .project-site-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 55%, var(--accent-glow) 100%);
+      pointer-events: none;
+    }
+    /* Tablet: 2 cols; big cards take both cols (full row) */
+    @media (max-width: 1000px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Mobile: single column; site cards stack image on top */
+    @media (max-width: 720px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card,
+      .project-card.featured-card,
+      .project-card.site-card { grid-column: span 1; }
+      .project-card.site-card { grid-template-columns: 1fr; gap: 1.5rem; }
+      .project-card.site-card .project-site-visual { order: -1; }
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg-card-hover);
+      transform: translateY(-4px);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .project-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .project-links a {
+      color: var(--text-dim);
+      transition: color 0.3s;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .project-links a:hover {
+      color: var(--accent);
+    }
+
+    .project-links a.detail-link {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .project-links a.detail-link:hover {
+      color: #e0ad1c;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-card.featured-card {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .project-card.featured-card .project-featured-badge {
+      display: inline-block;
+      padding: 0.25rem 0.8rem;
+      border-radius: 100px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(212, 160, 22, 0.25);
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-featured-visual {
+      background: var(--bg-surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1398 / 928;
+    }
+
+    .project-featured-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .project-card.featured-card:hover .project-featured-visual img {
+      transform: scale(1.03);
+    }
+
+    .project-featured-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 55%, var(--accent-glow) 100%);
+      pointer-events: none;
+    }
+
+    /* ─── Tech Stack ─── */
+    .tech-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tech-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.3s;
+    }
+
+    .tech-category:hover {
+      border-color: var(--border-hover);
+    }
+
+    .tech-cat-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tech-item {
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .tech-item:hover {
+      background: var(--accent-glow);
+      border-color: rgba(212, 160, 22, 0.2);
+      color: var(--accent);
+    }
+
+    /* ─── Infrastructure ─── */
+    .infra-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .infra-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.6rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .infra-card:hover {
+      border-color: var(--teal);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(45, 212, 168, 0.08);
+    }
+
+    .infra-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .infra-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .infra-desc {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2.5rem;
+      }
+
+      .hero-tagline {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+
+      .stats {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .project-featured-visual {
+        height: auto;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(7, 7, 11, 0.96);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--border);
+        gap: 1.2rem;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 4rem 1.2rem;
+      }
+
+      .hero-image {
+        width: 180px;
+        height: 180px;
+      }
+
+      .stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .tech-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .infra-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    .section-desc--narrow {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-lines"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-greeting reveal">// Hello, World</div>
+        <h1 class="hero-name reveal reveal-delay-1">XIU</h1>
+        <p class="hero-tagline reveal reveal-delay-2" data-i18n-html="hero_tagline">
+          <strong>호기심 많은 개발자.</strong><br>
+          &lsquo;이걸 내가 만들 수 있지 않을까?&rsquo; — 모든 프로젝트는 이 한 문장에서 시작됐습니다.
+        </p>
+        <div class="hero-cta reveal reveal-delay-3">
+          <a href="#projects" class="btn btn-primary">Projects</a>
+          <a href="https://github.com/XIU-kr" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            GitHub
+          </a>
+        </div>
+        <div class="stats reveal reveal-delay-4">
+          <div>
+            <div class="stat-num" data-count="15">0</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div>
+            <div class="stat-num" data-count="9">0</div>
+            <div class="stat-label">Languages</div>
+          </div>
+          <div>
+            <div class="stat-num" data-count="500">0</div>
+            <div class="stat-label">Community</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal reveal-delay-2">
+        <div class="hero-image-glow"></div>
+        <div class="hero-orbit">
+          <div class="hero-orbit-dot"></div>
+        </div>
+        <img src="assets/profile.png" alt="XIU Profile" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-label reveal" data-i18n="label_about">About</div>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="about_title">저는 이런 개발자입니다</h2>
+    <div class="about-grid">
+      <div class="about-text reveal reveal-delay-2" data-i18n-html="about_text">
+        <p>
+          <strong>풀스택 개발</strong>부터 <strong>서버 인프라</strong>, <strong>AI 도구</strong>, <strong>게임 서버 플러그인</strong>까지 —
+          기술적으로 흥미로운 것이라면 분야를 가리지 않고 만들어봅니다.
+        </p>
+        <p>
+          브라우저에서 돌아가는 <strong>Photoshop급 AI 이미지 에디터</strong>를 만들기도 하고, Counter-Strike 2 서버를 위한 <strong>커스텀
+            플러그인</strong>을 개발하기도 합니다. 교회를 위한 <strong>예배 PPT 자동 생성기</strong>나 <strong>교적 관리 시스템</strong>도 만들었습니다.
+        </p>
+        <p>
+          <strong>Cloudflare</strong>와 <strong>OPNsense 하드웨어 방화벽</strong>을 활용한 서버 인프라를 직접 설계하고 운영하며, 2500명 이상의 CS2 커뮤니티를
+          관리하고 있습니다.
+        </p>
+        <p>
+          "이걸 더 편하게 쓸 수 있을 텐데"라는 생각이 들면 직접 만들어보는 편입니다. 찬송가 가사를 매주 복붙하는 게 번거로워서 <strong>PPT 자동 생성기</strong>를 만들었고,
+          QR 코드 생성기에 불필요한 광고가 많아서 깔끔한 <strong>오픈소스 버전</strong>을 직접 만들었습니다. 문제를 발견하면 해결책까지 만드는 것이 제 개발 스타일입니다.
+        </p>
+        <p>
+          기술 선택에 있어서는 <strong>실용주의</strong>를 지향합니다. 유행하는 기술보다 프로젝트에 맞는 기술을 선택하고, 사용자가 실제로 겪는 불편함을 해결하는 데 집중합니다.
+          TypeScript와 React로 웹 앱을 만들기도, Kotlin과 Jetpack Compose로 네이티브 앱을 만들기도, C#으로 게임 서버 플러그인을 개발하기도 합니다.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card reveal reveal-delay-2">
+          <div class="highlight-icon">&#x1f9e0;</div>
+          <div class="highlight-title">AI & Creative Tools</div>
+          <div class="highlight-desc" data-i18n="hl_ai">Big-LaMa 기반의 크로스플랫폼 AI 이미지 편집 데스크톱 앱 개발</div>
+        </div>
+        <div class="highlight-card reveal reveal-delay-3">
+          <div class="highlight-icon">&#x1f3ae;</div>
+          <div class="highlight-title">Game Server Engineering</div>
+          <div class="highlight-desc" data-i18n="hl_game">CS2 플러그인 개발 및 2500+ 멤버 커뮤니티 서버 운영</div>
+        </div>
+        <div class="highlight-card reveal reveal-delay-4">
+          <div class="highlight-icon">&#x26ea;</div>
+          <div class="highlight-title">Church Tech</div>
+          <div class="highlight-desc" data-i18n="hl_church">예배 자동화, 교적관리, 주차 앱 등 교회를 위한 솔루션</div>
+        </div>
+        <div class="highlight-card reveal reveal-delay-5">
+          <div class="highlight-icon">&#x1f5a7;</div>
+          <div class="highlight-title">Infrastructure</div>
+          <div class="highlight-desc" data-i18n="hl_infra">Cloudflare + OPNsense 기반 보안 서버 아키텍처 설계</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-label reveal" data-i18n="label_projects">Projects</div>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="projects_title">만든 것들</h2>
+    <p class="section-desc reveal reveal-delay-2"
+      data-i18n="projects_desc">
+      혼자서 기획, 설계, 개발, 배포까지 전 과정을 담당한 프로젝트들입니다. 각 프로젝트는 실제 사용자의 문제를 해결하기 위해 시작되었으며, 대부분 오픈소스로 공개되어 있습니다.
+    </p>
+
+    <div class="projects-filter reveal reveal-delay-2">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="desktop-apps">Desktop Apps</button>
+      <button class="filter-btn" data-filter="web-apps">Web Apps</button>
+      <button class="filter-btn" data-filter="church-apps">Church Apps</button>
+      <button class="filter-btn" data-filter="android-apps">Android Apps</button>
+      <button class="filter-btn" data-filter="game-plugins">Game Server Plugins</button>
+      <button class="filter-btn" data-filter="web-sites">Web Sites</button>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Cards interleaved: image-on-left big slot vs no-image small slot -->
+
+      <!-- Vora (featured) -->
+      <div class="project-card featured-card reveal" data-category="desktop-apps">
+        <div>
+          <div class="project-featured-badge" data-i18n="featured">Featured Project</div>
+          <div class="project-header">
+            <div class="project-icon">&#x1f3a8;</div>
+            <div class="project-links">
+              <a href="https://github.com/XIU-kr/Vora" target="_blank" rel="noopener">GitHub &rarr;</a>
+              <a href="https://vora.xiu.kr" target="_blank" rel="noopener" class="detail-link" data-i18n="website_link">웹사이트 &rarr;</a>
+            </div>
+          </div>
+          <div class="project-name">Vora</div>
+          <div class="project-desc" data-i18n="desc_vora">
+            Mac, Windows, Linux용 AI 이미지 에디터 데스크톱 앱. Big-LaMa 인페인팅, 레이어 마스크, 조정 레이어, 클론 스탬프, 힐링 브러시, 베지어 패스 등 Photoshop급 도구를 제공하며, 설치 후에는 완전 오프라인으로 동작합니다.
+          </div>
+          <div class="project-tags">
+            <span class="tag featured">TypeScript</span>
+            <span class="tag featured">Tauri</span>
+            <span class="tag featured">Big-LaMa</span>
+            <span class="tag">React</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="project-featured-visual"><img src="/assets/vora-preview.png" alt="Vora editor preview" loading="lazy" width="1398" height="928"></div>
+      </div>
+
+      <!-- Phos -->
+      <div class="project-card reveal" data-category="church-apps">
+        <div class="project-header">
+          <div class="project-icon">&#x1f4d6;</div>
+          <div class="project-links">
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">Phos</div>
+        <div class="project-desc" data-i18n="desc_phos">
+          예배 PPT 자동 생성기. 찬송가 645곡 가사, 개역개정 성경 텍스트를 기반으로 예배 순서에 맞는 슬라이드를 자동 조립합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Python</span>
+          <span class="tag featured">React</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">python-pptx</span>
+        </div>
+      </div>
+
+      <!-- Poima -->
+      <div class="project-card reveal" data-category="android-apps">
+        <div class="project-header">
+          <div class="project-icon">&#x1f4f2;</div>
+          <div class="project-links">
+          </div>
+        </div>
+        <div class="project-name">Quon (Android)</div>
+        <div class="project-desc" data-i18n="desc_quon_android">
+          Kotlin + Jetpack Compose 네이티브 QR 생성/스캔 앱. CameraX + ML Kit 실시간 스캐너(손전등 토글), ZXing 기반 생성, 색상·해상도·여백·로고 커스텀, PNG/WebP/SVG 갤러리 저장과 생성 히스토리, 폰·폴더블·태블릿 반응형 UI, AdMob 배너 + Play Billing 광고 제거 IAP를 지원합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Kotlin</span>
+          <span class="tag">Jetpack Compose</span>
+          <span class="tag">CameraX</span>
+          <span class="tag">ML Kit</span>
+          <span class="tag">ZXing</span>
+        </div>
+      </div>
+
+      <!-- quon.xiu.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f4f1;</div>
+          <div class="project-links">
+            <a href="https://quon.xiu.kr" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+        <div class="project-name">Quon Website</div>
+        <div class="project-desc" data-i18n="desc_quon_site">
+          무료 다국어 QR 코드 생성기 (Quon Web). qr-code-styling 기반으로 7가지 타입(URL·텍스트·연락처·이메일·전화·위치·Wi-Fi)과 점/모서리 모양·색상·로고 커스터마이징, PNG·SVG 다운로드를 지원합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Vanilla JS</span>
+          <span class="tag">qr-code-styling</span>
+          <span class="tag">i18n</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://quon.xiu.kr" target="_blank" rel="noopener" aria-label="Open quon.xiu.kr"><img src="/assets/site-quon.jpg" alt="quon.xiu.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- dongtanms.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f310;</div>
+          <div class="project-links">
+            <a href="https://dongtanms.kr" target="_blank" rel="noopener">Live</a>
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">Church Website</div>
+        <div class="project-desc" data-i18n="desc_dongtanms">
+          동탄명성교회 공식 홈페이지. Rhymix CMS 기반으로 운영되며, Cloudflare 보안 인프라 위에서 안정적으로 서비스됩니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Rhymix</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Cloudflare</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://dongtanms.kr" target="_blank" rel="noopener" aria-label="Open dongtanms.kr"><img src="/assets/site-dongtanms.jpg" alt="dongtanms.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- Quon (Android) -->
+      <div class="project-card reveal" data-category="church-apps">
+        <div class="project-header">
+          <div class="project-icon">&#x1f4cb;</div>
+          <div class="project-links">
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">Poima</div>
+        <div class="project-desc" data-i18n="desc_poima">
+          교회 교적 및 재정관리 웹 애플리케이션. 교인 정보, 출석, 재정 내역을 체계적으로 관리합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">TypeScript</span>
+          <span class="tag">Web App</span>
+        </div>
+      </div>
+
+      <!-- Parking Management -->
+      <div class="project-card reveal" data-category="android-apps">
+        <div class="project-header">
+          <div class="project-icon">&#x1f697;</div>
+          <div class="project-links">
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name" data-i18n="name_parking">Parking Management</div>
+        <div class="project-desc" data-i18n="desc_parking">
+          동탄명성교회 주차관리 네이티브 Android 앱. 주차 현황 파악과 관리를 모바일에서 간편하게 처리합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Kotlin</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+
+      <!-- repentanceheaven.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f6d0;</div>
+          <div class="project-links">
+            <a href="https://repentanceheaven.kr" target="_blank" rel="noopener">Live</a>
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">Mission Website</div>
+        <div class="project-desc" data-i18n="desc_repentanceheaven">
+          회개천국 선교회 공식 홈페이지. WordPress 기반으로 선교 활동 소개, 콘텐츠 아카이브, 다국어 페이지를 제공합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">WordPress</span>
+          <span class="tag">PHP</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://repentanceheaven.kr" target="_blank" rel="noopener" aria-label="Open repentanceheaven.kr"><img src="/assets/site-repentanceheaven.jpg" alt="repentanceheaven.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- shop.repentanceheaven.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f6d2;</div>
+          <div class="project-links">
+            <a href="https://shop.repentanceheaven.kr" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+        <div class="project-name">Bookstore Website</div>
+        <div class="project-desc" data-i18n="desc_mission_shop">
+          회개천국 선교회 부속 온라인 서점. WordPress + WooCommerce 기반으로 회개 기도문과 신앙 서적을 판매하며, 모든 수익금은 선교 헌금으로 사용됩니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">WordPress</span>
+          <span class="tag featured">WooCommerce</span>
+          <span class="tag">PHP</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://shop.repentanceheaven.kr" target="_blank" rel="noopener" aria-label="Open shop.repentanceheaven.kr"><img src="/assets/site-shop-repentanceheaven.jpg" alt="shop.repentanceheaven.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- Church App (Android) -->
+      <div class="project-card reveal" data-category="android-apps">
+        <div class="project-header">
+          <div class="project-icon">&#x26ea;</div>
+          <div class="project-links">
+            <a href="/projects/church-tech/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name" data-i18n="name_church_app">Church App</div>
+        <div class="project-desc" data-i18n="desc_church_app">
+          동탄명성교회 공식 Android 앱. 교회 소식, 예배 정보 등을 제공합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Kotlin</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+
+      <!-- GrenadeBoost -->
+      <div class="project-card reveal" data-category="game-plugins">
+        <div class="project-header">
+          <div class="project-icon">&#x1f4a5;</div>
+          <div class="project-links">
+            <a href="https://github.com/CS2KR/GrenadeBoost" target="_blank" rel="noopener">GitHub</a>
+            <a href="/projects/gaming/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">GrenadeBoost</div>
+        <div class="project-desc" data-i18n="desc_grenadeboost">
+          CS2 수류탄 부스트 플러그인. 커스텀 물리 엔진, 에어 정확도, 데미지 컨트롤, 자동 지급 등을 지원합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">C#</span>
+          <span class="tag">CounterStrikeSharp</span>
+        </div>
+      </div>
+
+      <!-- cs2.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f3ae;</div>
+          <div class="project-links">
+            <a href="https://cs2.kr" target="_blank" rel="noopener">Live</a>
+            <a href="/projects/gaming/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">Korea CS2 Community</div>
+        <div class="project-desc" data-i18n="desc_cs2_kr">
+          한국 유일에 가까운 Counter-Strike 2 커뮤니티 서버. 2500명 이상 디스코드 멤버, Docker + Pterodactyl 기반 24/7 게임 서버, OPNsense 하드웨어 방화벽으로 보호되는 다층 인프라를 운영합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Docker</span>
+          <span class="tag">Pterodactyl</span>
+          <span class="tag">OPNsense</span>
+          <span class="tag">Discord</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://cs2.kr" target="_blank" rel="noopener" aria-label="Open cs2.kr"><img src="/assets/site-cs2kr.jpg" alt="cs2.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- bbangyadan.kr -->
+      <div class="project-card site-card reveal" data-category="web-sites">
+        <div class="site-body">
+        <div class="project-header">
+          <div class="project-icon">&#x1f916;</div>
+          <div class="project-links">
+            <a href="https://bbangyadan.kr" target="_blank" rel="noopener">Live</a>
+          </div>
+        </div>
+        <div class="project-name">VALORANT Community</div>
+        <div class="project-desc" data-i18n="desc_bbangyadan">
+          발로란트 클랜을 위한 Discord 통합 운영 플랫폼. Discord.js 봇 + Express·EJS 웹 패널 + MySQL이 한 프로세스에서 동작하며, 포인트/코인 상점·인벤토리, 동적 음성채널, 음성 활동 추적, 임베드 템플릿 에디터, Riot/OP.GG Valorant 티어 동기화, KST 크론 스케줄러, 별도 TTS 봇 풀까지 — PM2 무중단 리로드로 운영됩니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">Discord.js</span>
+          <span class="tag featured">Express</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">EJS</span>
+          <span class="tag">PM2</span>
+        </div>
+        </div>
+        <a class="project-site-visual" href="https://bbangyadan.kr" target="_blank" rel="noopener" aria-label="Open bbangyadan.kr"><img src="/assets/site-bbangyadan.jpg" alt="bbangyadan.kr screenshot" loading="lazy" width="1400" height="900"></a>
+      </div>
+
+      <!-- AutoRestart -->
+      <div class="project-card reveal" data-category="game-plugins">
+        <div class="project-header">
+          <div class="project-icon">&#x1f504;</div>
+          <div class="project-links">
+            <a href="https://github.com/CS2KR/AutoRestart" target="_blank" rel="noopener">GitHub</a>
+            <a href="/projects/gaming/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">AutoRestart</div>
+        <div class="project-desc" data-i18n="desc_autorestart">
+          CS2 서버 자동 재시작 플러그인. 예약된 시간에 타임존을 지원하며 자동으로 서버를 재시작합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">C#</span>
+          <span class="tag">CounterStrikeSharp</span>
+        </div>
+      </div>
+
+      <!-- DU-NicknameSync -->
+      <div class="project-card reveal" data-category="game-plugins">
+        <div class="project-header">
+          <div class="project-icon">&#x1f504;&#xfe0f;</div>
+          <div class="project-links">
+            <a href="https://github.com/CS2KR/DU-NicknameSync" target="_blank" rel="noopener">GitHub</a>
+            <a href="/projects/gaming/" class="detail-link" data-i18n="detail_link">자세히 &rarr;</a>
+          </div>
+        </div>
+        <div class="project-name">DU-NicknameSync</div>
+        <div class="project-desc" data-i18n="desc_du_sync">
+          CS2-Discord-Utilities 커스텀 모듈. 플레이어의 Steam 닉네임을 Discord 닉네임과 자동으로 동기화하여 커뮤니티 관리를 단순화합니다.
+        </div>
+        <div class="project-tags">
+          <span class="tag featured">C#</span>
+          <span class="tag">Discord</span>
+          <span class="tag">CounterStrikeSharp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section id="stack">
+    <div class="section-label reveal" data-i18n="label_stack">Tech Stack</div>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="stack_title">기술 스택</h2>
+    <p class="section-desc reveal reveal-delay-2"
+      data-i18n="stack_desc">
+      프로젝트의 성격에 맞는 기술을 선택하는 것을 중요하게 생각합니다. 웹 프론트엔드부터 모바일 네이티브, AI/ML 파이프라인, 서버 인프라까지 폭넓게 다루고 있습니다.
+    </p>
+    <div class="tech-categories">
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x1f4bb; Languages</div>
+        <div class="tech-list">
+          <div class="tech-item">TypeScript</div>
+          <div class="tech-item">JavaScript</div>
+          <div class="tech-item">Kotlin</div>
+          <div class="tech-item">Python</div>
+          <div class="tech-item">C#</div>
+          <div class="tech-item">C++</div>
+          <div class="tech-item">PHP</div>
+          <div class="tech-item">Swift</div>
+          <div class="tech-item">Java</div>
+        </div>
+      </div>
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x2699;&#xfe0f; Frameworks</div>
+        <div class="tech-list">
+          <div class="tech-item">React</div>
+          <div class="tech-item">FastAPI</div>
+          <div class="tech-item">Jetpack Compose</div>
+          <div class="tech-item">Node.js</div>
+          <div class="tech-item">Discord.js</div>
+          <div class="tech-item">CounterStrikeSharp</div>
+          <div class="tech-item">Tailwind CSS</div>
+          <div class="tech-item">Vite</div>
+        </div>
+      </div>
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x1f9e0; AI / ML</div>
+        <div class="tech-list">
+          <div class="tech-item">Big-LaMa</div>
+          <div class="tech-item">ML Kit</div>
+          <div class="tech-item">CameraX</div>
+          <div class="tech-item">ZXing</div>
+        </div>
+      </div>
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x1f5a7; Infrastructure</div>
+        <div class="tech-list">
+          <div class="tech-item">Docker</div>
+          <div class="tech-item">Cloudflare</div>
+          <div class="tech-item">OPNsense</div>
+          <div class="tech-item">Pterodactyl</div>
+          <div class="tech-item">PM2</div>
+          <div class="tech-item">Nginx</div>
+        </div>
+      </div>
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x1f4e6; Platforms</div>
+        <div class="tech-list">
+          <div class="tech-item">WordPress</div>
+          <div class="tech-item">WooCommerce</div>
+          <div class="tech-item">Rhymix</div>
+          <div class="tech-item">Google Play</div>
+          <div class="tech-item">AdMob</div>
+          <div class="tech-item">Play Billing</div>
+        </div>
+      </div>
+      <div class="tech-category reveal">
+        <div class="tech-cat-title">&#x1f6e0;&#xfe0f; Tools</div>
+        <div class="tech-list">
+          <div class="tech-item">Git</div>
+          <div class="tech-item">GitHub Actions</div>
+          <div class="tech-item">Docker Hub</div>
+          <div class="tech-item">DataStore</div>
+          <div class="tech-item">Google Analytics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure -->
+  <section id="infra">
+    <div class="section-label reveal" data-i18n="label_infra">Infrastructure</div>
+    <h2 class="section-title reveal reveal-delay-1" data-i18n="infra_title">서버 인프라</h2>
+    <p class="section-desc--narrow reveal reveal-delay-2"
+      data-i18n="infra_desc">
+      Cloudflare와 OPNsense 하드웨어 방화벽을 활용한 다층 보안 서버 아키텍처를 직접 설계하고 운영합니다.
+    </p>
+    <div class="infra-grid">
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x1f6e1;&#xfe0f;</div>
+        <div class="infra-name">Cloudflare</div>
+        <div class="infra-desc" data-i18n="infra_cf">DDoS 방어, CDN, 엣지 보안, DNS 관리</div>
+      </div>
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x1f525;</div>
+        <div class="infra-name">OPNsense</div>
+        <div class="infra-desc" data-i18n="infra_opn">오픈소스 하드웨어 방화벽 OS로 게임 서버 보호</div>
+      </div>
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x1f4e6;</div>
+        <div class="infra-name">Docker</div>
+        <div class="infra-desc" data-i18n="infra_docker">컨테이너 기반 서비스 격리 및 배포</div>
+      </div>
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x1f4ca;</div>
+        <div class="infra-name">Monitoring</div>
+        <div class="infra-desc" data-i18n="infra_monitor">실시간 서버 상태 및 성능 모니터링</div>
+      </div>
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x1f4be;</div>
+        <div class="infra-name">Backup</div>
+        <div class="infra-desc" data-i18n="infra_backup">자동화된 데이터 백업 시스템</div>
+      </div>
+      <div class="infra-card reveal">
+        <div class="infra-icon">&#x2601;&#xfe0f;</div>
+        <div class="infra-name">Cloud Hosting</div>
+        <div class="infra-desc" data-i18n="infra_cloud">클라우드 인프라 연동 및 호스팅</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 XIU &nbsp;·&nbsp;
+    <a href="privacy.html" data-i18n="footer_privacy">개인정보처리방침</a>
+  </footer>
+
+  <script>
+    // ─── i18n System ───
+    const translations = {
+      ko: {
+        nav_about: 'About',
+        nav_projects: 'Projects',
+        nav_drop_ai: 'AI & Creative',
+        nav_drop_church: 'Church Tech',
+        nav_drop_gaming: 'Gaming',
+        nav_stack: 'Stack',
+        nav_infra: 'Infra',
+        nav_blog: 'Blog',
+        nav_contact: 'Contact',
+        hero_tagline: '<strong>호기심 많은 개발자.</strong><br>&lsquo;이걸 내가 만들 수 있지 않을까?&rsquo; — 모든 프로젝트는 이 한 문장에서 시작됐습니다.',
+        label_about: 'About',
+        about_title: '저는 이런 개발자입니다',
+        about_text: '<p><strong>풀스택 개발</strong>부터 <strong>서버 인프라</strong>, <strong>AI 도구</strong>, <strong>게임 서버 플러그인</strong>까지 — 기술적으로 흥미로운 것이라면 분야를 가리지 않고 만들어봅니다.</p><p>브라우저에서 돌아가는 <strong>Photoshop급 AI 이미지 에디터</strong>를 만들기도 하고, Counter-Strike 2 서버를 위한 <strong>커스텀 플러그인</strong>을 개발하기도 합니다. 교회를 위한 <strong>예배 PPT 자동 생성기</strong>나 <strong>교적 관리 시스템</strong>도 만들었습니다.</p><p><strong>Cloudflare</strong>와 <strong>OPNsense 하드웨어 방화벽</strong>을 활용한 서버 인프라를 직접 설계하고 운영하며, 2500명 이상의 CS2 커뮤니티를 관리하고 있습니다.</p><p>"이걸 더 편하게 쓸 수 있을 텐데"라는 생각이 들면 직접 만들어보는 편입니다. 찬송가 가사를 매주 복붙하는 게 번거로워서 <strong>PPT 자동 생성기</strong>를 만들었고, QR 코드 생성기에 불필요한 광고가 많아서 깔끔한 <strong>오픈소스 버전</strong>을 직접 만들었습니다. 문제를 발견하면 해결책까지 만드는 것이 제 개발 스타일입니다.</p><p>기술 선택에 있어서는 <strong>실용주의</strong>를 지향합니다. 유행하는 기술보다 프로젝트에 맞는 기술을 선택하고, 사용자가 실제로 겪는 불편함을 해결하는 데 집중합니다. TypeScript와 React로 웹 앱을 만들기도, Kotlin과 Jetpack Compose로 네이티브 앱을 만들기도, C#으로 게임 서버 플러그인을 개발하기도 합니다.</p>',
+        hl_ai: 'Big-LaMa 기반의 크로스플랫폼 AI 이미지 편집 데스크톱 앱 개발',
+        hl_game: 'CS2 플러그인 개발 및 2500+ 멤버 커뮤니티 서버 운영',
+        hl_church: '예배 자동화, 교적관리, 주차 앱 등 교회를 위한 솔루션',
+        hl_infra: 'Cloudflare + OPNsense 기반 보안 서버 아키텍처 설계',
+        label_projects: 'Projects',
+        projects_title: '만든 것들',
+        projects_desc: '혼자서 기획, 설계, 개발, 배포까지 전 과정을 담당한 프로젝트들입니다. 각 프로젝트는 실제 사용자의 문제를 해결하기 위해 시작되었으며, 대부분 오픈소스로 공개되어 있습니다.',
+        featured: 'Featured Project',
+        desc_vora: 'Mac, Windows, Linux용 AI 이미지 에디터 데스크톱 앱. Big-LaMa 인페인팅, 레이어 마스크, 조정 레이어, 클론 스탬프, 힐링 브러시, 베지어 패스 등 Photoshop급 도구를 제공하며, 설치 후에는 완전 오프라인으로 동작합니다.',
+        desc_phos: '예배 PPT 자동 생성기. 찬송가 645곡 가사, 개역개정 성경 텍스트를 기반으로 예배 순서에 맞는 슬라이드를 자동 조립합니다.',
+        desc_poima: '교회 교적 및 재정관리 웹 애플리케이션. 교인 정보, 출석, 재정 내역을 체계적으로 관리합니다.',
+        desc_quon_android: 'Kotlin + Jetpack Compose 네이티브 QR 생성/스캔 앱. CameraX + ML Kit 실시간 스캐너(손전등 토글), ZXing 기반 생성, 색상·해상도·여백·로고 커스텀, PNG/WebP/SVG 갤러리 저장과 생성 히스토리, 폰·폴더블·태블릿 반응형 UI, AdMob 배너 + Play Billing 광고 제거 IAP를 지원합니다.',
+        name_parking: 'Parking Management',
+        desc_parking: '동탄명성교회 주차관리 네이티브 Android 앱. 주차 현황 파악과 관리를 모바일에서 간편하게 처리합니다.',
+        name_church_app: 'Church App',
+        desc_church_app: '동탄명성교회 공식 Android 앱. 교회 소식, 예배 정보 등을 제공합니다.',
+        desc_grenadeboost: 'CS2 수류탄 부스트 플러그인. 커스텀 물리 엔진, 에어 정확도, 데미지 컨트롤, 자동 지급 등을 지원합니다.',
+        desc_autorestart: 'CS2 서버 자동 재시작 플러그인. 예약된 시간에 타임존을 지원하며 자동으로 서버를 재시작합니다.',
+        desc_du_sync: 'CS2-Discord-Utilities 커스텀 모듈. 플레이어의 Steam 닉네임을 Discord 닉네임과 자동으로 동기화하여 커뮤니티 관리를 단순화합니다.',
+        desc_quon_site: '무료 다국어 QR 코드 생성기 (Quon Web). qr-code-styling 기반으로 7가지 타입(URL·텍스트·연락처·이메일·전화·위치·Wi-Fi)과 점/모서리 모양·색상·로고 커스터마이징, PNG·SVG 다운로드를 지원합니다.',
+        desc_dongtanms: '동탄명성교회 공식 홈페이지. Rhymix CMS 기반으로 운영되며, Cloudflare 보안 인프라 위에서 안정적으로 서비스됩니다.',
+        desc_repentanceheaven: '회개천국 선교회 공식 홈페이지. WordPress 기반으로 선교 활동 소개, 콘텐츠 아카이브, 다국어 페이지를 제공합니다.',
+        desc_mission_shop: '회개천국 선교회 부속 온라인 서점. WordPress + WooCommerce 기반으로 회개 기도문과 신앙 서적을 판매하며, 모든 수익금은 선교 헌금으로 사용됩니다.',
+        desc_cs2_kr: '한국 유일에 가까운 Counter-Strike 2 커뮤니티 서버. 2500명 이상 디스코드 멤버, Docker + Pterodactyl 기반 24/7 게임 서버, OPNsense 하드웨어 방화벽으로 보호되는 다층 인프라를 운영합니다.',
+        desc_bbangyadan: '발로란트 클랜을 위한 Discord 통합 운영 플랫폼. Discord.js 봇 + Express·EJS 웹 패널 + MySQL이 한 프로세스에서 동작하며, 포인트/코인 상점·인벤토리, 동적 음성채널, 음성 활동 추적, 임베드 템플릿 에디터, Riot/OP.GG Valorant 티어 동기화, KST 크론 스케줄러, 별도 TTS 봇 풀까지 — PM2 무중단 리로드로 운영됩니다.',
+        label_stack: 'Tech Stack',
+        stack_title: '기술 스택',
+        stack_desc: '프로젝트의 성격에 맞는 기술을 선택하는 것을 중요하게 생각합니다. 웹 프론트엔드부터 모바일 네이티브, AI/ML 파이프라인, 서버 인프라까지 폭넓게 다루고 있습니다.',
+        label_infra: 'Infrastructure',
+        infra_title: '서버 인프라',
+        infra_desc: 'Cloudflare와 OPNsense 하드웨어 방화벽을 활용한 다층 보안 서버 아키텍처를 직접 설계하고 운영합니다.',
+        infra_cf: 'DDoS 방어, CDN, 엣지 보안, DNS 관리',
+        infra_opn: '오픈소스 하드웨어 방화벽 OS로 게임 서버 보호',
+        infra_docker: '컨테이너 기반 서비스 격리 및 배포',
+        infra_monitor: '실시간 서버 상태 및 성능 모니터링',
+        infra_backup: '자동화된 데이터 백업 시스템',
+        infra_cloud: '클라우드 인프라 연동 및 호스팅',
+        detail_link: '자세히 →',
+        website_link: '웹사이트 →',
+        footer_privacy: '개인정보처리방침',
+      },
+      en: {
+        nav_about: 'About',
+        nav_projects: 'Projects',
+        nav_drop_ai: 'AI & Creative',
+        nav_drop_church: 'Church Tech',
+        nav_drop_gaming: 'Gaming',
+        nav_stack: 'Stack',
+        nav_infra: 'Infra',
+        nav_blog: 'Blog',
+        nav_contact: 'Contact',
+        hero_tagline: '<strong>A curious developer.</strong><br>&lsquo;Could I build this myself?&rsquo; &mdash; every project started with that one question.',
+        label_about: 'About',
+        about_title: 'About Me',
+        about_text: '<p>From <strong>full-stack development</strong> to <strong>server infrastructure</strong>, <strong>AI tools</strong>, and <strong>game server plugins</strong> — if it\'s technically interesting, I\'ll build it regardless of the field.</p><p>I\'ve built a <strong>Photoshop-class AI image editor</strong> that runs in the browser, developed <strong>custom plugins</strong> for Counter-Strike 2 servers, and created a <strong>worship PPT auto-generator</strong> and <strong>church membership management system</strong>.</p><p>I design and operate server infrastructure using <strong>Cloudflare</strong> and <strong>OPNsense hardware firewalls</strong>, and manage a CS2 community of over 2500 members.</p><p>When I think "this could be easier," I build it myself. I created a <strong>PPT auto-generator</strong> because copy-pasting hymn lyrics every week was tedious, and built a clean <strong>open-source QR code generator</strong> because existing ones were cluttered with ads. Finding a problem and building a solution — that\'s my development style.</p><p>When it comes to technology choices, I\'m a <strong>pragmatist</strong>. I pick what fits the project rather than what\'s trending, and focus on solving real pain points users actually face. I build web apps with TypeScript and React, native apps with Kotlin and Jetpack Compose, and game server plugins with C#.</p>',
+        hl_ai: 'Cross-platform AI image editing desktop app powered by Big-LaMa',
+        hl_game: 'CS2 plugin development & 2500+ member community server',
+        hl_church: 'Worship automation, membership management, parking app & more',
+        hl_infra: 'Secure server architecture with Cloudflare + OPNsense',
+        label_projects: 'Projects',
+        projects_title: 'What I\'ve Built',
+        projects_desc: 'Projects where I handled every stage — from planning and design to development and deployment. Each project started from a real user need, and most are open-source.',
+        featured: 'Featured Project',
+        desc_vora: 'AI image editing desktop app for Mac, Windows, and Linux. Photoshop-class tools including Big-LaMa inpainting, layer masks, adjustment layers, clone stamp, healing brush, and bezier paths — fully offline after install.',
+        desc_phos: 'Worship PPT auto-generator. Automatically assembles slides based on 645 hymn lyrics and Korean Revised Version Bible text according to the worship program.',
+        desc_poima: 'Church membership and financial management web application. Systematically manages member info, attendance, and financial records.',
+        desc_quon_android: 'Native Kotlin + Jetpack Compose QR generator/scanner. CameraX + ML Kit real-time scanner with torch toggle, ZXing-based generation, color/resolution/padding/logo customization, PNG/WebP/SVG export with generation history, responsive UI for phones/foldables/tablets, AdMob banners, and Play Billing IAP to remove ads.',
+        name_parking: 'Parking Management',
+        desc_parking: 'Native Android parking management app for Dongtan Myungsung Church. Easy mobile parking status tracking and management.',
+        name_church_app: 'Church App',
+        desc_church_app: 'Official Android app for Dongtan Myungsung Church. Provides church news, worship info, and more.',
+        desc_grenadeboost: 'CS2 grenade boost plugin. Features custom physics, air accuracy, damage control, and auto-give grenades.',
+        desc_autorestart: 'CS2 server auto-restart plugin. Automatically restarts the server at scheduled times with timezone support.',
+        desc_du_sync: 'A CS2-Discord-Utilities custom module that automatically syncs players\' Steam nicknames with their Discord nicknames, simplifying community management.',
+        desc_quon_site: 'Free multilingual QR code generator (Quon Web). Built on qr-code-styling with 7 types (URL, text, contact, email, phone, location, Wi-Fi), customizable dot/corner shapes, colors, logo overlay, and PNG/SVG download.',
+        desc_dongtanms: 'Official website of Dongtan Myungsung Church. Operated on Rhymix CMS, served stably behind Cloudflare security infrastructure.',
+        desc_repentanceheaven: 'Official website of the Repentance Heaven mission organization. WordPress-based, providing mission activity introductions, content archives, and multilingual pages.',
+        desc_mission_shop: 'Online bookstore affiliated with the Repentance Heaven mission organization. Built on WordPress + WooCommerce, selling repentance prayer materials and devotional books — all proceeds support missionary work.',
+        desc_cs2_kr: 'One of Korea\'s only Counter-Strike 2 community servers. 2500+ Discord members, a Docker + Pterodactyl 24/7 game server, and a multi-layered infrastructure protected by an OPNsense hardware firewall.',
+        desc_bbangyadan: 'An all-in-one Discord operations platform for a Valorant clan. A Discord.js bot, an Express/EJS web admin panel, and MySQL run in a single process — featuring a point/coin shop and inventory, dynamic voice channels, voice activity tracking, an embed template editor, Riot/OP.GG Valorant tier auto-sync, KST cron schedulers, and a separate TTS bot pool — operated zero-downtime via PM2.',
+        label_stack: 'Tech Stack',
+        stack_title: 'Tech Stack',
+        stack_desc: 'I believe in choosing the right tool for each project. My experience spans web frontends, native mobile, AI/ML pipelines, and server infrastructure.',
+        label_infra: 'Infrastructure',
+        infra_title: 'Server Infrastructure',
+        infra_desc: 'I design and operate a multi-layered secure server architecture using Cloudflare and OPNsense hardware firewalls.',
+        infra_cf: 'DDoS protection, CDN, edge security, DNS management',
+        infra_opn: 'Open-source hardware firewall OS for game server protection',
+        infra_docker: 'Container-based service isolation and deployment',
+        infra_monitor: 'Real-time server status and performance monitoring',
+        infra_backup: 'Automated data backup system',
+        infra_cloud: 'Cloud infrastructure integration and hosting',
+        detail_link: 'Details →',
+        website_link: 'Website →',
+        footer_privacy: 'Privacy Policy',
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+
+      const t = translations[lang];
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Init language
+    setLang(currentLang);
+
+    // ─── Nav scroll ───
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ─── Mobile nav ───
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ─── Reveal on scroll ───
+    document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── Counter animation ───
+    function animateCounters() {
+      document.querySelectorAll('[data-count]').forEach(el => {
+        const target = parseInt(el.dataset.count);
+        const duration = 1800;
+        const start = performance.now();
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(ease * target);
+          el.textContent = current >= 500 ? current + '+' : current;
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { animateCounters(); statsObserver.unobserve(entry.target); }
+      });
+    }, { threshold: 0.5 });
+
+    const statsEl = document.querySelector('.stats');
+    if (statsEl) statsObserver.observe(statsEl);
+
+    // ─── Project filter ───
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          const categories = card.dataset.category || '';
+          if (filter === 'all' || categories.includes(filter)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

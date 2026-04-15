@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>Church Tech — XIU</title>
+  <meta name="description" content="교회를 위한 디지털 솔루션 — 예배 PPT 자동화, 교적관리, 모바일 앱, 교회 홈페이지">
+  <link rel="canonical" href="https://xiu.kr/projects/church-tech/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/projects/church-tech/">
+  <meta property="og:title" content="Church Tech — XIU">
+  <meta property="og:description" content="교회를 위한 디지털 솔루션 — 예배 PPT 자동화, 교적관리, 모바일 앱, 교회 홈페이지">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="icon" href="/favicon.ico">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+</head>
+
+<body class="grain">
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb reveal">
+    <a href="/" data-i18n="breadcrumb_home">홈</a>
+    <span class="sep">/</span>
+    <a href="/#projects" data-i18n="breadcrumb_projects">프로젝트</a>
+    <span class="sep">/</span>
+    <span class="current" data-i18n="breadcrumb_current">Church Tech</span>
+  </div>
+
+  <!-- Hero -->
+  <section class="project-hero reveal">
+    <span class="project-hero-icon">⛪</span>
+    <h1>Church Tech</h1>
+    <p class="project-hero-tagline" data-i18n="hero_tagline">교회를 위한 디지털 솔루션 — 예배 자동화부터 교적관리, 모바일 앱까지</p>
+    <div class="project-hero-tags">
+      <span class="tag featured">Python</span>
+      <span class="tag featured">React</span>
+      <span class="tag featured">FastAPI</span>
+      <span class="tag teal">Kotlin</span>
+      <span class="tag teal">Jetpack Compose</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Rhymix</span>
+      <span class="tag">PHP</span>
+    </div>
+    <div class="project-hero-links">
+      <a href="https://github.com/RepentanceHeaven" target="_blank" class="btn btn-primary">GitHub Organization →</a>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="project-content">
+
+    <!-- Overview -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="overview_title">프로젝트 개요</h2>
+      <div class="overview-prose">
+        <p data-i18n="overview_p1">동탄명성교회와 회개천국선교회를 위한 다양한 디지털 솔루션을 개발하고 있습니다. 교회의 실제 필요를 기술로 해결하는 것이 목표입니다. 작은 교회에서는 사역자가 설교 준비뿐 아니라 주보 제작, PPT 편집, 교적 관리, 재정 정리 등 수많은 행정 업무를 동시에 처리해야 합니다. 이런 반복적인 업무를 자동화하면 사역자가 본연의 사명에 더 집중할 수 있다는 확신에서 이 프로젝트들이 시작되었습니다.</p>
+        <p data-i18n="overview_p2">매주 반복되는 예배 PPT 제작 작업을 자동화하고, 종이 문서로 관리하던 교적과 재정 기록을 디지털화하며, 주차 관리를 모바일 앱으로 간소화했습니다. 각각의 프로젝트는 독립적으로 동작하면서도, 교회라는 하나의 생태계 안에서 서로 보완적인 역할을 합니다. 예를 들어 Phos로 생성된 예배 PPT는 교회 앱을 통해 교인들에게 공유될 수 있고, Poima의 교인 데이터는 다양한 교회 행정 업무의 기반이 됩니다.</p>
+        <p data-i18n="overview_p3">이 프로젝트들은 단순한 기술 연습이 아니라 실제 사용자들이 매주 사용하는 프로덕션 서비스입니다. 사용자의 피드백을 반영하며 지속적으로 개선하고 있습니다. 기술 스택을 선택할 때도 유지보수성과 안정성을 최우선으로 고려했으며, 비개발자인 사역자들도 쉽게 사용할 수 있는 직관적인 인터페이스를 설계하는 데 많은 시간을 투자했습니다.</p>
+        <p data-i18n="overview_p4">모든 교회 기술 프로젝트는 GitHub에 오픈소스로 공개되어 있어, 다른 교회에서도 활용할 수 있습니다. 한국의 많은 중소형 교회들이 비슷한 어려움을 겪고 있기에, 코드를 공개함으로써 더 넓은 교회 공동체에 기여하고자 합니다.</p>
+      </div>
+    </section>
+
+    <!-- Phos -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;">
+        <span style="font-size:2rem;">📖</span>
+        <h2 class="content-section-title" style="margin-bottom:0;">Phos</h2>
+      </div>
+      <p style="color:var(--text-secondary);font-size:1rem;margin-bottom:1.5rem;" data-i18n="phos_subtitle">예배 PPT 자동 생성기</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+        <span class="tag featured">Python</span>
+        <span class="tag featured">React</span>
+        <span class="tag featured">FastAPI</span>
+        <span class="tag">python-pptx</span>
+      </div>
+      <div class="overview-prose">
+        <p data-i18n="phos_p1">매주 예배를 준비하는 사역자들에게 PPT 제작은 시간이 많이 소요되는 반복 작업입니다. Phos는 이 과정을 자동화하여 사역자가 영적 준비에 더 집중할 수 있도록 돕습니다. 일반적으로 한 번의 예배 PPT를 만드는 데 30분에서 1시간이 소요되는데, Phos를 사용하면 5분 이내에 완성된 PPT를 받아볼 수 있습니다. 주일 오전예배, 오후예배, 수요예배, 금요기도회 등 매주 여러 차례의 예배가 있는 교회에서는 이 시간 절약 효과가 극적으로 증가합니다.</p>
+        <p data-i18n="phos_p2">찬송가 645곡의 가사 데이터베이스와 개역개정 성경 전체 텍스트를 내장하고 있습니다. 예배 순서를 입력하면 해당하는 찬송가 가사와 성경 말씀이 자동으로 슬라이드에 배치됩니다. 찬송가는 절별로 자동 분리되어 한 절씩 별도 슬라이드로 생성되며, 성경 본문은 지정한 장절 범위에 맞춰 정확하게 추출됩니다. 데이터의 정확성을 보장하기 위해 공인된 찬송가 텍스트와 대한성서공회의 개역개정 텍스트를 사용하고 있습니다.</p>
+        <p data-i18n="phos_p3">React 기반의 직관적인 웹 인터페이스에서 예배 순서를 편집하고, FastAPI 백엔드가 python-pptx 라이브러리를 사용하여 PPTX 파일을 생성합니다. 슬라이드 템플릿, 폰트, 색상 등을 커스터마이징할 수 있으며, 교회별 고유한 디자인 가이드라인에 맞출 수 있습니다. 생성된 PPT는 웹 브라우저에서 바로 다운로드되며, Microsoft PowerPoint나 Google Slides에서 추가 편집이 가능합니다.</p>
+      </div>
+      <div class="features-grid" style="margin-top:2rem;">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🎵</div>
+          <h3 data-i18n="phos_f1_title">찬송가 DB</h3>
+          <p data-i18n="phos_f1_desc">645곡 전체 가사 데이터베이스. 곡 번호나 제목으로 즉시 검색. 절별 가사 자동 분리로 한 절씩 깔끔한 슬라이드가 생성됩니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">📜</div>
+          <h3 data-i18n="phos_f2_title">성경 텍스트</h3>
+          <p data-i18n="phos_f2_desc">개역개정 성경 전체 텍스트 내장. 장절 범위 지정으로 정확한 말씀 슬라이드를 생성합니다. 긴 본문도 자동으로 여러 슬라이드에 나누어 배치합니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">⚡</div>
+          <h3 data-i18n="phos_f3_title">자동 조립</h3>
+          <p data-i18n="phos_f3_desc">예배 순서(기도, 찬양, 말씀, 봉헌 등)에 맞춰 슬라이드를 자동 배치. 일관된 디자인의 PPT 파일을 즉시 다운로드할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Poima -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;">
+        <span style="font-size:2rem;">📋</span>
+        <h2 class="content-section-title" style="margin-bottom:0;">Poima</h2>
+      </div>
+      <p style="color:var(--text-secondary);font-size:1rem;margin-bottom:1.5rem;" data-i18n="poima_subtitle">교회 교적 및 재정관리 시스템</p>
+      <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.5rem;">
+        <span class="tag featured">TypeScript</span>
+        <span class="tag">Web App</span>
+      </div>
+      <div class="overview-prose">
+        <p data-i18n="poima_p1">교인 정보를 체계적으로 관리하고, 출석 현황을 추적하며, 헌금 및 재정 내역을 투명하게 기록하는 웹 애플리케이션입니다. 교회 행정의 핵심인 교적 관리를 디지털화하여 정보의 정확성과 접근성을 크게 향상시켰습니다. 교인별 출석률 변화를 시각적으로 확인할 수 있어 목회적 돌봄이 필요한 교인을 빠르게 파악할 수 있으며, 재정 보고서를 자동으로 생성하여 투명한 교회 재정 운영을 지원합니다.</p>
+        <p data-i18n="poima_p2">기존의 종이 문서나 엑셀로 관리하던 교적 정보를 디지털화하여 검색, 통계, 보고서 생성이 쉽게 가능합니다. 교인별 상세 프로필, 가족 관계, 직분, 소속 기관 등의 정보를 관리할 수 있습니다. 세례, 입교, 전입 등의 교적 변동 이력을 추적하며, 생일이나 기념일 알림 기능으로 교인 관리의 세심함을 더했습니다. 권한 기반 접근 제어를 통해 개인정보를 안전하게 보호합니다.</p>
+      </div>
+    </section>
+
+    <!-- Church Mobile Apps -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="mobile_title">교회 모바일 앱</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🚗</div>
+          <h3 data-i18n="parking_title">Parking Management</h3>
+          <p data-i18n="parking_desc">동탄명성교회 주차관리 앱. Kotlin + Jetpack Compose로 개발되었습니다. 주일 예배 시 교회 주차장 현황을 실시간으로 파악하고, 이중주차 등으로 차량 이동이 필요한 경우 차주에게 모바일 알림을 전송합니다. 차량 번호 등록, 주차 위치 기록, 이동 요청 및 응답 기능을 제공하며, 주차 안내 봉사자의 업무 효율을 크게 높였습니다.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;">
+            <span class="tag teal">Kotlin</span>
+            <span class="tag teal">Jetpack Compose</span>
+          </div>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">⛪</div>
+          <h3 data-i18n="church_app_title">Church App</h3>
+          <p data-i18n="church_app_desc">동탄명성교회 공식 앱. Kotlin + Android로 개발되었습니다. 교회 소식, 예배 일정, 주보 등을 모바일에서 확인할 수 있습니다. 푸시 알림으로 중요 공지를 전달하며, 예배 실황 스트리밍 링크와 교회 일정 캘린더를 통합 제공합니다. 교인들이 언제 어디서든 교회와 연결될 수 있는 디지털 통로 역할을 합니다.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem;">
+            <span class="tag teal">Kotlin</span>
+            <span class="tag">Android</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Church Homepage -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem;">
+        <span style="font-size:2rem;">🌐</span>
+        <h2 class="content-section-title" style="margin-bottom:0;" data-i18n="homepage_title">Church Homepage</h2>
+      </div>
+      <div class="overview-prose" style="margin-top:1.5rem;">
+        <p data-i18n="homepage_p1">Rhymix CMS 기반 교회 홈페이지입니다. Cloudflare 보안 인프라 위에서 운영되며, DDoS 방어와 SSL 인증서를 통해 안전한 접속 환경을 제공합니다. 교회 소개, 예배 안내, 주보, 사진첩 등의 콘텐츠를 관리하며, 비개발자인 교회 관리자도 쉽게 콘텐츠를 업데이트할 수 있는 직관적인 관리자 패널을 제공합니다. 반응형 디자인으로 모바일과 데스크톱 모두에서 최적의 사용자 경험을 보장합니다.</p>
+        <p data-i18n-html="homepage_p2"><strong>선교회 홈페이지 및 쇼핑몰</strong> — 회개천국선교회 홈페이지와 온라인 쇼핑몰도 운영하고 있습니다. WordPress + WooCommerce 기반으로 선교 소식 공유와 온라인 판매 기능을 제공합니다. 선교 후원, 도서 판매, 선교지 소식 등을 통합 관리하며, 결제 시스템과 배송 추적까지 원스톱으로 지원합니다.</p>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <a href="https://repentanceheaven.kr" target="_blank" class="btn btn-ghost">repentanceheaven.kr →</a>
+      </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="tech_title">기술 스택</h2>
+      <div class="tech-breakdown">
+        <div class="tech-group reveal reveal-delay-1">
+          <div class="tech-group-title">🖥 Frontend</div>
+          <div class="tech-group-list">
+            <span class="tag featured">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag teal">Jetpack Compose</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-2">
+          <div class="tech-group-title">⚙️ Backend</div>
+          <div class="tech-group-list">
+            <span class="tag featured">FastAPI</span>
+            <span class="tag featured">Python</span>
+            <span class="tag">python-pptx</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-3">
+          <div class="tech-group-title">📱 Mobile</div>
+          <div class="tech-group-list">
+            <span class="tag teal">Kotlin</span>
+            <span class="tag">Android SDK</span>
+            <span class="tag teal">Jetpack Compose</span>
+          </div>
+        </div>
+        <div class="tech-group reveal reveal-delay-4">
+          <div class="tech-group-title">🌐 Web / CMS</div>
+          <div class="tech-group-list">
+            <span class="tag">Rhymix</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">WooCommerce</span>
+            <span class="tag">PHP</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Quote -->
+    <section class="content-section reveal">
+      <blockquote class="content-quote" data-i18n="quote">교회가 필요로 하는 기술을 만드는 것은 단순한 개발이 아닙니다. 사역자의 시간을 절약하고, 교인들의 편의를 높이며, 교회가 본연의 사명에 더 집중할 수 있도록 돕는 것입니다. 기술은 도구일 뿐이지만, 올바르게 사용하면 공동체를 더 강하게 연결하는 다리가 됩니다.</blockquote>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="related_title">관련 프로젝트</h2>
+      <div class="related-grid">
+        <a href="/projects/ai-creative/" class="related-card reveal reveal-delay-1">
+          <div class="related-card-icon">🤖</div>
+          <div class="related-card-name" data-i18n="related_ai">AI & Creative</div>
+          <div class="related-card-desc" data-i18n="related_ai_desc">AI 기반 창작 도구와 자동화 솔루션</div>
+        </a>
+        <a href="/projects/gaming/" class="related-card reveal reveal-delay-2">
+          <div class="related-card-icon">🎮</div>
+          <div class="related-card-name" data-i18n="related_gaming">Gaming</div>
+          <div class="related-card-desc" data-i18n="related_gaming_desc">CS2 커뮤니티 운영과 커스텀 플러그인 개발</div>
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Back CTA -->
+  <div class="back-cta reveal">
+    <p data-i18n="back_text">전체 프로젝트 목록으로 돌아가기</p>
+    <a href="/#projects" class="btn btn-primary" data-i18n="back_btn">← 포트폴리오로 돌아가기</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>&copy; 2026 XIU &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a></footer>
+
+  <script>
+    const translations = {
+      ko: {
+        breadcrumb_home: '홈',
+        breadcrumb_projects: '프로젝트',
+        breadcrumb_current: 'Church Tech',
+        hero_tagline: '교회를 위한 디지털 솔루션 — 예배 자동화부터 교적관리, 모바일 앱까지',
+        overview_title: '프로젝트 개요',
+        overview_p1: '동탄명성교회와 회개천국선교회를 위한 다양한 디지털 솔루션을 개발하고 있습니다. 교회의 실제 필요를 기술로 해결하는 것이 목표입니다. 작은 교회에서는 사역자가 설교 준비뿐 아니라 주보 제작, PPT 편집, 교적 관리, 재정 정리 등 수많은 행정 업무를 동시에 처리해야 합니다. 이런 반복적인 업무를 자동화하면 사역자가 본연의 사명에 더 집중할 수 있다는 확신에서 이 프로젝트들이 시작되었습니다.',
+        overview_p2: '매주 반복되는 예배 PPT 제작 작업을 자동화하고, 종이 문서로 관리하던 교적과 재정 기록을 디지털화하며, 주차 관리를 모바일 앱으로 간소화했습니다. 각각의 프로젝트는 독립적으로 동작하면서도, 교회라는 하나의 생태계 안에서 서로 보완적인 역할을 합니다. 예를 들어 Phos로 생성된 예배 PPT는 교회 앱을 통해 교인들에게 공유될 수 있고, Poima의 교인 데이터는 다양한 교회 행정 업무의 기반이 됩니다.',
+        overview_p3: '이 프로젝트들은 단순한 기술 연습이 아니라 실제 사용자들이 매주 사용하는 프로덕션 서비스입니다. 사용자의 피드백을 반영하며 지속적으로 개선하고 있습니다. 기술 스택을 선택할 때도 유지보수성과 안정성을 최우선으로 고려했으며, 비개발자인 사역자들도 쉽게 사용할 수 있는 직관적인 인터페이스를 설계하는 데 많은 시간을 투자했습니다.',
+        overview_p4: '모든 교회 기술 프로젝트는 GitHub에 오픈소스로 공개되어 있어, 다른 교회에서도 활용할 수 있습니다. 한국의 많은 중소형 교회들이 비슷한 어려움을 겪고 있기에, 코드를 공개함으로써 더 넓은 교회 공동체에 기여하고자 합니다.',
+        phos_subtitle: '예배 PPT 자동 생성기',
+        phos_p1: '매주 예배를 준비하는 사역자들에게 PPT 제작은 시간이 많이 소요되는 반복 작업입니다. Phos는 이 과정을 자동화하여 사역자가 영적 준비에 더 집중할 수 있도록 돕습니다. 일반적으로 한 번의 예배 PPT를 만드는 데 30분에서 1시간이 소요되는데, Phos를 사용하면 5분 이내에 완성된 PPT를 받아볼 수 있습니다. 주일 오전예배, 오후예배, 수요예배, 금요기도회 등 매주 여러 차례의 예배가 있는 교회에서는 이 시간 절약 효과가 극적으로 증가합니다.',
+        phos_p2: '찬송가 645곡의 가사 데이터베이스와 개역개정 성경 전체 텍스트를 내장하고 있습니다. 예배 순서를 입력하면 해당하는 찬송가 가사와 성경 말씀이 자동으로 슬라이드에 배치됩니다. 찬송가는 절별로 자동 분리되어 한 절씩 별도 슬라이드로 생성되며, 성경 본문은 지정한 장절 범위에 맞춰 정확하게 추출됩니다. 데이터의 정확성을 보장하기 위해 공인된 찬송가 텍스트와 대한성서공회의 개역개정 텍스트를 사용하고 있습니다.',
+        phos_p3: 'React 기반의 직관적인 웹 인터페이스에서 예배 순서를 편집하고, FastAPI 백엔드가 python-pptx 라이브러리를 사용하여 PPTX 파일을 생성합니다. 슬라이드 템플릿, 폰트, 색상 등을 커스터마이징할 수 있으며, 교회별 고유한 디자인 가이드라인에 맞출 수 있습니다. 생성된 PPT는 웹 브라우저에서 바로 다운로드되며, Microsoft PowerPoint나 Google Slides에서 추가 편집이 가능합니다.',
+        phos_f1_title: '찬송가 DB',
+        phos_f1_desc: '645곡 전체 가사 데이터베이스. 곡 번호나 제목으로 즉시 검색. 절별 가사 자동 분리로 한 절씩 깔끔한 슬라이드가 생성됩니다.',
+        phos_f2_title: '성경 텍스트',
+        phos_f2_desc: '개역개정 성경 전체 텍스트 내장. 장절 범위 지정으로 정확한 말씀 슬라이드를 생성합니다. 긴 본문도 자동으로 여러 슬라이드에 나누어 배치합니다.',
+        phos_f3_title: '자동 조립',
+        phos_f3_desc: '예배 순서(기도, 찬양, 말씀, 봉헌 등)에 맞춰 슬라이드를 자동 배치. 일관된 디자인의 PPT 파일을 즉시 다운로드할 수 있습니다.',
+        poima_subtitle: '교회 교적 및 재정관리 시스템',
+        poima_p1: '교인 정보를 체계적으로 관리하고, 출석 현황을 추적하며, 헌금 및 재정 내역을 투명하게 기록하는 웹 애플리케이션입니다. 교회 행정의 핵심인 교적 관리를 디지털화하여 정보의 정확성과 접근성을 크게 향상시켰습니다. 교인별 출석률 변화를 시각적으로 확인할 수 있어 목회적 돌봄이 필요한 교인을 빠르게 파악할 수 있으며, 재정 보고서를 자동으로 생성하여 투명한 교회 재정 운영을 지원합니다.',
+        poima_p2: '기존의 종이 문서나 엑셀로 관리하던 교적 정보를 디지털화하여 검색, 통계, 보고서 생성이 쉽게 가능합니다. 교인별 상세 프로필, 가족 관계, 직분, 소속 기관 등의 정보를 관리할 수 있습니다. 세례, 입교, 전입 등의 교적 변동 이력을 추적하며, 생일이나 기념일 알림 기능으로 교인 관리의 세심함을 더했습니다. 권한 기반 접근 제어를 통해 개인정보를 안전하게 보호합니다.',
+        mobile_title: '교회 모바일 앱',
+        parking_title: 'Parking Management',
+        parking_desc: '동탄명성교회 주차관리 앱. Kotlin + Jetpack Compose로 개발되었습니다. 주일 예배 시 교회 주차장 현황을 실시간으로 파악하고, 이중주차 등으로 차량 이동이 필요한 경우 차주에게 모바일 알림을 전송합니다. 차량 번호 등록, 주차 위치 기록, 이동 요청 및 응답 기능을 제공하며, 주차 안내 봉사자의 업무 효율을 크게 높였습니다.',
+        church_app_title: 'Church App',
+        church_app_desc: '동탄명성교회 공식 앱. Kotlin + Android로 개발되었습니다. 교회 소식, 예배 일정, 주보 등을 모바일에서 확인할 수 있습니다. 푸시 알림으로 중요 공지를 전달하며, 예배 실황 스트리밍 링크와 교회 일정 캘린더를 통합 제공합니다. 교인들이 언제 어디서든 교회와 연결될 수 있는 디지털 통로 역할을 합니다.',
+        homepage_title: 'Church Homepage',
+        homepage_p1: 'Rhymix CMS 기반 교회 홈페이지입니다. Cloudflare 보안 인프라 위에서 운영되며, DDoS 방어와 SSL 인증서를 통해 안전한 접속 환경을 제공합니다. 교회 소개, 예배 안내, 주보, 사진첩 등의 콘텐츠를 관리하며, 비개발자인 교회 관리자도 쉽게 콘텐츠를 업데이트할 수 있는 직관적인 관리자 패널을 제공합니다. 반응형 디자인으로 모바일과 데스크톱 모두에서 최적의 사용자 경험을 보장합니다.',
+        homepage_p2: '<strong>선교회 홈페이지 및 쇼핑몰</strong> — 회개천국선교회 홈페이지와 온라인 쇼핑몰도 운영하고 있습니다. WordPress + WooCommerce 기반으로 선교 소식 공유와 온라인 판매 기능을 제공합니다. 선교 후원, 도서 판매, 선교지 소식 등을 통합 관리하며, 결제 시스템과 배송 추적까지 원스톱으로 지원합니다.',
+        tech_title: '기술 스택',
+        quote: '교회가 필요로 하는 기술을 만드는 것은 단순한 개발이 아닙니다. 사역자의 시간을 절약하고, 교인들의 편의를 높이며, 교회가 본연의 사명에 더 집중할 수 있도록 돕는 것입니다. 기술은 도구일 뿐이지만, 올바르게 사용하면 공동체를 더 강하게 연결하는 다리가 됩니다.',
+        related_title: '관련 프로젝트',
+        related_ai: 'AI & Creative',
+        related_ai_desc: 'AI 기반 창작 도구와 자동화 솔루션',
+        related_gaming: 'Gaming',
+        related_gaming_desc: '마인크래프트 서버 플러그인과 게이밍 프로젝트',
+        back_text: '전체 프로젝트 목록으로 돌아가기',
+        back_btn: '← 포트폴리오로 돌아가기',
+        footer_privacy: '개인정보처리방침'
+      },
+      en: {
+        breadcrumb_home: 'Home',
+        breadcrumb_projects: 'Projects',
+        breadcrumb_current: 'Church Tech',
+        hero_tagline: 'Digital solutions for churches — from worship automation to member management and mobile apps',
+        overview_title: 'Project Overview',
+        overview_p1: 'I develop various digital solutions for Dongtan Myungsung Church and Repentance Heaven Mission. The goal is to solve real church needs through technology. In small churches, ministers must handle not only sermon preparation but also bulletin creation, PPT editing, member record management, financial bookkeeping, and numerous other administrative tasks simultaneously. These projects started from the conviction that automating repetitive tasks allows ministers to focus more on their core mission.',
+        overview_p2: 'I automated the weekly worship PPT creation process, digitized member records and financial data that were previously managed on paper, and simplified parking management through a mobile app. Each project operates independently while playing complementary roles within the church ecosystem. For example, worship PPTs generated by Phos can be shared with church members through the church app, and Poima\'s member data serves as the foundation for various church administrative tasks.',
+        overview_p3: 'These projects are not mere technical exercises but production services that real users rely on every week. I continuously improve them based on user feedback. When choosing technology stacks, I prioritize maintainability and stability, and I invested significant time in designing intuitive interfaces that non-developer ministers can easily use.',
+        overview_p4: 'All church tech projects are open-sourced on GitHub, so other churches can utilize them as well. Since many small and medium-sized churches in Korea face similar challenges, I aim to contribute to the broader church community by sharing the code.',
+        phos_subtitle: 'Worship PPT Auto-Generator',
+        phos_p1: 'For ministers preparing weekly worship services, PPT creation is a time-consuming repetitive task. Phos automates this process so ministers can focus more on spiritual preparation. Typically, creating a single worship PPT takes 30 minutes to an hour, but with Phos, you can receive a completed PPT in under 5 minutes. For churches with multiple weekly services — Sunday morning, Sunday afternoon, Wednesday, Friday prayer meetings — the time savings increase dramatically.',
+        phos_p2: 'It includes a database of all 645 hymn lyrics and the complete Korean Revised Version Bible text. When you input the worship order, the corresponding hymn lyrics and Bible verses are automatically placed on slides. Hymns are automatically split by verse into separate slides, and Bible passages are precisely extracted according to the specified chapter and verse range. To ensure data accuracy, it uses authorized hymnal texts and the Korean Bible Society\'s Revised Version.',
+        phos_p3: 'Edit the worship order in an intuitive React-based web interface, and the FastAPI backend generates PPTX files using the python-pptx library. You can customize slide templates, fonts, colors, and match each church\'s unique design guidelines. Generated PPTs can be downloaded directly from the browser and further edited in Microsoft PowerPoint or Google Slides.',
+        phos_f1_title: 'Hymn Database',
+        phos_f1_desc: 'Complete lyrics database of all 645 hymns. Instant search by number or title. Auto-splits lyrics by verse for clean, individual slides.',
+        phos_f2_title: 'Bible Text',
+        phos_f2_desc: 'Complete Korean Revised Version Bible text built-in. Specify chapter and verse ranges for accurate scripture slides. Long passages are automatically distributed across multiple slides.',
+        phos_f3_title: 'Auto Assembly',
+        phos_f3_desc: 'Automatically arranges slides according to worship order (prayer, praise, scripture, offering, etc.). Download consistently designed PPT files instantly.',
+        poima_subtitle: 'Church Member & Finance Management',
+        poima_p1: 'A web application that systematically manages church member information, tracks attendance, and transparently records offerings and financial data. By digitizing member record management — the core of church administration — it significantly improves data accuracy and accessibility. Visual attendance trend tracking helps quickly identify members who need pastoral care, and automated financial reports support transparent church financial management.',
+        poima_p2: 'It digitizes member records previously managed with paper documents or Excel, making search, statistics, and report generation easy. You can manage detailed member profiles, family relationships, positions, and affiliated organizations. It tracks membership changes such as baptism, confirmation, and transfers, and adds attentiveness to member care with birthday and anniversary notification features. Role-based access control ensures secure protection of personal information.',
+        mobile_title: 'Church Mobile Apps',
+        parking_title: 'Parking Management',
+        parking_desc: 'Parking management app for Dongtan Myungsung Church. Built with Kotlin + Jetpack Compose. Provides real-time parking lot status during Sunday services. When vehicle relocation is needed due to double parking, it sends mobile notifications to car owners. Features include vehicle number registration, parking location recording, and move request/response functionality, greatly improving the efficiency of parking volunteers.',
+        church_app_title: 'Church App',
+        church_app_desc: 'Official app for Dongtan Myungsung Church. Built with Kotlin + Android. View church news, worship schedules, and bulletins on mobile. Delivers important announcements via push notifications, integrates live worship streaming links and church calendar. Serves as a digital gateway for members to stay connected with the church anytime, anywhere.',
+        homepage_title: 'Church Homepage',
+        homepage_p1: 'A church homepage built on Rhymix CMS. Runs on Cloudflare security infrastructure with DDoS protection and SSL certificates for a secure browsing environment. Manages content including church introduction, worship information, bulletins, and photo galleries, with an intuitive admin panel that even non-developer church administrators can easily use. Responsive design ensures optimal user experience on both mobile and desktop.',
+        homepage_p2: '<strong>Mission Website & Shop</strong> — Also operates the Repentance Heaven Mission website and online shop. Built on WordPress + WooCommerce, providing mission news sharing and online sales functionality. Manages mission support, book sales, and mission field news in one place, with end-to-end payment and shipping tracking support.',
+        tech_title: 'Tech Stack',
+        quote: 'Building technology for churches is not just development. It\'s about saving ministers\' time, improving convenience for church members, and helping churches focus more on their true mission. Technology is merely a tool, but when used correctly, it becomes a bridge that connects communities more strongly.',
+        related_title: 'Related Projects',
+        related_ai: 'AI & Creative',
+        related_ai_desc: 'AI-powered creative tools and automation solutions',
+        related_gaming: 'Gaming',
+        related_gaming_desc: 'Minecraft server plugins and gaming projects',
+        back_text: 'Return to full project list',
+        back_btn: '\u2190 Back to Portfolio',
+        footer_privacy: 'Privacy Policy'
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    document.documentElement.classList.add('js-ready');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Init language
+    setLang(currentLang);
+  </script>
+
+</body>
+
+</html>

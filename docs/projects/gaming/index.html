@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>Gaming & Community — XIU</title>
+  <meta name="description" content="CS2 커뮤니티 서버 운영, 커스텀 플러그인 개발 — XIU Developer Portfolio">
+  <link rel="canonical" href="https://xiu.kr/projects/gaming/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/projects/gaming/">
+  <meta property="og:title" content="Gaming & Community — XIU">
+  <meta property="og:description" content="CS2 커뮤니티 서버 운영, 커스텀 플러그인 개발 — XIU Developer Portfolio">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+</head>
+
+<body class="grain">
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">KO</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb reveal">
+    <a href="/" data-i18n="breadcrumb_home">홈</a>
+    <span class="sep">/</span>
+    <a href="/#projects" data-i18n="breadcrumb_projects">프로젝트</a>
+    <span class="sep">/</span>
+    <span class="current" data-i18n="breadcrumb_current">Gaming & Community</span>
+  </div>
+
+  <!-- Hero -->
+  <section class="project-hero reveal">
+    <span class="project-hero-icon">🎮</span>
+    <div class="project-hero-badge live" data-i18n="hero_badge">Live Community</div>
+    <h1>Gaming &amp; Community</h1>
+    <p class="project-hero-tagline" data-i18n="hero_tagline">CS2 게임 서버 운영, 커스텀 플러그인 개발, 그리고 2500+ 멤버 커뮤니티 관리</p>
+    <div class="project-hero-tags">
+      <span class="tag featured">C#</span>
+      <span class="tag featured">CounterStrikeSharp</span>
+      <span class="tag teal">JavaScript</span>
+      <span class="tag teal">Discord.js</span>
+      <span class="tag teal">Node.js</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Pterodactyl</span>
+    </div>
+    <div class="project-hero-stats">
+      <div class="stat">
+        <div class="stat-value" data-i18n="stat_members_value">500+</div>
+        <div class="stat-label" data-i18n="stat_members_label">Members</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" data-i18n="stat_plugins_value">3</div>
+        <div class="stat-label" data-i18n="stat_plugins_label">Plugins</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value" data-i18n="stat_server_value">24/7</div>
+        <div class="stat-label" data-i18n="stat_server_label">Server</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="project-content">
+
+    <!-- Overview -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="overview_title">프로젝트 개요</h2>
+      <div class="overview-prose" style="max-width:100%;">
+        <p data-i18n="overview_p1">Counter-Strike 2(CS2) 한국 커뮤니티 서버를 운영하며 2500명 이상의 활성 멤버를 가진 Discord 커뮤니티를 관리하고 있습니다. 서버 운영뿐만 아니라 게임 플레이를 향상시키는 커스텀 플러그인도 직접 개발합니다.</p>
+        <p data-i18n="overview_p2">게임 서버 운영에는 단순한 서버 호스팅 이상의 기술이 필요합니다. DDoS 공격 방어, 서버 성능 최적화, 플러그인 호환성 관리, 그리고 커뮤니티 운영까지 — 다양한 영역의 기술적 역량이 필요합니다.</p>
+        <p data-i18n="overview_p3">Docker와 Pterodactyl을 기반으로 한 컨테이너화된 게임 서버 인프라를 구축했으며, OPNsense 하드웨어 방화벽으로 네트워크 레벨의 보안을 확보하고 있습니다.</p>
+        <p data-i18n="overview_p4">CS2-Discord-Utilities 프레임워크용 커스텀 모듈(DU-NicknameSync)을 직접 개발해, Steam 닉네임과 Discord 닉네임의 자동 동기화를 구현했습니다.</p>
+      </div>
+    </section>
+
+    <!-- CS2 Community Server -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.5rem;">
+        <span style="font-size:1.8rem;">🎮</span>
+        <h2 class="content-section-title" style="margin-bottom:0;" data-i18n="cs2_title">CS2 Community Server</h2>
+      </div>
+      <div class="project-hero-tags" style="margin-bottom:2rem;">
+        <span class="tag">Docker</span>
+        <span class="tag">Pterodactyl</span>
+        <span class="tag teal">Discord</span>
+      </div>
+      <div class="overview-prose" style="max-width:100%;">
+        <p data-i18n="cs2_p1">한국에서 가장 활발한 CS2 커뮤니티 중 하나인 cs2.kr 커뮤니티를 운영하고 있습니다. 2500명 이상의 Discord 멤버가 활발히 활동하고 있으며, 24시간 운영되는 게임 서버를 제공합니다.</p>
+        <p data-i18n="cs2_p2">Pterodactyl 패널을 통해 서버의 시작/정지, 리소스 모니터링, 설정 변경을 웹 UI에서 관리합니다. Docker 컨테이너로 서버를 격리하여 안정성과 보안을 확보했습니다.</p>
+        <p data-i18n="cs2_p3">서버 상태를 실시간으로 모니터링하며, 문제 발생 시 자동 알림을 통해 빠르게 대응합니다. 정기적인 업데이트와 맵 로테이션으로 플레이어에게 최상의 경험을 제공합니다.</p>
+      </div>
+    </section>
+
+    <!-- GrenadeBoost -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.3rem;">
+        <span style="font-size:1.8rem;">💥</span>
+        <h2 class="content-section-title" style="margin-bottom:0;">GrenadeBoost</h2>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:1rem;font-size:0.95rem;" data-i18n="grenadeboost_subtitle">CS2 수류탄 부스트 플러그인</p>
+      <div class="project-hero-tags" style="margin-bottom:1rem;">
+        <span class="tag featured">C#</span>
+        <span class="tag featured">CounterStrikeSharp</span>
+      </div>
+      <div class="project-hero-links" style="margin-bottom:2rem;">
+        <a href="https://github.com/CS2KR/GrenadeBoost" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="overview-prose" style="max-width:100%;">
+        <p data-i18n="grenadeboost_p1">CS2에서 수류탄을 이용한 부스트(수류탄 위에 올라서 높은 곳으로 이동)를 가능하게 하는 서버 사이드 플러그인입니다. CounterStrikeSharp 프레임워크를 기반으로 C#으로 개발했습니다.</p>
+        <p data-i18n="grenadeboost_p2">기본 CS2 게임 물리에서는 지원하지 않는 수류탄 부스트를 커스텀 물리 엔진으로 구현했습니다. 부스트 시 에어 정확도, 착지 데미지 등을 세밀하게 조절할 수 있습니다.</p>
+        <p data-i18n="grenadeboost_p3">관리자가 서버 콘솔에서 부스트 파라미터를 실시간으로 변경할 수 있으며, 수류탄 자동 지급 기능도 포함되어 있습니다. 오픈소스로 공개되어 다른 CS2 서버에서도 사용할 수 있습니다.</p>
+      </div>
+
+      <!-- Feature Cards -->
+      <div class="features-grid" style="margin-top:2.5rem;">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">⚙️</div>
+          <h3 data-i18n="grenadeboost_feat1_title">커스텀 물리 엔진</h3>
+          <p data-i18n="grenadeboost_feat1_desc">수류탄 위의 플레이어에 적용되는 물리 법칙을 독자적으로 구현. 부스트 높이, 속도, 방향을 정밀하게 제어합니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">🎯</div>
+          <h3 data-i18n="grenadeboost_feat2_title">에어 정확도 &amp; 데미지 컨트롤</h3>
+          <p data-i18n="grenadeboost_feat2_desc">부스트 중 사격 정확도와 착지 데미지를 서버 관리자가 설정 가능. 게임 밸런스에 맞게 조절할 수 있습니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">📦</div>
+          <h3 data-i18n="grenadeboost_feat3_title">자동 지급 시스템</h3>
+          <p data-i18n="grenadeboost_feat3_desc">라운드 시작 시 수류탄을 자동으로 지급. 수류탄 종류와 개수를 설정으로 관리할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AutoRestart -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.3rem;">
+        <span style="font-size:1.8rem;">🔄</span>
+        <h2 class="content-section-title" style="margin-bottom:0;">AutoRestart</h2>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:1rem;font-size:0.95rem;" data-i18n="autorestart_subtitle">CS2 서버 자동 재시작 플러그인</p>
+      <div class="project-hero-tags" style="margin-bottom:1rem;">
+        <span class="tag featured">C#</span>
+        <span class="tag featured">CounterStrikeSharp</span>
+      </div>
+      <div class="project-hero-links" style="margin-bottom:2rem;">
+        <a href="https://github.com/CS2KR/AutoRestart" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="overview-prose" style="max-width:100%;">
+        <p data-i18n="autorestart_p1">게임 서버는 장시간 운영 시 메모리 누수나 성능 저하가 발생할 수 있습니다. AutoRestart 플러그인은 지정된 시간에 자동으로 서버를 재시작하여 안정적인 운영을 보장합니다.</p>
+        <p data-i18n="autorestart_p2">타임존을 지원하여 한국 시간(KST) 기준으로 재시작 일정을 설정할 수 있습니다. 재시작 전 플레이어에게 사전 알림을 제공하여 갑작스러운 서버 다운타임을 방지합니다.</p>
+      </div>
+    </section>
+
+    <!-- DU-NicknameSync -->
+    <section class="content-section reveal">
+      <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:0.3rem;">
+        <span style="font-size:1.8rem;">🎮</span>
+        <h2 class="content-section-title" style="margin-bottom:0;">DU-NicknameSync</h2>
+      </div>
+      <p style="color:var(--text-secondary);margin-bottom:1rem;font-size:0.95rem;" data-i18n="du_sync_subtitle">CS2-Discord-Utilities 닉네임 자동 동기화 모듈</p>
+      <div class="project-hero-tags" style="margin-bottom:1rem;">
+        <span class="tag featured">C#</span>
+        <span class="tag featured">CounterStrikeSharp</span>
+        <span class="tag teal">Discord</span>
+      </div>
+      <div class="project-hero-links" style="margin-bottom:2rem;">
+        <a href="https://github.com/CS2KR/DU-NicknameSync" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="overview-prose" style="max-width:100%;">
+        <p data-i18n="du_sync_p1">CS2-Discord-Utilities 프레임워크용 커스텀 모듈입니다. 플레이어가 게임 서버에 접속할 때 Steam 닉네임을 자동으로 감지하여 동일한 멤버의 Discord 닉네임과 동기화합니다.</p>
+        <p data-i18n="du_sync_p2">Discord와 게임 서버의 신원 일치 문제를 해결하기 위해 직접 개발했습니다. 운영자가 수동으로 닉네임을 매칭할 필요 없이 모든 멤버의 닉네임이 자동으로 일관되게 유지됩니다.</p>
+        <p data-i18n="du_sync_p3">CounterStrikeSharp 기반 C# 모듈로 구현되어, CS2-Discord-Utilities를 사용하는 다른 서버 운영자들도 자유롭게 사용할 수 있도록 오픈소스로 공개되어 있습니다.</p>
+      </div>
+    </section>
+
+    <!-- Gaming Philosophy -->
+    <section class="content-section reveal">
+      <div class="content-quote" data-i18n="philosophy_quote">
+        "게임 서버를 운영하는 것은 커뮤니티를 만드는 것입니다. 기술적으로 안정적인 서버를 제공하는 것은 기본이고, 플레이어들이 즐겁게 소통하고 함께 플레이할 수 있는 공간을 만드는 것이 진짜 목표입니다."
+      </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="related_title">관련 프로젝트</h2>
+      <div class="related-grid">
+        <a href="/projects/ai-creative/" class="related-card reveal reveal-delay-1">
+          <div class="related-card-icon">🤖</div>
+          <div class="related-card-name" data-i18n="related_ai_name">AI & Creative</div>
+          <div class="related-card-desc" data-i18n="related_ai_desc">AI 도구와 크리에이티브 프로젝트</div>
+        </a>
+        <a href="/projects/church-tech/" class="related-card reveal reveal-delay-2">
+          <div class="related-card-icon">⛪</div>
+          <div class="related-card-name" data-i18n="related_church_name">Church Tech</div>
+          <div class="related-card-desc" data-i18n="related_church_desc">교회 기술 솔루션</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Back CTA -->
+    <div class="back-cta reveal">
+      <p data-i18n="back_cta_text">전체 프로젝트를 확인하세요</p>
+      <a href="/" class="btn btn-primary" data-i18n="back_cta_btn">포트폴리오로 돌아가기</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>&copy; 2026 XIU &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a></footer>
+
+  <!-- i18n & Interactions -->
+  <script>
+    const translations = {
+      ko: {
+        breadcrumb_home: '홈',
+        breadcrumb_projects: '프로젝트',
+        breadcrumb_current: 'Gaming & Community',
+        hero_badge: 'Live Community',
+        hero_tagline: 'CS2 게임 서버 운영, 커스텀 플러그인 개발, 그리고 2500+ 멤버 커뮤니티 관리',
+        stat_members_value: '500+',
+        stat_members_label: '멤버',
+        stat_plugins_value: '3',
+        stat_plugins_label: '플러그인',
+        stat_server_value: '24/7',
+        stat_server_label: '서버',
+        overview_title: '프로젝트 개요',
+        overview_p1: 'Counter-Strike 2(CS2) 한국 커뮤니티 서버를 운영하며 2500명 이상의 활성 멤버를 가진 Discord 커뮤니티를 관리하고 있습니다. 서버 운영뿐만 아니라 게임 플레이를 향상시키는 커스텀 플러그인도 직접 개발합니다.',
+        overview_p2: '게임 서버 운영에는 단순한 서버 호스팅 이상의 기술이 필요합니다. DDoS 공격 방어, 서버 성능 최적화, 플러그인 호환성 관리, 그리고 커뮤니티 운영까지 — 다양한 영역의 기술적 역량이 필요합니다.',
+        overview_p3: 'Docker와 Pterodactyl을 기반으로 한 컨테이너화된 게임 서버 인프라를 구축했으며, OPNsense 하드웨어 방화벽으로 네트워크 레벨의 보안을 확보하고 있습니다.',
+        overview_p4: 'CS2-Discord-Utilities 프레임워크용 커스텀 모듈(DU-NicknameSync)을 직접 개발해, Steam 닉네임과 Discord 닉네임의 자동 동기화를 구현했습니다.',
+        cs2_title: 'CS2 Community Server',
+        cs2_p1: '한국에서 가장 활발한 CS2 커뮤니티 중 하나인 cs2.kr 커뮤니티를 운영하고 있습니다. 2500명 이상의 Discord 멤버가 활발히 활동하고 있으며, 24시간 운영되는 게임 서버를 제공합니다.',
+        cs2_p2: 'Pterodactyl 패널을 통해 서버의 시작/정지, 리소스 모니터링, 설정 변경을 웹 UI에서 관리합니다. Docker 컨테이너로 서버를 격리하여 안정성과 보안을 확보했습니다.',
+        cs2_p3: '서버 상태를 실시간으로 모니터링하며, 문제 발생 시 자동 알림을 통해 빠르게 대응합니다. 정기적인 업데이트와 맵 로테이션으로 플레이어에게 최상의 경험을 제공합니다.',
+        grenadeboost_subtitle: 'CS2 수류탄 부스트 플러그인',
+        grenadeboost_p1: 'CS2에서 수류탄을 이용한 부스트(수류탄 위에 올라서 높은 곳으로 이동)를 가능하게 하는 서버 사이드 플러그인입니다. CounterStrikeSharp 프레임워크를 기반으로 C#으로 개발했습니다.',
+        grenadeboost_p2: '기본 CS2 게임 물리에서는 지원하지 않는 수류탄 부스트를 커스텀 물리 엔진으로 구현했습니다. 부스트 시 에어 정확도, 착지 데미지 등을 세밀하게 조절할 수 있습니다.',
+        grenadeboost_p3: '관리자가 서버 콘솔에서 부스트 파라미터를 실시간으로 변경할 수 있으며, 수류탄 자동 지급 기능도 포함되어 있습니다. 오픈소스로 공개되어 다른 CS2 서버에서도 사용할 수 있습니다.',
+        grenadeboost_feat1_title: '커스텀 물리 엔진',
+        grenadeboost_feat1_desc: '수류탄 위의 플레이어에 적용되는 물리 법칙을 독자적으로 구현. 부스트 높이, 속도, 방향을 정밀하게 제어합니다.',
+        grenadeboost_feat2_title: '에어 정확도 & 데미지 컨트롤',
+        grenadeboost_feat2_desc: '부스트 중 사격 정확도와 착지 데미지를 서버 관리자가 설정 가능. 게임 밸런스에 맞게 조절할 수 있습니다.',
+        grenadeboost_feat3_title: '자동 지급 시스템',
+        grenadeboost_feat3_desc: '라운드 시작 시 수류탄을 자동으로 지급. 수류탄 종류와 개수를 설정으로 관리할 수 있습니다.',
+        autorestart_subtitle: 'CS2 서버 자동 재시작 플러그인',
+        autorestart_p1: '게임 서버는 장시간 운영 시 메모리 누수나 성능 저하가 발생할 수 있습니다. AutoRestart 플러그인은 지정된 시간에 자동으로 서버를 재시작하여 안정적인 운영을 보장합니다.',
+        autorestart_p2: '타임존을 지원하여 한국 시간(KST) 기준으로 재시작 일정을 설정할 수 있습니다. 재시작 전 플레이어에게 사전 알림을 제공하여 갑작스러운 서버 다운타임을 방지합니다.',
+        du_sync_subtitle: 'CS2-Discord-Utilities 닉네임 자동 동기화 모듈',
+        du_sync_p1: 'CS2-Discord-Utilities 프레임워크용 커스텀 모듈입니다. 플레이어가 게임 서버에 접속할 때 Steam 닉네임을 자동으로 감지하여 동일한 멤버의 Discord 닉네임과 동기화합니다.',
+        du_sync_p2: 'Discord와 게임 서버의 신원 일치 문제를 해결하기 위해 직접 개발했습니다. 운영자가 수동으로 닉네임을 매칭할 필요 없이 모든 멤버의 닉네임이 자동으로 일관되게 유지됩니다.',
+        du_sync_p3: 'CounterStrikeSharp 기반 C# 모듈로 구현되어, CS2-Discord-Utilities를 사용하는 다른 서버 운영자들도 자유롭게 사용할 수 있도록 오픈소스로 공개되어 있습니다.',
+        philosophy_quote: '"게임 서버를 운영하는 것은 커뮤니티를 만드는 것입니다. 기술적으로 안정적인 서버를 제공하는 것은 기본이고, 플레이어들이 즐겁게 소통하고 함께 플레이할 수 있는 공간을 만드는 것이 진짜 목표입니다."',
+        related_title: '관련 프로젝트',
+        related_ai_name: 'AI & Creative',
+        related_ai_desc: 'AI 도구와 크리에이티브 프로젝트',
+        related_qr_name: 'QR Solutions',
+        related_qr_desc: 'QR 코드 기반 솔루션',
+        related_church_name: 'Church Tech',
+        related_church_desc: '교회 기술 솔루션',
+        back_cta_text: '전체 프로젝트를 확인하세요',
+        back_cta_btn: '포트폴리오로 돌아가기',
+        footer_privacy: '개인정보처리방침'
+      },
+      en: {
+        breadcrumb_home: 'Home',
+        breadcrumb_projects: 'Projects',
+        breadcrumb_current: 'Gaming & Community',
+        hero_badge: 'Live Community',
+        hero_tagline: 'CS2 game server operations, custom plugin development, and managing a 2500+ member community',
+        stat_members_value: '500+',
+        stat_members_label: 'Members',
+        stat_plugins_value: '3',
+        stat_plugins_label: 'Plugins',
+        stat_server_value: '24/7',
+        stat_server_label: 'Server',
+        overview_title: 'Project Overview',
+        overview_p1: 'I operate a Korean Counter-Strike 2 (CS2) community server and manage a Discord community with over 500 active members. Beyond server operations, I also develop custom plugins to enhance gameplay.',
+        overview_p2: 'Running a game server requires far more than simple hosting. It demands expertise across multiple domains — DDoS mitigation, server performance optimization, plugin compatibility management, and community operations.',
+        overview_p3: 'I built a containerized game server infrastructure based on Docker and Pterodactyl, with network-level security provided by an OPNsense hardware firewall.',
+        overview_p4: 'I also developed a custom CS2-Discord-Utilities module (DU-NicknameSync) that automatically syncs Steam nicknames with Discord nicknames.',
+        cs2_title: 'CS2 Community Server',
+        cs2_p1: 'I operate one of the most active CS2 communities in Korea — the cs2.kr community. Over 500 Discord members are actively engaged, and a 24/7 game server is available for players.',
+        cs2_p2: 'The Pterodactyl panel enables web-based management of server start/stop, resource monitoring, and configuration changes. Docker containers isolate the server for stability and security.',
+        cs2_p3: 'Server status is monitored in real-time, with automatic alerts for rapid response to issues. Regular updates and map rotations ensure the best possible experience for players.',
+        grenadeboost_subtitle: 'CS2 Grenade Boost Plugin',
+        grenadeboost_p1: 'A server-side plugin that enables grenade boosting in CS2 — standing on grenades to reach higher positions. Built with C# on the CounterStrikeSharp framework.',
+        grenadeboost_p2: 'Grenade boosting, not supported in the default CS2 physics, is implemented through a custom physics engine. Air accuracy and landing damage during boosts can be finely tuned.',
+        grenadeboost_p3: 'Administrators can adjust boost parameters in real-time via the server console, and automatic grenade distribution is included. Released as open-source for other CS2 servers to use.',
+        grenadeboost_feat1_title: 'Custom Physics Engine',
+        grenadeboost_feat1_desc: 'Custom physics implementation for players standing on grenades. Precise control over boost height, velocity, and direction.',
+        grenadeboost_feat2_title: 'Air Accuracy & Damage Control',
+        grenadeboost_feat2_desc: 'Server administrators can configure shooting accuracy during boosts and landing damage. Adjustable for game balance.',
+        grenadeboost_feat3_title: 'Auto-Distribution System',
+        grenadeboost_feat3_desc: 'Automatic grenade distribution at round start. Grenade types and quantities are configurable.',
+        autorestart_subtitle: 'CS2 Server Auto-Restart Plugin',
+        autorestart_p1: 'Game servers can experience memory leaks and performance degradation during extended operation. The AutoRestart plugin automatically restarts the server at scheduled times to ensure stable operation.',
+        autorestart_p2: 'Timezone support allows restart schedules to be set based on Korean Standard Time (KST). Pre-restart notifications are sent to players to prevent unexpected server downtime.',
+        du_sync_subtitle: 'CS2-Discord-Utilities Nickname Auto-Sync Module',
+        du_sync_p1: 'A custom module for the CS2-Discord-Utilities framework. When players join the game server, it automatically detects their Steam nickname and syncs it with the same member\'s Discord nickname.',
+        du_sync_p2: 'Built to solve the identity-matching problem between Discord and the game server. Operators no longer need to manually match nicknames — every member\'s nickname stays consistent automatically.',
+        du_sync_p3: 'Implemented as a C# module on top of CounterStrikeSharp and released as open-source so other server operators using CS2-Discord-Utilities can use it freely.',
+        philosophy_quote: '"Running a game server is about building a community. Providing a technically stable server is just the baseline — the real goal is creating a space where players can communicate, have fun, and play together."',
+        related_title: 'Related Projects',
+        related_ai_name: 'AI & Creative',
+        related_ai_desc: 'AI tools and creative projects',
+        related_qr_name: 'QR Solutions',
+        related_qr_desc: 'QR code-based solutions',
+        related_church_name: 'Church Tech',
+        related_church_desc: 'Church technology solutions',
+        back_cta_text: 'Explore all projects',
+        back_cta_btn: 'Back to Portfolio',
+        footer_privacy: 'Privacy Policy'
+      }
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      document.documentElement.lang = lang === 'ko' ? 'ko' : 'en';
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      localStorage.setItem('lang', lang);
+    }
+
+    // Language toggle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+    });
+
+    // Restore language preference
+    const savedLang = localStorage.getItem('lang') || 'ko';
+    if (savedLang !== 'ko') setLang(savedLang);
+
+    // Nav scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    document.documentElement.classList.add('js-ready');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>

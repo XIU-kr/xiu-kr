@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>Infrastructure — XIU</title>
+  <meta name="description" content="XIU — Server infrastructure architecture. Multi-layered security, Docker containers, game servers, and monitoring.">
+  <link rel="canonical" href="https://xiu.kr/infrastructure/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/infrastructure/">
+  <meta property="og:title" content="Infrastructure — XIU">
+  <meta property="og:description" content="XIU — Server infrastructure architecture. Multi-layered security, Docker containers, game servers, and monitoring.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <style>
+    /* ─── Architecture Diagram ─── */
+    .arch-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 3rem 1rem;
+      margin: 2rem 0;
+      overflow-x: auto;
+    }
+
+    .arch-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 120px;
+    }
+
+    .arch-node-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .arch-node-box:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .arch-node-box .arch-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .arch-node-box .arch-label {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text);
+      display: block;
+    }
+
+    .arch-node-box .arch-sub {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    .arch-node-box.accent-border { border-color: rgba(212, 160, 22, 0.3); }
+    .arch-node-box.teal-border { border-color: rgba(45, 212, 168, 0.3); }
+
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 0.5rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .arch-arrow-line {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--border), var(--accent-dim));
+      position: relative;
+    }
+
+    .arch-arrow-line::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: -3px;
+      border: 4px solid transparent;
+      border-left-color: var(--accent-dim);
+    }
+
+    .arch-arrow-label {
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .arch-containers {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .arch-container-small {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+      font-size: 0.7rem;
+      min-width: 80px;
+    }
+
+    .arch-container-small .arch-icon { font-size: 1rem; margin-bottom: 0.2rem; display: block; }
+    .arch-container-small .arch-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-secondary); display: block; }
+
+    /* ─── Service Cards ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .service-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .service-status {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--teal);
+    }
+
+    .service-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .service-card-url {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .service-card-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ─── Security Layer Indicator ─── */
+    .security-layers {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 2rem 0;
+    }
+
+    .security-layer {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 1.5rem;
+      position: relative;
+    }
+
+    .security-layer:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 2.1rem;
+      bottom: -1px;
+      top: 100%;
+      width: 2px;
+      height: 1rem;
+      background: var(--border);
+    }
+
+    .security-layer-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .security-layer-num.layer-1 { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.25); color: #ef4444; }
+    .security-layer-num.layer-2 { background: rgba(251, 191, 36, 0.12); border: 1px solid rgba(251, 191, 36, 0.25); color: #fbbf24; }
+    .security-layer-num.layer-3 { background: var(--teal-dim); border: 1px solid rgba(45, 212, 168, 0.25); color: var(--teal); }
+    .security-layer-num.layer-4 { background: var(--accent-glow); border: 1px solid rgba(212, 160, 22, 0.25); color: var(--accent); }
+
+    .security-layer-info h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .security-layer-info p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── Monitoring Grid ─── */
+    .monitoring-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .monitoring-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .monitoring-card h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .monitoring-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .arch-diagram {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .arch-arrow {
+        transform: rotate(90deg);
+        padding: 0.3rem 0;
+      }
+
+      .arch-containers {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .monitoring-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="grain">
+
+  <nav id="nav">
+    <a href="/" class="nav-logo">XIU</a>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/about/">About</a></li>
+        <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+        <li><a href="/stack/">Stack</a></li>
+        <li><a href="/infrastructure/">Infra</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="lang-toggle"><button class="lang-btn active" data-lang="ko">KO</button><button class="lang-btn" data-lang="en">EN</button></div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb reveal">
+    <a href="/" data-i18n="breadcrumb_home">홈</a>
+    <span class="sep">/</span>
+    <span class="current" data-i18n="breadcrumb_current">인프라</span>
+  </div>
+
+  <!-- Page Header -->
+  <section class="project-hero">
+    <div class="reveal">
+      <div class="section-label" data-i18n="section_label">Infrastructure</div>
+    </div>
+    <h1 class="reveal reveal-delay-1" data-i18n="hero_title">서버 인프라</h1>
+    <p class="project-hero-tagline reveal reveal-delay-2" data-i18n="hero_subtitle">다층 보안 아키텍처를 직접 설계하고 운영합니다. 웹 서비스부터 게임 서버까지, 모든 인프라를 안정적으로 관리합니다.</p>
+    <div class="project-hero-tags reveal reveal-delay-3">
+      <span class="tag featured">Cloudflare</span>
+      <span class="tag featured">OPNsense</span>
+      <span class="tag teal">Docker</span>
+      <span class="tag teal">Pterodactyl</span>
+      <span class="tag">Nginx</span>
+      <span class="tag">PM2</span>
+      <span class="tag">SSL/TLS</span>
+    </div>
+  </section>
+
+  <div class="project-content">
+
+    <!-- Architecture Overview -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="overview_title">아키텍처 개요</h2>
+      <div class="overview-prose" data-i18n-html="overview_content">
+        <p>XIU의 서버 인프라는 <strong>다층 보안 아키텍처</strong>를 기반으로 설계되었습니다. 외부 트래픽은 반드시 Cloudflare CDN과 OPNsense 하드웨어 방화벽을 거쳐야만 내부 서비스에 도달할 수 있으며, 각 서비스는 Docker 컨테이너로 격리되어 독립적으로 운영됩니다. 이 구조는 단일 장애점(Single Point of Failure)을 최소화하고, 한 서비스의 문제가 다른 서비스로 전파되지 않도록 보장합니다.</p>
+        <p>현재 운영 중인 서비스는 <strong>개발자 포트폴리오, QR 코드 생성기, CS2 게임 커뮤니티, 교회 홈페이지, 선교회 웹사이트</strong> 등 다양합니다. 각 서비스는 성격과 요구사항이 다르기 때문에, 웹 서비스에는 Nginx와 Docker를, 게임 서버에는 Pterodactyl 패널과 OPNsense 방화벽을 조합하여 최적의 환경을 구성하였습니다. 특히 게임 서버는 실시간 통신과 낮은 레이턴시가 요구되어, 네트워크 레벨에서의 보호가 필수적입니다.</p>
+        <p>모든 인프라는 <strong>직접 구축하고 운영</strong>합니다. 클라우드 매니지드 서비스에 의존하지 않고, 서버 하드웨어부터 네트워크 설정, 컨테이너 오케스트레이션, 모니터링까지 전 과정을 관리합니다. 이를 통해 비용을 절감하면서도, 서비스의 성능과 보안을 세밀하게 제어할 수 있습니다. 인프라를 직접 운영하며 얻은 실전 경험은, 코드를 작성하는 것만큼이나 중요한 개발자 역량이라고 생각합니다.</p>
+      </div>
+    </section>
+
+    <!-- Architecture Diagram -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="diagram_title">네트워크 흐름</h2>
+      <div class="arch-diagram">
+        <div class="arch-node">
+          <div class="arch-node-box">
+            <span class="arch-icon">🌐</span>
+            <span class="arch-label">Internet</span>
+            <span class="arch-sub" data-i18n="arch_internet">사용자 요청</span>
+          </div>
+        </div>
+        <div class="arch-arrow">
+          <span class="arch-arrow-label">HTTPS</span>
+          <div class="arch-arrow-line"></div>
+        </div>
+        <div class="arch-node">
+          <div class="arch-node-box accent-border">
+            <span class="arch-icon">🛡️</span>
+            <span class="arch-label">Cloudflare</span>
+            <span class="arch-sub">CDN + WAF + DDoS</span>
+          </div>
+        </div>
+        <div class="arch-arrow">
+          <span class="arch-arrow-label" data-i18n="arch_filtered">필터링됨</span>
+          <div class="arch-arrow-line"></div>
+        </div>
+        <div class="arch-node">
+          <div class="arch-node-box teal-border">
+            <span class="arch-icon">🔥</span>
+            <span class="arch-label">OPNsense</span>
+            <span class="arch-sub">IDS/IPS + Firewall</span>
+          </div>
+        </div>
+        <div class="arch-arrow">
+          <span class="arch-arrow-label" data-i18n="arch_allowed">허용된 트래픽</span>
+          <div class="arch-arrow-line"></div>
+        </div>
+        <div class="arch-node">
+          <div class="arch-containers">
+            <div class="arch-container-small">
+              <span class="arch-icon">🐳</span>
+              <span class="arch-label">Docker</span>
+            </div>
+            <div class="arch-container-small">
+              <span class="arch-icon">🎮</span>
+              <span class="arch-label">Pterodactyl</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Layer Indicator -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="security_title">보안 계층</h2>
+      <div class="security-layers">
+        <div class="security-layer">
+          <div class="security-layer-num layer-1">L1</div>
+          <div class="security-layer-info">
+            <h4 data-i18n="sec_l1_title">Edge Protection — Cloudflare</h4>
+            <p data-i18n="sec_l1_desc">DNS 관리, DDoS 방어, WAF, SSL/TLS, CDN 캐싱을 통한 최전선 방어</p>
+          </div>
+        </div>
+        <div class="security-layer">
+          <div class="security-layer-num layer-2">L2</div>
+          <div class="security-layer-info">
+            <h4 data-i18n="sec_l2_title">Network Firewall — OPNsense</h4>
+            <p data-i18n="sec_l2_desc">하드웨어 기반 IDS/IPS, 포트 포워딩, VPN, 트래픽 모니터링</p>
+          </div>
+        </div>
+        <div class="security-layer">
+          <div class="security-layer-num layer-3">L3</div>
+          <div class="security-layer-info">
+            <h4 data-i18n="sec_l3_title">Container Isolation — Docker</h4>
+            <p data-i18n="sec_l3_desc">서비스별 네트워크 분리, 리소스 제한, 이미지 보안 스캐닝</p>
+          </div>
+        </div>
+        <div class="security-layer">
+          <div class="security-layer-num layer-4">L4</div>
+          <div class="security-layer-info">
+            <h4 data-i18n="sec_l4_title">Application Level — Nginx + SSL</h4>
+            <p data-i18n="sec_l4_desc">리버스 프록시, 속도 제한, 종단간 암호화</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Network Security Layers -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="network_title">네트워크 보안</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">🛡️</div>
+          <h3>Cloudflare</h3>
+          <p data-i18n="cloudflare_desc">CDN과 DDoS 방어의 최전선. 모든 도메인의 DNS를 Cloudflare에서 관리하며, WAF(Web Application Firewall) 규칙을 통해 악성 트래픽을 차단합니다. 캐싱을 통한 성능 최적화와 SSL/TLS 인증서 자동 관리까지 담당합니다. Edge computing으로 전 세계 사용자에게 빠른 응답 시간을 제공합니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">🔥</div>
+          <h3>OPNsense</h3>
+          <p data-i18n="opnsense_desc">오픈소스 하드웨어 방화벽 OS. 게임 서버는 DDoS 공격의 주요 타겟이기 때문에, OPNsense 기반의 하드웨어 방화벽으로 네트워크 레벨에서 보호합니다. IDS/IPS 규칙, 포트 포워딩, VPN, 트래픽 모니터링을 설정하여 외부 위협으로부터 서버를 방어합니다.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">🔒</div>
+          <h3>SSL/TLS</h3>
+          <p data-i18n="ssl_desc">모든 서비스에 HTTPS 적용. Cloudflare의 Universal SSL과 Origin Server 인증서로 종단간 암호화를 구현합니다. HSTS 헤더와 TLS 1.3을 적용하여 중간자 공격과 다운그레이드 공격을 방지합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Container Infrastructure -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="container_title">컨테이너 인프라</h2>
+      <div class="challenge-list">
+        <div class="challenge-card reveal reveal-delay-1">
+          <div class="challenge-marker solution">🐳</div>
+          <div class="challenge-body">
+            <h4>Docker</h4>
+            <p data-i18n="docker_desc">모든 서비스를 컨테이너로 격리. 각 웹 서비스, API 서버, 데이터베이스를 독립적인 Docker 컨테이너로 운영합니다. Docker Compose로 멀티 컨테이너 환경을 관리하며, 서비스 간 네트워크를 분리하여 보안을 강화합니다. 이미지 빌드와 배포를 자동화하여 일관된 환경을 유지합니다.</p>
+          </div>
+        </div>
+        <div class="challenge-card reveal reveal-delay-2">
+          <div class="challenge-marker solution">🎮</div>
+          <div class="challenge-body">
+            <h4>Pterodactyl</h4>
+            <p data-i18n="pterodactyl_desc">게임 서버 관리 패널. CS2 서버의 시작/정지/재시작, 리소스 모니터링, 파일 관리, 콘솔 접근을 웹 UI에서 관리합니다. 게임 서버별 리소스(CPU, RAM, 디스크) 할당을 제어하며, 사용자 권한 관리를 통해 운영진에게 필요한 접근 권한만 부여합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring & Reliability -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="monitoring_title">모니터링 & 안정성</h2>
+      <div class="monitoring-grid">
+        <div class="monitoring-card reveal reveal-delay-1">
+          <h3 data-i18n="monitor_realtime_title">📊 실시간 모니터링</h3>
+          <p data-i18n="monitor_realtime_desc">서버 상태, CPU/메모리/디스크 사용량, 네트워크 트래픽을 실시간으로 모니터링합니다. 이상 징후 감지 시 즉시 알림을 받아 빠르게 대응합니다. Cloudflare Analytics와 서버 자체 메트릭을 결합하여 종합적인 가시성을 확보합니다.</p>
+        </div>
+        <div class="monitoring-card reveal reveal-delay-2">
+          <h3 data-i18n="monitor_backup_title">💾 자동화된 백업</h3>
+          <p data-i18n="monitor_backup_desc">데이터베이스와 설정 파일을 정기적으로 백업합니다. 장애 발생 시 빠른 복구가 가능하도록 백업 전략을 수립하고 운영합니다. 크리티컬 데이터는 다중 백업을 유지하여 데이터 손실 위험을 최소화합니다.</p>
+        </div>
+        <div class="monitoring-card reveal reveal-delay-3">
+          <h3 data-i18n="monitor_pm2_title">⚡ PM2 프로세스 관리</h3>
+          <p data-i18n="monitor_pm2_desc">Node.js 애플리케이션(Discord 봇, API 서버)을 PM2로 관리합니다. 프로세스 크래시 시 자동 재시작, 로그 로테이션, 클러스터 모드를 활용하여 무중단 운영을 실현합니다. 메모리 누수 감지와 자동 복구 기능도 설정하여 장기 운영 안정성을 확보합니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Managed Services -->
+    <section class="content-section reveal">
+      <h2 class="content-section-title" data-i18n="services_title">운영 중인 서비스</h2>
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-card-header">
+            <span class="service-card-name">xiu.kr</span>
+            <span class="service-status"><span class="service-status-dot"></span>Live</span>
+          </div>
+          <span class="service-card-url">https://xiu.kr</span>
+          <p class="service-card-desc" data-i18n="svc_xiu_desc">개발자 포트폴리오. 정적 SPA로 빌드 도구 없이 순수 HTML/CSS/JS로 제작.</p>
+          <div class="service-card-tags">
+            <span class="tag">Nginx</span>
+            <span class="tag">Docker</span>
+            <span class="tag teal">Cloudflare CDN</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-card-header">
+            <span class="service-card-name">quon.xiu.kr</span>
+            <span class="service-status"><span class="service-status-dot"></span>Live</span>
+          </div>
+          <span class="service-card-url">https://quon.xiu.kr</span>
+          <p class="service-card-desc" data-i18n="svc_quon_desc">QR 코드 생성기. 클라이언트 사이드 렌더링으로 서버 부하 최소화.</p>
+          <div class="service-card-tags">
+            <span class="tag">Static</span>
+            <span class="tag teal">Cloudflare CDN</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-card-header">
+            <span class="service-card-name">cs2.kr</span>
+            <span class="service-status"><span class="service-status-dot"></span>Live</span>
+          </div>
+          <span class="service-card-url">https://cs2.kr</span>
+          <p class="service-card-desc" data-i18n="svc_cs2_desc">CS2 게임 커뮤니티. 실시간 게임 서버와 커뮤니티 웹사이트 운영.</p>
+          <div class="service-card-tags">
+            <span class="tag featured">Pterodactyl</span>
+            <span class="tag featured">OPNsense</span>
+            <span class="tag">Game Server</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-card-header">
+            <span class="service-card-name">dongtanms.kr</span>
+            <span class="service-status"><span class="service-status-dot"></span>Live</span>
+          </div>
+          <span class="service-card-url">https://dongtanms.kr</span>
+          <p class="service-card-desc" data-i18n="svc_church_desc">교회 홈페이지. Rhymix CMS 기반, 교인 관리 및 설교 아카이브 운영.</p>
+          <div class="service-card-tags">
+            <span class="tag">Rhymix</span>
+            <span class="tag">Docker</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-5">
+          <div class="service-card-header">
+            <span class="service-card-name">repentanceheaven.kr</span>
+            <span class="service-status"><span class="service-status-dot"></span>Live</span>
+          </div>
+          <span class="service-card-url">https://repentanceheaven.kr</span>
+          <p class="service-card-desc" data-i18n="svc_mission_desc">선교회 웹사이트. WordPress 기반, 다국어 콘텐츠 및 미디어 관리.</p>
+          <div class="service-card-tags">
+            <span class="tag">WordPress</span>
+            <span class="tag">Docker</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infrastructure Philosophy -->
+    <section class="content-section reveal">
+      <blockquote class="content-quote" data-i18n-html="philosophy_quote">
+        "직접 만든 서비스는 직접 운영해야 합니다. 코드를 작성하는 것만큼이나 <strong>안정적으로 서비스를 유지하는 것</strong>이 중요합니다. 인프라 운영 경험이야말로 개발자로서의 깊이를 더해주는 핵심 역량입니다."
+      </blockquote>
+    </section>
+
+    <!-- CTA -->
+    <div class="back-cta reveal">
+      <p data-i18n="cta_text">전체 프로젝트가 궁금하신가요?</p>
+      <a href="/" class="btn btn-primary" data-i18n="cta_button">포트폴리오로 돌아가기 &rarr;</a>
+      &nbsp;
+      <a href="/stack/" class="btn btn-ghost" data-i18n="cta_stack">기술 스택 보기</a>
+    </div>
+
+  </div>
+
+  <footer>&copy; 2026 XIU &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a></footer>
+
+  <script>
+    const translations = {
+      ko: {
+        breadcrumb_home: '홈',
+        breadcrumb_current: '인프라',
+        section_label: 'Infrastructure',
+        hero_title: '서버 인프라',
+        hero_subtitle: '다층 보안 아키텍처를 직접 설계하고 운영합니다. 웹 서비스부터 게임 서버까지, 모든 인프라를 안정적으로 관리합니다.',
+        overview_title: '아키텍처 개요',
+        overview_content: `
+          <p>XIU의 서버 인프라는 <strong>다층 보안 아키텍처</strong>를 기반으로 설계되었습니다. 외부 트래픽은 반드시 Cloudflare CDN과 OPNsense 하드웨어 방화벽을 거쳐야만 내부 서비스에 도달할 수 있으며, 각 서비스는 Docker 컨테이너로 격리되어 독립적으로 운영됩니다. 이 구조는 단일 장애점(Single Point of Failure)을 최소화하고, 한 서비스의 문제가 다른 서비스로 전파되지 않도록 보장합니다.</p>
+          <p>현재 운영 중인 서비스는 <strong>개발자 포트폴리오, QR 코드 생성기, CS2 게임 커뮤니티, 교회 홈페이지, 선교회 웹사이트</strong> 등 다양합니다. 각 서비스는 성격과 요구사항이 다르기 때문에, 웹 서비스에는 Nginx와 Docker를, 게임 서버에는 Pterodactyl 패널과 OPNsense 방화벽을 조합하여 최적의 환경을 구성하였습니다. 특히 게임 서버는 실시간 통신과 낮은 레이턴시가 요구되어, 네트워크 레벨에서의 보호가 필수적입니다.</p>
+          <p>모든 인프라는 <strong>직접 구축하고 운영</strong>합니다. 클라우드 매니지드 서비스에 의존하지 않고, 서버 하드웨어부터 네트워크 설정, 컨테이너 오케스트레이션, 모니터링까지 전 과정을 관리합니다. 이를 통해 비용을 절감하면서도, 서비스의 성능과 보안을 세밀하게 제어할 수 있습니다. 인프라를 직접 운영하며 얻은 실전 경험은, 코드를 작성하는 것만큼이나 중요한 개발자 역량이라고 생각합니다.</p>
+        `,
+        diagram_title: '네트워크 흐름',
+        arch_internet: '사용자 요청',
+        arch_filtered: '필터링됨',
+        arch_allowed: '허용된 트래픽',
+        security_title: '보안 계층',
+        sec_l1_title: 'Edge Protection — Cloudflare',
+        sec_l1_desc: 'DNS 관리, DDoS 방어, WAF, SSL/TLS, CDN 캐싱을 통한 최전선 방어',
+        sec_l2_title: 'Network Firewall — OPNsense',
+        sec_l2_desc: '하드웨어 기반 IDS/IPS, 포트 포워딩, VPN, 트래픽 모니터링',
+        sec_l3_title: 'Container Isolation — Docker',
+        sec_l3_desc: '서비스별 네트워크 분리, 리소스 제한, 이미지 보안 스캐닝',
+        sec_l4_title: 'Application Level — Nginx + SSL',
+        sec_l4_desc: '리버스 프록시, 속도 제한, 종단간 암호화',
+        network_title: '네트워크 보안',
+        cloudflare_desc: 'CDN과 DDoS 방어의 최전선. 모든 도메인의 DNS를 Cloudflare에서 관리하며, WAF(Web Application Firewall) 규칙을 통해 악성 트래픽을 차단합니다. 캐싱을 통한 성능 최적화와 SSL/TLS 인증서 자동 관리까지 담당합니다. Edge computing으로 전 세계 사용자에게 빠른 응답 시간을 제공합니다.',
+        opnsense_desc: '오픈소스 하드웨어 방화벽 OS. 게임 서버는 DDoS 공격의 주요 타겟이기 때문에, OPNsense 기반의 하드웨어 방화벽으로 네트워크 레벨에서 보호합니다. IDS/IPS 규칙, 포트 포워딩, VPN, 트래픽 모니터링을 설정하여 외부 위협으로부터 서버를 방어합니다.',
+        ssl_desc: '모든 서비스에 HTTPS 적용. Cloudflare의 Universal SSL과 Origin Server 인증서로 종단간 암호화를 구현합니다. HSTS 헤더와 TLS 1.3을 적용하여 중간자 공격과 다운그레이드 공격을 방지합니다.',
+        container_title: '컨테이너 인프라',
+        docker_desc: '모든 서비스를 컨테이너로 격리. 각 웹 서비스, API 서버, 데이터베이스를 독립적인 Docker 컨테이너로 운영합니다. Docker Compose로 멀티 컨테이너 환경을 관리하며, 서비스 간 네트워크를 분리하여 보안을 강화합니다. 이미지 빌드와 배포를 자동화하여 일관된 환경을 유지합니다.',
+        pterodactyl_desc: '게임 서버 관리 패널. CS2 서버의 시작/정지/재시작, 리소스 모니터링, 파일 관리, 콘솔 접근을 웹 UI에서 관리합니다. 게임 서버별 리소스(CPU, RAM, 디스크) 할당을 제어하며, 사용자 권한 관리를 통해 운영진에게 필요한 접근 권한만 부여합니다.',
+        monitoring_title: '모니터링 & 안정성',
+        monitor_realtime_title: '📊 실시간 모니터링',
+        monitor_realtime_desc: '서버 상태, CPU/메모리/디스크 사용량, 네트워크 트래픽을 실시간으로 모니터링합니다. 이상 징후 감지 시 즉시 알림을 받아 빠르게 대응합니다. Cloudflare Analytics와 서버 자체 메트릭을 결합하여 종합적인 가시성을 확보합니다.',
+        monitor_backup_title: '💾 자동화된 백업',
+        monitor_backup_desc: '데이터베이스와 설정 파일을 정기적으로 백업합니다. 장애 발생 시 빠른 복구가 가능하도록 백업 전략을 수립하고 운영합니다. 크리티컬 데이터는 다중 백업을 유지하여 데이터 손실 위험을 최소화합니다.',
+        monitor_pm2_title: '⚡ PM2 프로세스 관리',
+        monitor_pm2_desc: 'Node.js 애플리케이션(Discord 봇, API 서버)을 PM2로 관리합니다. 프로세스 크래시 시 자동 재시작, 로그 로테이션, 클러스터 모드를 활용하여 무중단 운영을 실현합니다. 메모리 누수 감지와 자동 복구 기능도 설정하여 장기 운영 안정성을 확보합니다.',
+        services_title: '운영 중인 서비스',
+        svc_xiu_desc: '개발자 포트폴리오. 정적 SPA로 빌드 도구 없이 순수 HTML/CSS/JS로 제작.',
+        svc_quon_desc: 'QR 코드 생성기. 클라이언트 사이드 렌더링으로 서버 부하 최소화.',
+        svc_cs2_desc: 'CS2 게임 커뮤니티. 실시간 게임 서버와 커뮤니티 웹사이트 운영.',
+        svc_church_desc: '교회 홈페이지. Rhymix CMS 기반, 교인 관리 및 설교 아카이브 운영.',
+        svc_mission_desc: '선교회 웹사이트. WordPress 기반, 다국어 콘텐츠 및 미디어 관리.',
+        philosophy_quote: '"직접 만든 서비스는 직접 운영해야 합니다. 코드를 작성하는 것만큼이나 <strong>안정적으로 서비스를 유지하는 것</strong>이 중요합니다. 인프라 운영 경험이야말로 개발자로서의 깊이를 더해주는 핵심 역량입니다."',
+        cta_text: '전체 프로젝트가 궁금하신가요?',
+        cta_button: '포트폴리오로 돌아가기 \u2192',
+        cta_stack: '기술 스택 보기',
+        footer_privacy: '개인정보처리방침'
+      },
+      en: {
+        breadcrumb_home: 'Home',
+        breadcrumb_current: 'Infrastructure',
+        section_label: 'Infrastructure',
+        hero_title: 'Server Infrastructure',
+        hero_subtitle: 'Designing and operating a multi-layered secure architecture. From web services to game servers, managing all infrastructure with reliability.',
+        overview_title: 'Architecture Overview',
+        overview_content: `
+          <p>XIU's server infrastructure is built on a <strong>multi-layered security architecture</strong>. External traffic must pass through Cloudflare CDN and an OPNsense hardware firewall before reaching internal services, and each service runs in isolated Docker containers. This structure minimizes single points of failure and ensures that issues in one service do not propagate to others.</p>
+          <p>Currently operating services include a <strong>developer portfolio, QR code generator, CS2 gaming community, church website, and mission organization website</strong>. Since each service has different characteristics and requirements, web services use Nginx with Docker, while game servers combine Pterodactyl panels with OPNsense firewalls for optimal environments. Game servers in particular require real-time communication and low latency, making network-level protection essential.</p>
+          <p>All infrastructure is <strong>self-built and self-operated</strong>. Rather than relying on cloud managed services, every aspect from server hardware to network configuration, container orchestration, and monitoring is managed directly. This reduces costs while enabling fine-grained control over service performance and security. The hands-on experience gained from operating infrastructure is, in my view, a developer skill just as important as writing code.</p>
+        `,
+        diagram_title: 'Network Flow',
+        arch_internet: 'User requests',
+        arch_filtered: 'Filtered',
+        arch_allowed: 'Allowed traffic',
+        security_title: 'Security Layers',
+        sec_l1_title: 'Edge Protection — Cloudflare',
+        sec_l1_desc: 'Front-line defense with DNS management, DDoS protection, WAF, SSL/TLS, and CDN caching',
+        sec_l2_title: 'Network Firewall — OPNsense',
+        sec_l2_desc: 'Hardware-based IDS/IPS, port forwarding, VPN, and traffic monitoring',
+        sec_l3_title: 'Container Isolation — Docker',
+        sec_l3_desc: 'Per-service network isolation, resource limits, and image security scanning',
+        sec_l4_title: 'Application Level — Nginx + SSL',
+        sec_l4_desc: 'Reverse proxy, rate limiting, and end-to-end encryption',
+        network_title: 'Network Security',
+        cloudflare_desc: 'The front line of CDN and DDoS defense. All domain DNS is managed through Cloudflare, blocking malicious traffic with WAF (Web Application Firewall) rules. It handles performance optimization through caching and automatic SSL/TLS certificate management. Edge computing delivers fast response times to users worldwide.',
+        opnsense_desc: 'Open-source hardware firewall OS. Since game servers are primary targets for DDoS attacks, OPNsense-based hardware firewalls provide network-level protection. IDS/IPS rules, port forwarding, VPN, and traffic monitoring are configured to defend servers from external threats.',
+        ssl_desc: 'HTTPS applied to all services. End-to-end encryption is implemented with Cloudflare Universal SSL and Origin Server certificates. HSTS headers and TLS 1.3 are enforced to prevent man-in-the-middle and downgrade attacks.',
+        container_title: 'Container Infrastructure',
+        docker_desc: 'All services isolated in containers. Each web service, API server, and database runs in independent Docker containers. Docker Compose manages multi-container environments, and inter-service networks are separated for enhanced security. Image builds and deployments are automated to maintain consistent environments.',
+        pterodactyl_desc: 'Game server management panel. CS2 server start/stop/restart, resource monitoring, file management, and console access are all managed through a web UI. Per-server resource allocation (CPU, RAM, disk) is controlled, and user permissions ensure operators receive only necessary access rights.',
+        monitoring_title: 'Monitoring & Reliability',
+        monitor_realtime_title: '📊 Real-time Monitoring',
+        monitor_realtime_desc: 'Server status, CPU/memory/disk usage, and network traffic are monitored in real-time. Immediate alerts on anomaly detection enable rapid response. Cloudflare Analytics combined with server-side metrics provide comprehensive visibility.',
+        monitor_backup_title: '💾 Automated Backups',
+        monitor_backup_desc: 'Databases and configuration files are backed up on a regular schedule. Backup strategies are designed and maintained for rapid recovery in case of failures. Critical data maintains multiple backup copies to minimize data loss risk.',
+        monitor_pm2_title: '⚡ PM2 Process Management',
+        monitor_pm2_desc: 'Node.js applications (Discord bots, API servers) are managed with PM2. Automatic restart on process crashes, log rotation, and cluster mode enable zero-downtime operations. Memory leak detection and auto-recovery are configured for long-term operational stability.',
+        services_title: 'Managed Services',
+        svc_xiu_desc: 'Developer portfolio. Static SPA built with pure HTML/CSS/JS, no build tools.',
+        svc_quon_desc: 'QR code generator. Client-side rendering minimizes server load.',
+        svc_cs2_desc: 'CS2 gaming community. Real-time game servers and community website.',
+        svc_church_desc: 'Church website. Rhymix CMS-based, member management and sermon archives.',
+        svc_mission_desc: 'Mission organization website. WordPress-based, multilingual content and media management.',
+        philosophy_quote: '"If you build a service, you should operate it yourself. Maintaining a service reliably is just as important as <strong>writing the code</strong>. Infrastructure operations experience is the core competency that adds depth as a developer."',
+        cta_text: 'Want to see all projects?',
+        cta_button: 'Back to Portfolio \u2192',
+        cta_stack: 'View Tech Stack',
+        footer_privacy: 'Privacy Policy'
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'ko';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.dataset.i18nHtml;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Reveal on scroll
+    document.documentElement.classList.add('js-ready');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Initialize language
+    setLang(currentLang);
+  </script>
+
+</body>
+
+</html>

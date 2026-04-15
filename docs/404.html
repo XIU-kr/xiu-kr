@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — XIU</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07070b;
+      --bg-2: #0e0e15;
+      --text: #e7e7ef;
+      --muted: #8a8a99;
+      --gold: #d4a016;
+      --teal: #2dd4a8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(212, 160, 22, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(45, 212, 168, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+    main {
+      position: relative;
+      text-align: center;
+      max-width: 560px;
+    }
+    .code {
+      font-family: 'Fira Code', monospace;
+      color: var(--teal);
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(4rem, 15vw, 8rem);
+      line-height: 1;
+      background: linear-gradient(135deg, var(--gold), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+    p .en { display: block; font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7; }
+    a.home {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      transition: all 0.2s ease;
+    }
+    a.home:hover {
+      background: var(--gold);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="code">ERROR // NOT_FOUND</div>
+    <h1>404</h1>
+    <p>
+      찾으시는 페이지가 존재하지 않습니다.
+      <span class="en">The page you're looking for doesn't exist.</span>
+    </p>
+    <a class="home" href="/">← RETURN HOME</a>
+  </main>
+</body>
+</html>

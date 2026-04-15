@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="3fdcbb5e91358cf2559616668abe35fa4f08b50b" />
+  <link rel="alternate" type="application/rss+xml" title="XIU Blog" href="https://xiu.kr/rss.xml">
+  <title>About — XIU</title>
+  <meta name="description" content="XIU 개발자 소개 — 풀스택 개발, AI 도구, 게임 플러그인, 교회 앱까지. 호기심으로 만드는 개발자.">
+  <link rel="canonical" href="https://xiu.kr/about/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xiu.kr/about/">
+  <meta property="og:title" content="About — XIU">
+  <meta property="og:description" content="XIU 개발자 소개 — 풀스택 개발, AI 도구, 게임 플러그인, 교회 앱까지. 호기심으로 만드는 개발자.">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="XIU">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css?v=10">
+  <link rel="icon" href="/favicon.ico">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4697521862423903" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLS0G130CX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BLS0G130CX');
+  </script>
+  <style>
+    /* Hero */
+    .about-hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 6rem 0 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .about-hero-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 3px solid var(--accent, #d4a016);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .about-hero-text h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0 0 0.25rem;
+    }
+    .about-hero-text .subtitle {
+      color: var(--accent, #d4a016);
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .about-hero-text p {
+      color: var(--text-secondary, #aaa);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent, #d4a016), var(--teal, #2dd4a8));
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1.5rem 2.5rem;
+      box-sizing: border-box;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 3rem;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+      padding-left: 3rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent, #d4a016);
+      border: 3px solid var(--bg, #0a0a0a);
+      z-index: 1;
+    }
+    .timeline-item:nth-child(odd)::before {
+      right: -7px;
+    }
+    .timeline-item:nth-child(even)::before {
+      left: -7px;
+    }
+    .timeline-item:nth-child(even)::before {
+      background: var(--teal, #2dd4a8);
+    }
+    .timeline-item h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--text-primary, #fff);
+    }
+    .timeline-item p {
+      color: var(--text-secondary, #aaa);
+      line-height: 1.65;
+      font-size: 0.97rem;
+      margin: 0;
+    }
+
+    /* Philosophy grid */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 0 2rem;
+    }
+    .cta-section .btn {
+      margin: 0 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 5rem 1.5rem 2rem;
+      }
+      .about-hero-img {
+        width: 150px;
+        height: 150px;
+      }
+      .about-hero-text h1 {
+        font-size: 2rem;
+      }
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+      .timeline::before {
+        left: 20px;
+      }
+      .timeline-item,
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding-left: 3.5rem;
+        padding-right: 1rem;
+      }
+      .timeline-item::before,
+      .timeline-item:nth-child(odd)::before,
+      .timeline-item:nth-child(even)::before {
+        left: 13px;
+        right: auto;
+      }
+    }
+  </style>
+</head>
+<body class="grain">
+
+<nav id="nav">
+  <a href="/" class="nav-logo">XIU</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/about/">About</a></li>
+      <li class="nav-has-dropdown"><a href="/#projects">Projects</a><ul class="nav-dropdown"><li><a href="/projects/ai-creative/">AI &amp; Creative</a></li><li><a href="/projects/church-tech/">Church Tech</a></li><li><a href="/projects/gaming/">Gaming</a></li></ul></li>
+      <li><a href="/stack/">Stack</a></li>
+      <li><a href="/infrastructure/">Infra</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="ko">KO</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb reveal">
+    <a href="/">Home</a> &gt; <span data-i18n="breadcrumb_about">About</span>
+  </div>
+
+  <!-- Hero -->
+  <section class="about-hero reveal">
+    <img src="/assets/profile.png" alt="XIU profile" class="about-hero-img">
+    <div class="about-hero-text">
+      <h1>XIU</h1>
+      <div class="subtitle" data-i18n="hero_subtitle">호기심 많은 풀스택 개발자</div>
+      <p data-i18n="hero_intro">필요한 것이 없으면 직접 만듭니다. 웹, 모바일, AI, 게임 서버, 인프라까지 — 도메인의 경계 없이 문제를 해결하는 개발자 XIU입니다.</p>
+    </div>
+  </section>
+
+  <div class="project-content">
+
+  <!-- About Me -->
+  <section class="content-section reveal">
+    <h2 class="content-section-title" data-i18n="about_title">소개</h2>
+    <div class="overview-prose">
+      <p data-i18n="about_p1">저는 특정 분야에 머무르지 않는 개발자입니다. 처음 HTML로 웹페이지를 만들던 날부터 지금까지, "이건 내가 직접 만들 수 있지 않을까?"라는 질문이 저를 움직이게 합니다. 그 질문 하나가 AI 이미지 편집기를 만들게 했고, 게임 서버 플러그인을 개발하게 했으며, 교회를 위한 기술 솔루션을 설계하게 만들었습니다.</p>
+      <p data-i18n="about_p2">Vora는 그 철학의 결과물 중 하나입니다. Mac, Windows, Linux 모두에서 돌아가는 크로스플랫폼 AI 이미지 에디터로, Tauri 위에 React 프론트엔드와 Python AI 파이프라인을 올려 포토샵 수준의 레이어 시스템과 Big-LaMa 인페인팅을 구현했습니다. 설치 후에는 완전 오프라인으로 동작하며, 작업물이 외부 서버로 전송되지 않습니다.</p>
+      <p data-i18n="about_p3">게임 커뮤니티에서는 CS2 서버를 직접 운영하며 2500명 이상의 멤버가 활동하는 커뮤니티를 키워왔습니다. 서버 관리에 필요한 플러그인이 없으면 C#으로 직접 개발합니다. 매치 시스템, 통계 추적, 관리 도구 등 커뮤니티가 필요로 하는 것을 코드로 만들어 제공합니다.</p>
+      <p data-i18n="about_p4">동탄명성교회를 위한 기술 솔루션도 오랫동안 개발해 왔습니다. 예배 PPT를 자동으로 생성하는 Phos, 교인 관리 시스템 Poima, 그리고 Jetpack Compose로 만든 모바일 앱까지. 기술이 사람들의 일상에 실질적인 도움이 되는 순간이 가장 보람 있습니다. 서버 인프라 역시 직접 설계하고 운영합니다. Cloudflare와 OPNsense를 활용한 다계층 보안 아키텍처로 모든 서비스를 안정적으로 제공하고 있습니다.</p>
+    </div>
+  </section>
+
+  <!-- Development Philosophy -->
+  <section class="content-section reveal">
+    <h2 class="content-section-title" data-i18n="philosophy_title">개발 철학</h2>
+    <div class="philosophy-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">&#x1f527;</div>
+        <h3 data-i18n="phil1_title">문제를 발견하면 직접 만듭니다</h3>
+        <p data-i18n="phil1_desc">기존 도구가 만족스럽지 않으면 직접 만듭니다. 필요에 의해 시작된 프로젝트가 결국 다른 사람들에게도 가치를 만들어냅니다. Vora도, Phos도, 게임 플러그인도 모두 "이게 없네, 그러면 내가 만들자"에서 시작되었습니다.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">&#x1f3af;</div>
+        <h3 data-i18n="phil2_title">끝까지 만듭니다</h3>
+        <p data-i18n="phil2_desc">기획부터 디자인, 개발, 배포, 운영까지 전 과정을 직접 수행합니다. 프로토타입에서 멈추지 않고 실제 사용자가 쓸 수 있는 프로덕션 수준까지 완성합니다. 반쯤 만들어진 프로젝트는 의미가 없다고 생각합니다.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">&#x1f5a5;</div>
+        <h3 data-i18n="phil3_title">모든 것을 직접 운영합니다</h3>
+        <p data-i18n="phil3_desc">코드만 작성하고 끝나지 않습니다. 서버 구축, 네트워크 설계, 보안 설정, 모니터링까지 인프라 전반을 직접 관리합니다. 코드가 실행되는 환경을 이해해야 더 좋은 소프트웨어를 만들 수 있습니다.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-4">
+        <div class="feature-icon">&#x1f310;</div>
+        <h3 data-i18n="phil4_title">오픈소스로 공유합니다</h3>
+        <p data-i18n="phil4_desc">대부분의 프로젝트를 GitHub에 공개합니다. 제가 문제를 해결한 방법이 다른 개발자에게도 도움이 되길 바랍니다. 혼자 쌓아두는 지식보다 함께 나누는 코드가 더 큰 가치를 만든다고 믿습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Timeline -->
+  <section class="content-section reveal">
+    <h2 class="content-section-title" data-i18n="journey_title">개발 여정</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal reveal-delay-1">
+        <h3 data-i18n="tl1_title">웹 개발의 시작</h3>
+        <p data-i18n="tl1_desc">HTML, CSS, JavaScript로 첫 웹사이트를 만들며 개발의 세계에 발을 들였습니다. PHP와 MySQL을 독학하며 동적 웹 애플리케이션의 구조를 이해하기 시작했고, 화면에 무언가를 직접 만들어낸다는 경험에 완전히 빠져들었습니다.</p>
+      </div>
+      <div class="timeline-item reveal reveal-delay-2">
+        <h3 data-i18n="tl2_title">교회 기술 솔루션</h3>
+        <p data-i18n="tl2_desc">동탄명성교회의 실무 필요를 해결하기 위해 개발을 시작했습니다. 찬양 가사를 자동으로 PPT로 변환하는 Phos를 만들었고, 교인 정보를 체계적으로 관리하는 Poima 시스템을 구축했습니다. 기술이 실제 사람들의 수고를 덜어주는 경험이었습니다.</p>
+      </div>
+      <div class="timeline-item reveal reveal-delay-3">
+        <h3 data-i18n="tl3_title">게임 커뮤니티 구축</h3>
+        <p data-i18n="tl3_desc">CS2 커뮤니티 서버를 런칭하고 2500명 이상의 활발한 커뮤니티로 성장시켰습니다. C#으로 커스텀 플러그인을 개발하며 매치메이킹, 플레이어 통계, 서버 관리 도구를 직접 만들었습니다. 사용자의 피드백을 실시간으로 받으며 빠르게 개선하는 법을 배웠습니다.</p>
+      </div>
+      <div class="timeline-item reveal reveal-delay-4">
+        <h3 data-i18n="tl4_title">모바일 개발</h3>
+        <p data-i18n="tl4_desc">Jetpack Compose를 활용해 Android 앱 개발에 도전했습니다. 교회용 모바일 앱과 유틸리티 앱 Quon을 개발하며, 모바일 환경에서의 사용자 경험 설계와 네이티브 성능 최적화를 깊이 있게 경험했습니다.</p>
+      </div>
+      <div class="timeline-item reveal reveal-delay-5">
+        <h3 data-i18n="tl5_title">AI와 크리에이티브 도구</h3>
+        <p data-i18n="tl5_desc">Vora를 통해 AI 기반 이미지 편집의 가능성을 탐구했습니다. Tauri로 Mac, Windows, Linux를 모두 지원하는 단일 바이너리를 만들고, Big-LaMa 모델을 로컬에서 실행하도록 통합해 설치 후 완전 오프라인으로 동작하는 포토샵급 데스크톱 에디터를 완성했습니다. AI를 단순히 쓰는 것이 아니라 제품의 사용 경험에 녹여내는 과정이었습니다.</p>
+      </div>
+      <div class="timeline-item reveal reveal-delay-1">
+        <h3 data-i18n="tl6_title">인프라 설계</h3>
+        <p data-i18n="tl6_desc">Cloudflare와 OPNsense를 결합한 다계층 보안 서버 아키텍처를 직접 설계하고 운영하기 시작했습니다. 모든 서비스의 안정적인 운영을 위해 네트워크 보안, SSL 관리, 트래픽 최적화까지 인프라 전반을 책임지고 있습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section content-section reveal">
+    <div class="content-quote" data-i18n="cta_quote">호기심이 코드가 되고, 코드가 가치가 됩니다.</div>
+    <div style="margin-top: 2rem;">
+      <a href="/#projects" class="btn btn-primary" data-i18n="cta_projects">프로젝트 보기</a>
+      <a href="/contact/" class="btn btn-ghost" data-i18n="cta_contact">연락하기</a>
+    </div>
+  </section>
+
+  </div><!-- /.project-content -->
+</main>
+
+<footer>&copy; 2026 XIU &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">개인정보처리방침</a></footer>
+
+<script>
+const translations = {
+  ko: {
+    footer_privacy: '개인정보처리방침',
+    breadcrumb_about: 'About',
+    hero_subtitle: '호기심 많은 풀스택 개발자',
+    hero_intro: '필요한 것이 없으면 직접 만듭니다. 웹, 모바일, AI, 게임 서버, 인프라까지 — 도메인의 경계 없이 문제를 해결하는 개발자 XIU입니다.',
+    about_title: '소개',
+    about_p1: '저는 특정 분야에 머무르지 않는 개발자입니다. 처음 HTML로 웹페이지를 만들던 날부터 지금까지, "이건 내가 직접 만들 수 있지 않을까?"라는 질문이 저를 움직이게 합니다. 그 질문 하나가 AI 이미지 편집기를 만들게 했고, 게임 서버 플러그인을 개발하게 했으며, 교회를 위한 기술 솔루션을 설계하게 만들었습니다.',
+    about_p2: 'Vora는 그 철학의 결과물 중 하나입니다. Mac, Windows, Linux 모두에서 돌아가는 크로스플랫폼 AI 이미지 에디터로, Tauri 위에 React 프론트엔드와 Python AI 파이프라인을 올려 포토샵 수준의 레이어 시스템과 Big-LaMa 인페인팅을 구현했습니다. 설치 후에는 완전 오프라인으로 동작하며, 작업물이 외부 서버로 전송되지 않습니다.',
+    about_p3: '게임 커뮤니티에서는 CS2 서버를 직접 운영하며 2500명 이상의 멤버가 활동하는 커뮤니티를 키워왔습니다. 서버 관리에 필요한 플러그인이 없으면 C#으로 직접 개발합니다. 매치 시스템, 통계 추적, 관리 도구 등 커뮤니티가 필요로 하는 것을 코드로 만들어 제공합니다.',
+    about_p4: '동탄명성교회를 위한 기술 솔루션도 오랫동안 개발해 왔습니다. 예배 PPT를 자동으로 생성하는 Phos, 교인 관리 시스템 Poima, 그리고 Jetpack Compose로 만든 모바일 앱까지. 기술이 사람들의 일상에 실질적인 도움이 되는 순간이 가장 보람 있습니다. 서버 인프라 역시 직접 설계하고 운영합니다. Cloudflare와 OPNsense를 활용한 다계층 보안 아키텍처로 모든 서비스를 안정적으로 제공하고 있습니다.',
+    philosophy_title: '개발 철학',
+    phil1_title: '문제를 발견하면 직접 만듭니다',
+    phil1_desc: '기존 도구가 만족스럽지 않으면 직접 만듭니다. 필요에 의해 시작된 프로젝트가 결국 다른 사람들에게도 가치를 만들어냅니다. Vora도, Phos도, 게임 플러그인도 모두 "이게 없네, 그러면 내가 만들자"에서 시작되었습니다.',
+    phil2_title: '끝까지 만듭니다',
+    phil2_desc: '기획부터 디자인, 개발, 배포, 운영까지 전 과정을 직접 수행합니다. 프로토타입에서 멈추지 않고 실제 사용자가 쓸 수 있는 프로덕션 수준까지 완성합니다. 반쯤 만들어진 프로젝트는 의미가 없다고 생각합니다.',
+    phil3_title: '모든 것을 직접 운영합니다',
+    phil3_desc: '코드만 작성하고 끝나지 않습니다. 서버 구축, 네트워크 설계, 보안 설정, 모니터링까지 인프라 전반을 직접 관리합니다. 코드가 실행되는 환경을 이해해야 더 좋은 소프트웨어를 만들 수 있습니다.',
+    phil4_title: '오픈소스로 공유합니다',
+    phil4_desc: '대부분의 프로젝트를 GitHub에 공개합니다. 제가 문제를 해결한 방법이 다른 개발자에게도 도움이 되길 바랍니다. 혼자 쌓아두는 지식보다 함께 나누는 코드가 더 큰 가치를 만든다고 믿습니다.',
+    journey_title: '개발 여정',
+    tl1_title: '웹 개발의 시작',
+    tl1_desc: 'HTML, CSS, JavaScript로 첫 웹사이트를 만들며 개발의 세계에 발을 들였습니다. PHP와 MySQL을 독학하며 동적 웹 애플리케이션의 구조를 이해하기 시작했고, 화면에 무언가를 직접 만들어낸다는 경험에 완전히 빠져들었습니다.',
+    tl2_title: '교회 기술 솔루션',
+    tl2_desc: '동탄명성교회의 실무 필요를 해결하기 위해 개발을 시작했습니다. 찬양 가사를 자동으로 PPT로 변환하는 Phos를 만들었고, 교인 정보를 체계적으로 관리하는 Poima 시스템을 구축했습니다. 기술이 실제 사람들의 수고를 덜어주는 경험이었습니다.',
+    tl3_title: '게임 커뮤니티 구축',
+    tl3_desc: 'CS2 커뮤니티 서버를 런칭하고 2500명 이상의 활발한 커뮤니티로 성장시켰습니다. C#으로 커스텀 플러그인을 개발하며 매치메이킹, 플레이어 통계, 서버 관리 도구를 직접 만들었습니다. 사용자의 피드백을 실시간으로 받으며 빠르게 개선하는 법을 배웠습니다.',
+    tl4_title: '모바일 개발',
+    tl4_desc: 'Jetpack Compose를 활용해 Android 앱 개발에 도전했습니다. 교회용 모바일 앱과 유틸리티 앱 Quon을 개발하며, 모바일 환경에서의 사용자 경험 설계와 네이티브 성능 최적화를 깊이 있게 경험했습니다.',
+    tl5_title: 'AI와 크리에이티브 도구',
+    tl5_desc: 'Vora를 통해 AI 기반 이미지 편집의 가능성을 탐구했습니다. Tauri로 Mac, Windows, Linux를 모두 지원하는 단일 바이너리를 만들고, Big-LaMa 모델을 로컬에서 실행하도록 통합해 설치 후 완전 오프라인으로 동작하는 포토샵급 데스크톱 에디터를 완성했습니다. AI를 단순히 쓰는 것이 아니라 제품의 사용 경험에 녹여내는 과정이었습니다.',
+    tl6_title: '인프라 설계',
+    tl6_desc: 'Cloudflare와 OPNsense를 결합한 다계층 보안 서버 아키텍처를 직접 설계하고 운영하기 시작했습니다. 모든 서비스의 안정적인 운영을 위해 네트워크 보안, SSL 관리, 트래픽 최적화까지 인프라 전반을 책임지고 있습니다.',
+    cta_quote: '호기심이 코드가 되고, 코드가 가치가 됩니다.',
+    cta_projects: '프로젝트 보기',
+    cta_contact: '연락하기'
+  },
+  en: {
+    footer_privacy: 'Privacy Policy',
+    breadcrumb_about: 'About',
+    hero_subtitle: 'Curious Full-Stack Developer',
+    hero_intro: 'If a tool doesn\'t exist, I build it. From web and mobile to AI, game servers, and infrastructure \u2014 I\'m XIU, a developer who solves problems across every domain.',
+    about_title: 'About Me',
+    about_p1: 'I\'m a developer who doesn\'t stay confined to a single domain. From the day I built my first webpage in HTML until now, the question "Could I build this myself?" is what drives me forward. That single question led me to create an AI image editor, develop game server plugins, and design tech solutions for a church community.',
+    about_p2: 'Vora is one product of that philosophy. A cross-platform AI image editor for Mac, Windows, and Linux \u2014 built on Tauri with a React frontend and a Python AI pipeline, delivering a Photoshop-class layer system and Big-LaMa inpainting. It runs fully offline after install, so your work never leaves your machine.',
+    about_p3: 'In the gaming world, I run CS2 community servers and have grown a community of over 500 active members. When a needed plugin doesn\'t exist, I build it myself in C#. Matchmaking systems, player statistics, admin tools \u2014 whatever the community needs, I deliver through code.',
+    about_p4: 'I\'ve also been building tech solutions for Dongtan Myungsung Church for years. Phos auto-generates worship PPT slides, Poima manages congregation data, and I\'ve built mobile apps with Jetpack Compose. The most rewarding moments come when technology genuinely reduces people\'s daily burdens. I also design and operate the server infrastructure myself, providing stable service for everything through a multi-layered security architecture using Cloudflare and OPNsense.',
+    philosophy_title: 'Development Philosophy',
+    phil1_title: 'When I find a problem, I build the solution',
+    phil1_desc: 'If existing tools don\'t satisfy me, I build my own. Projects born from necessity end up creating value for others too. Vora, Phos, and every game plugin started with "This doesn\'t exist yet \u2014 so I\'ll make it."',
+    phil2_title: 'I finish what I start',
+    phil2_desc: 'From planning to design, development, deployment, and operations \u2014 I handle the entire lifecycle. I don\'t stop at prototypes; I push to production-ready quality that real users can rely on. A half-finished project has no meaning.',
+    phil3_title: 'I operate everything myself',
+    phil3_desc: 'Writing code is never the end. Server setup, network design, security configuration, monitoring \u2014 I manage the full infrastructure. Understanding where your code runs makes you write better software.',
+    phil4_title: 'I share through open source',
+    phil4_desc: 'Most of my projects are public on GitHub. I hope the way I solve problems can help other developers too. I believe shared code creates far more value than knowledge kept to oneself.',
+    journey_title: 'My Journey',
+    tl1_title: 'Web Development',
+    tl1_desc: 'I stepped into the world of development by building my first website with HTML, CSS, and JavaScript. I taught myself PHP and MySQL, began understanding dynamic web application architecture, and was completely hooked by the experience of creating something visible on screen.',
+    tl2_title: 'Church Tech Solutions',
+    tl2_desc: 'I started developing to solve real needs at Dongtan Myungsung Church. I built Phos to automatically convert worship lyrics into PPT slides, and created the Poima system for systematic congregation management. It was an experience where technology truly lightened people\'s workload.',
+    tl3_title: 'Gaming Community',
+    tl3_desc: 'I launched a CS2 community server and grew it into a thriving community of 2500+ members. Building custom plugins in C# \u2014 matchmaking, player statistics, server admin tools \u2014 I learned to iterate rapidly based on real-time user feedback.',
+    tl4_title: 'Mobile Development',
+    tl4_desc: 'I took on Android app development with Jetpack Compose. Building church mobile apps and the Quon utility app gave me deep experience in mobile UX design and native performance optimization.',
+    tl5_title: 'AI & Creative Tools',
+    tl5_desc: 'Through Vora, I explored the possibilities of AI-powered image editing. Using Tauri for a single binary that runs on Mac, Windows, and Linux, I integrated Big-LaMa to run locally \u2014 delivering a Photoshop-class desktop editor that works fully offline after install. It was about weaving AI into a product, not just using it.',
+    tl6_title: 'Infrastructure Design',
+    tl6_desc: 'I designed and began operating a multi-layered secure server architecture combining Cloudflare and OPNsense. I take full responsibility for network security, SSL management, and traffic optimization to ensure stable operation of every service.'
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'ko';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { if (t[el.dataset.i18n] !== undefined) el.textContent = t[el.dataset.i18n]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { if (t[el.dataset.i18nHtml] !== undefined) el.innerHTML = t[el.dataset.i18nHtml]; });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+setLang(currentLang);
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

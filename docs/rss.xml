@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>XIU Blog</title>
+    <link>https://xiu.kr/blog/</link>
+    <description>호기심 많은 풀스택 개발자 XIU의 블로그. AI 도구, 게임 서버 인프라, 교회 기술, 오픈웹에 대한 기록.</description>
+    <language>ko</language>
+    <copyright>Copyright 2026 XIU. All rights reserved.</copyright>
+    <managingEditor>contact@xiu.kr (XIU)</managingEditor>
+    <webMaster>contact@xiu.kr (XIU)</webMaster>
+    <generator>handcrafted</generator>
+    <atom:link href="https://xiu.kr/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://xiu.kr/assets/profile.png</url>
+      <title>XIU Blog</title>
+      <link>https://xiu.kr/blog/</link>
+    </image>
+
+    <item>
+      <title>데스크톱에서 Photoshop을 만들기까지 — Vora 개발기</title>
+      <link>https://xiu.kr/blog/vora-ai-development/</link>
+      <guid isPermaLink="true">https://xiu.kr/blog/vora-ai-development/</guid>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0900</pubDate>
+      <dc:creator>XIU</dc:creator>
+      <category>AI</category>
+      <category>Desktop</category>
+      <description><![CDATA[어느 날 "설치하자마자 오프라인으로 돌아가는 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.]]></description>
+    </item>
+
+    <item>
+      <title>한국 유일 Counter-Strike 2 커뮤니티 운영 이야기</title>
+      <link>https://xiu.kr/blog/cs2-plugin-development/</link>
+      <guid isPermaLink="true">https://xiu.kr/blog/cs2-plugin-development/</guid>
+      <pubDate>Fri, 20 Feb 2026 00:00:00 +0900</pubDate>
+      <dc:creator>XIU</dc:creator>
+      <category>Gaming</category>
+      <category>Infrastructure</category>
+      <description><![CDATA[한국에서 Counter-Strike 2 커뮤니티 서버를 운영한다는 건, 거의 아무도 가지 않는 길 위에 혼자 서 있는 일이었습니다. 왜 한국 CS2 씬에 공백이 생겼는지, 그리고 그 자리를 메우면서 무엇을 배웠는지에 대한 기록입니다.]]></description>
+    </item>
+
+    <item>
+      <title>Cloudflare + OPNsense로 구축한 홈서버 보안 아키텍처</title>
+      <link>https://xiu.kr/blog/server-infrastructure/</link>
+      <guid isPermaLink="true">https://xiu.kr/blog/server-infrastructure/</guid>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0900</pubDate>
+      <dc:creator>XIU</dc:creator>
+      <category>Infrastructure</category>
+      <category>Security</category>
+      <description><![CDATA[개인 서버라고 보안이 허술해도 되는 건 아닙니다. Cloudflare의 엣지 보안, OPNsense 하드웨어 방화벽, Docker 네트워크 격리를 조합해 엔터프라이즈급 다층 방어 체계를 설계한 과정을 공유합니다.]]></description>
+    </item>
+
+  </channel>
+</rss>
