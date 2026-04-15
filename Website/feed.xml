@@ -24,7 +24,7 @@
       <dc:creator>XIU</dc:creator>
       <category>AI</category>
       <category>Desktop</category>
-      <description><![CDATA[어느 날 "설치하자마자 오프라인으로 돌아가는 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.]]></description>
+      <description><![CDATA[어느 날 "설치하자마자 돌아가는 로컬 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.]]></description>
     </item>
 
     <item>

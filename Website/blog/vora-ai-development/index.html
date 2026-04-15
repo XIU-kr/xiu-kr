@@ -173,13 +173,13 @@
         <span data-i18n="read_time">8분 읽기</span>
       </div>
       <h1 data-i18n="title">데스크톱에서 Photoshop을 만들기까지 — Vora 개발기</h1>
-      <p class="lead" data-i18n="lead">어느 날 "설치하자마자 오프라인으로 돌아가는 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.</p>
+      <p class="lead" data-i18n="lead">어느 날 "설치하자마자 돌아가는 로컬 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.</p>
     </header>
 
     <div class="article-body">
       <h2 data-i18n="h2_why">왜 데스크톱인가</h2>
-      <p data-i18n="p_why1">이미지 편집 도구는 이미 많습니다. Photoshop, GIMP, Figma 등 훌륭한 도구들이 있죠. 하지만 Photoshop은 월 구독료가 부담되고, GIMP는 학습 곡선이 가파르며, 웹 기반 에디터는 파일 크기·오프라인·파일 시스템 접근에서 제약이 큽니다. "구독료 없이, 인터넷 없이도 돌아가는 Photoshop급 에디터"가 Vora의 출발점이었습니다.</p>
-      <p data-i18n="p_why2">특히 AI 기반 인페인팅은 보통 "이미지를 서버에 업로드 → 결과 내려받기" 구조로 구현됩니다. 민감한 작업물을 외부 서버에 올리는 게 찝찝할 때가 있고, 인터넷이 끊기면 아무것도 못 합니다. <strong>Big-LaMa를 사용자의 기기에서 로컬로 돌리면서도, 설치 경험은 네이티브 앱처럼 매끄럽게</strong> 만드는 것이 가장 큰 기술적 도전이었습니다.</p>
+      <p data-i18n="p_why1">이미지 편집 도구는 이미 많습니다. Photoshop, GIMP, Figma 등 훌륭한 도구들이 있죠. 하지만 Photoshop은 월 구독료가 부담되고, GIMP는 학습 곡선이 가파르며, 웹 기반 에디터는 파일 크기와 파일 시스템 접근에서 제약이 큽니다. "구독료 없이 로컬에서 돌아가는 Photoshop급 에디터"가 Vora의 출발점이었습니다.</p>
+      <p data-i18n="p_why2">특히 AI 기반 인페인팅은 보통 "이미지를 서버에 업로드 → 결과 내려받기" 구조로 구현됩니다. 민감한 작업물을 외부 서버에 올리는 게 찝찝할 때가 있습니다. <strong>Big-LaMa를 사용자의 기기에서 로컬로 돌리면서도, 설치 경험은 네이티브 앱처럼 매끄럽게</strong> 만드는 것이 가장 큰 기술적 도전이었습니다.</p>
 
       <h2 data-i18n="h2_tauri">왜 Tauri인가 — Electron이 아니라</h2>
       <p data-i18n="p_tauri1">웹 기술(React + Canvas)로 쌓아올린 UI를 그대로 데스크톱에 담을 프레임워크가 필요했습니다. 유력 후보는 <strong>Electron</strong>과 <strong>Tauri</strong>였고, 최종적으로 Tauri를 선택했습니다.</p>
@@ -219,9 +219,9 @@
       <blockquote>
         <p data-i18n="quote1">"할 수 있을까?"라는 질문에 답하는 가장 좋은 방법은 직접 만들어보는 것이다.</p>
       </blockquote>
-      <p data-i18n="p_lesson1">Vora를 만들면서 가장 크게 느낀 것은 <strong>"웹 UI + 네이티브 셸 + 로컬 AI"</strong> 스택의 힘입니다. React로 UI를 쌓고, Rust(Tauri)로 OS 경계를 다루고, Python으로 AI를 돌리는 세 레이어가 서로의 약점을 보완합니다. Electron보다 가볍게 배포할 수 있고, 네이티브보다 UI 반복이 빠르며, 순수 웹보다 AI·파일 시스템·오프라인을 제대로 다룰 수 있습니다.</p>
+      <p data-i18n="p_lesson1">Vora를 만들면서 가장 크게 느낀 것은 <strong>"웹 UI + 네이티브 셸 + 로컬 AI"</strong> 스택의 힘입니다. React로 UI를 쌓고, Rust(Tauri)로 OS 경계를 다루고, Python으로 AI를 돌리는 세 레이어가 서로의 약점을 보완합니다. Electron보다 가볍게 배포할 수 있고, 네이티브보다 UI 반복이 빠르며, 순수 웹보다 AI·파일 시스템·로컬 실행을 제대로 다룰 수 있습니다.</p>
       <p data-i18n="p_lesson2">기술적으로는 <strong>"완벽하게 만들고 출시"보다 "동작하게 만들고 개선"</strong>하는 접근이 더 효과적이었습니다. 처음부터 18개 도구를 계획한 게 아니라, 핵심(브러시 + 레이어 + 저장)을 먼저 만들고 점진적으로 확장했습니다. 각 도구를 추가할 때마다 기존 아키텍처의 한계를 발견하고 리팩토링하는 과정이 반복되었지만, 그 과정 자체가 더 나은 설계를 만드는 원동력이었습니다.</p>
-      <p data-i18n="p_lesson3">Vora는 현재 <a href="https://github.com/XIU-kr/Vora" style="color: var(--accent);">GitHub에서 오픈소스</a>로 공개되어 있고, <a href="https://vora.xiu.kr" style="color: var(--accent);">vora.xiu.kr</a>에서 다운로드할 수 있습니다. 설치 후 인터넷 없이도 돌아가는 Photoshop급 에디터를 직접 만들 수 있다는 걸 증명하는 프로젝트로, 앞으로도 계속 발전시켜 나갈 계획입니다.</p>
+      <p data-i18n="p_lesson3">Vora는 현재 <a href="https://github.com/XIU-kr/Vora" style="color: var(--accent);">GitHub에서 오픈소스</a>로 공개되어 있고, <a href="https://vora.xiu.kr" style="color: var(--accent);">vora.xiu.kr</a>에서 다운로드할 수 있습니다. 로컬에서 돌아가는 Photoshop급 에디터를 직접 만들 수 있다는 걸 증명하는 프로젝트로, 앞으로도 계속 발전시켜 나갈 계획입니다.</p>
     </div>
 
     <div class="article-nav">
@@ -240,7 +240,7 @@
       ko: {
         read_time: '10분 읽기',
         title: '데스크톱에서 Photoshop을 만들기까지 — Vora 개발기',
-        lead: '어느 날 "설치하자마자 오프라인으로 돌아가는 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.',
+        lead: '어느 날 "설치하자마자 돌아가는 로컬 Photoshop을 만들 수 있을까?"라는 질문에서 시작된 프로젝트. Tauri로 Mac·Windows·Linux 단일 바이너리를 빌드하고, Big-LaMa 인페인팅을 로컬에서 실행하며, 18개 이상의 전문 편집 도구를 갖춘 데스크톱 이미지 에디터를 만든 여정을 기록합니다.',
         back_blog: '\u2190 블로그 목록',
         next_post: '다음 글: CS2 플러그인 개발 \u2192',
         footer_privacy: '개인정보처리방침',
@@ -248,7 +248,7 @@
       en: {
         read_time: '10 min read',
         title: 'Building Photoshop on the Desktop — The Vora Story',
-        lead: 'A project that started with one question: "Can I build a Photoshop-class editor that runs fully offline the moment you install it?" Here\'s how I shipped a single codebase to Mac, Windows, and Linux with Tauri, ran Big-LaMa locally, and built an image editor with 18+ professional tools.',
+        lead: 'A project that started with one question: "Can I build a Photoshop-class editor that runs locally the moment you install it?" Here\'s how I shipped a single codebase to Mac, Windows, and Linux with Tauri, ran Big-LaMa locally, and built an image editor with 18+ professional tools.',
         back_blog: '\u2190 All Posts',
         next_post: 'Next: CS2 Plugin Development \u2192',
         footer_privacy: 'Privacy Policy',
